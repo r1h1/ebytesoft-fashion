@@ -22,8 +22,7 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
-    background-image: url(../img/backlogin.png);
-    background-size: 15%;
+    margin: auto;
     font-family: 'Lato', sans-serif;
 }
 
@@ -32,7 +31,11 @@ body {
 }
 
 .container-sm .login-card {
-    margin: 16vh 0px 50px 0px;
+    margin: 20vh 0px 50px 0px;
+}
+
+.container-sm .login-card .principal-container .card .card-body .wave-hand{
+    font-size: 60px;
 }
 
 .container-sm .login-card .principal-container .card .card-body .boton-ingresar{

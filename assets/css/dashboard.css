@@ -1,0 +1,38 @@
+.green{
+    background: #2CC3B4;
+}
+
+.green-text{
+    color: #2CC3B4;
+}
+
+.blue{
+    background: #4a8eec;
+}
+
+.oranje{
+    background: #E98B14;
+}
+
+.gray{
+    background: #EEF2F6;
+}
+
+.gray-card{
+    background: #8d8d8d;
+}
+
+.purple{
+    background: #9F3893;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Lato', sans-serif;
+}
+
+main{
+    margin-top: 80px;
+    margin-bottom: 60px;
+    height: auto;
+}
