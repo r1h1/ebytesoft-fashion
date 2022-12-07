@@ -1,0 +1,51 @@
+.green{
+    background: #2CC3B4;
+}
+
+.blue{
+    background: #4a8eec;
+}
+
+.oranje{
+    background: #E98B14;
+}
+
+.gray{
+    background: #e7e7e7;
+}
+
+body {
+    background: #4E91F0;
+    overflow-x: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url(../img/backlogin.png);
+    background-size: 15%;
+    font-family: 'Lato', sans-serif;
+}
+
+.container-sm {
+    width: 390px;
+}
+
+.container-sm .login-card {
+    margin: 16vh 0px 50px 0px;
+}
+
+.container-sm .login-card .principal-container .card .card-body .boton-ingresar{
+    padding: 9px;
+}
+
+.container-sm .login-card .principal-container .card .card-body .boton-ingresar:hover{
+    color: #FFFFFF;
+    background: #68a7ff;
+}
+
+@media (max-width: 400px) {
+    .container-sm {
+        width: 90%;
+    }
+}
