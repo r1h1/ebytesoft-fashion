@@ -30,12 +30,14 @@
     <!-- ICON -->
     <link rel="icon" href="../../../assets/img/logo.png">
 
-    <title>POS - eByteSoft</title>
 </head>
+<title>POS | eByteSoft</title>
 
 <body>
 
     <header>
+
+        <!-- Navbar with information of users and report problems -->
         <nav class="navbar navbar-expand-lg navbar-light gray fixed-top">
 
             <div class="container-fluid">
@@ -75,20 +77,25 @@
         </nav>
     </header>
 
+    <!-- Principal menu of POS - Cards -->
     <main class="container">
         <div class="row">
+
             <div class="col text-start">
                 <h2 class="fw-bold">POS - Fashion, tu mejor opción</h2>
-                <p>Cristiano Ronaldo</p>
+                <p>Bienvenido, <span id="user-in-dashboard">Cristiano Ronaldo</span></p>
             </div>
-            <div class="col text-end">
-                <p>07/12/2022</p>
-                <p>17:20:02</p>
+
+            <!-- Print date and hour -->
+            <div class="col text-end date-hour">
+                <p class="fw-bold">Fecha y hora</p>
+                <p id="fechaYHora"></p>
             </div>
+
         </div>
-        <div class="row row-cols-1 row-cols-md-4 g-2">
+        <div class="row row-cols-1 row-cols-md-4 g-3">
             <div class="col">
-                <div class="p-3 blue">
+                <div class="p-3 blue zoom-out">
                     <div class="card-body">
                         <div class="icon p-5 text-center">
                             <i class="fa-solid fa-user h1 text-white"></i>
@@ -98,7 +105,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="p-3 green">
+                <div class="p-3 green zoom-out">
                     <div class="card-body">
                         <div class="icon p-5 text-center">
                             <i class="fa-solid fa-money-bill h1 text-white"></i>
@@ -108,7 +115,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="p-3 oranje">
+                <div class="p-3 oranje zoom-out">
                     <div class="card-body">
                         <div class="icon p-5 text-center">
                             <i class="fa-solid fa-users h1 text-white"></i>
@@ -118,7 +125,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="p-3 gray-card">
+                <div class="p-3 gray-card zoom-out">
                     <div class="card-body">
                         <div class="icon p-5 text-center">
                             <i class="fa-solid fa-list h1 text-white"></i>
@@ -128,7 +135,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="p-3 purple">
+                <div class="p-3 purple zoom-out">
                     <div class="card-body">
                         <div class="icon p-5 text-center">
                             <i class="fas fa-cart-plus h1 text-white"></i>
@@ -138,7 +145,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="p-3 gray-card">
+                <div class="p-3 gray-card zoom-out">
                     <div class="card-body">
                         <div class="icon p-5 text-center">
                             <i class="fa-solid fa-cart-arrow-down h1 text-white"></i>
@@ -148,7 +155,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="p-3 blue">
+                <div class="p-3 blue zoom-out">
                     <div class="card-body">
                         <div class="icon p-5 text-center">
                             <i class="fa-solid fa-people-carry-box h1 text-white"></i>
@@ -158,7 +165,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="p-3 green">
+                <div class="p-3 green zoom-out">
                     <div class="card-body">
                         <div class="icon p-5 text-center">
                             <i class="fa-solid fa-user-tie h1 text-white"></i>
@@ -168,7 +175,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="p-3 green">
+                <div class="p-3 green zoom-out">
                     <div class="card-body">
                         <div class="icon p-5 text-center">
                             <i class="fa-solid fa-tag h1 text-white"></i>
@@ -178,17 +185,17 @@
                 </div>
             </div>
             <div class="col">
-                <div class="p-3 blue">
+                <div class="p-3 blue zoom-out">
                     <div class="card-body">
                         <div class="icon p-5 text-center">
                             <i class="fa-solid fa-store h1 text-white"></i>
                         </div>
-                        <p class="card-text text-white">Sucursales / Locales</p>
+                        <p class="card-text text-white">Locales</p>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="p-3 purple">
+                <div class="p-3 purple zoom-out">
                     <div class="card-body">
                         <div class="icon p-5 text-center">
                             <i class="fa-solid fa-gear h1 text-white"></i>
@@ -198,7 +205,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="p-3 oranje">
+                <div class="p-3 oranje zoom-out">
                     <div class="card-body">
                         <div class="icon p-5 text-center">
                             <i class="fa-solid fa-chart-pie h1 text-white"></i>
@@ -210,6 +217,7 @@
         </div>
     </main>
 
+    <!-- Footer or pie de página -->
     <footer class="footer py-3 bg-light text-center">
         <div class="container">
             <span class="text-muted">&copy; MiniByte Studios, 2022</span>
@@ -220,6 +228,28 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+    <script>
+
+        // Función para obtener fecha y hora desde una instancia de tipo fecha
+        // esta se concatena y se hace un inner a una propiedad HTML
+        // la funcion se inicia al iniciar la página y se repite cada segundo para la fecha
+
+        function fechaYHora() {
+
+            var hoy = new Date();
+            var fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
+            var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
+
+            // Se imprime en pantalla con el ID fechaYHora
+            document.getElementById("fechaYHora").innerHTML = fecha + ', ' + hora;
+
+        }
+
+        // Se inicia la función y se repite cada segundo
+        fechaYHora();
+        setInterval(fechaYHora, 1000);
+    </script>
 </body>
 
 </html>
