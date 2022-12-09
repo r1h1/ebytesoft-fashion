@@ -100,7 +100,42 @@
                             <p class="mt-4"><i class="fa-solid fa-phone fs-6 me-2"></i> (+502) 4502-4363</p>
                             <p><i class="fa-solid fa-envelope fs-6 me-2"></i> de.rivasherrera@gmail.com</p>
                             <p><i class="fa-solid fa-cash-register fs-6 me-2"></i> Cajero #26</p>
-                            <button class="btn btn-warning mt-3">Editar mis Datos</button>
+                            <button class="btn btn-warning mt-3" data-bs-toggle="modal"
+                                data-bs-target="#editarDatosPerfil">Editar mis Datos</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="editarDatosPerfil" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header blue">
+                            <h1 class="modal-title fs-5 text-white fw-bold" id="exampleModalLabel">Editar Perfil</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row g-3">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control gray" id="inputEmail4" placeholder="Nombre *">
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="number" class="form-control gray" id="inputPassword4" placeholder="Teléfono">
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" class="form-control gray" placeholder="Correo Electrónico *">
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-success px-2 py-2">Guardar Datos</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer gray text-center">
+                            <p class="text-muted mt-2 mb-2">Puedes modificar los datos que se mostrarán en tu perfil,
+                                tu número de teléfono o correo electrónico.
+                            </p>
                         </div>
                     </div>
                 </div>
