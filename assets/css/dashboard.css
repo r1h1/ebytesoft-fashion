@@ -42,21 +42,32 @@ main .zoom-out:hover {
     transform: scale(1.05);
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.boton{
+.boton {
     padding: 10px;
     border-radius: 5px;
 }
 
-@media (max-width: 769px) {
-    .date-hour{
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+    .date-hour {
         display: none;
     }
 
-    .container{
+    .container {
         margin-top: 90px;
+    }
+
+    footer{
+        position: relative;
     }
 }
