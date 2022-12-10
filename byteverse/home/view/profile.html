@@ -99,9 +99,9 @@
                             <h3 class="fw-bold">Daniel Rivas</h3>
                             <p class="mt-4"><i class="fa-solid fa-phone fs-6 me-2"></i> (+502) 4502-4363</p>
                             <p><i class="fa-solid fa-envelope fs-6 me-2"></i> de.rivasherrera@gmail.com</p>
-                            <p><i class="fa-solid fa-cash-register fs-6 me-2"></i> Cajero #26</p>
+                            <p><i class="fa-solid fa-cash-register fs-6 me-2"></i> Caja #2</p>
                             <button class="btn btn-warning mt-3" data-bs-toggle="modal"
-                                data-bs-target="#editarDatosPerfil">Editar mis Datos</button>
+                                data-bs-target="#editarDatosPerfil"><i class="fa-solid fa-pen me-2"></i> Editar mis Datos</button>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header blue">
-                            <h1 class="modal-title fs-5 text-white fw-bold" id="exampleModalLabel">Editar Perfil</h1>
+                            <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">Editar Perfil</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -127,8 +127,11 @@
                                 <div class="col-12">
                                     <input type="email" class="form-control gray" placeholder="Correo Electrónico *">
                                 </div>
+                                <div class="col-12">
+                                    <input type="number" class="form-control gray" placeholder="Clave de Acceso *">
+                                </div>
                                 <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-success px-2 py-2">Guardar Datos</button>
+                                    <button type="submit" class="btn btn-success px-2 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar Datos</button>
                                 </div>
                             </form>
                         </div>
@@ -154,27 +157,6 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-    <script>
-
-        // Función para obtener fecha y hora desde una instancia de tipo fecha
-        // esta se concatena y se hace un inner a una propiedad HTML
-        // la funcion se inicia al iniciar la página y se repite cada segundo para la fecha
-
-        function fechaYHora() {
-
-            var hoy = new Date();
-            var fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
-            var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
-
-            // Se imprime en pantalla con el ID fechaYHora
-            document.getElementById("fechaYHora").innerHTML = fecha + ', ' + hora;
-
-        }
-
-        // Se inicia la función y se repite cada segundo
-        fechaYHora();
-        setInterval(fechaYHora, 1000);
-    </script>
 </body>
 
 </html>
