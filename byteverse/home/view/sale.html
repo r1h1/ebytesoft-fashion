@@ -83,83 +83,93 @@
     <!-- Principal menu of POS - Cards -->
     <main>
 
-        <div class="col text-start mb-4 container-fluid px-4">
+        <div class="col text-start mb-2 contenedor-96 px-5">
             <h2 class="fw-bold mb-3">Venta</h2>
             <a href="dashboard.html" class="boton oranje text-white mb-5"><i
                     class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
         </div>
 
-        <div class="row container-fluid mx-auto px-3">
+        <div class="row contenedor-96 mx-auto px-3">
 
             <div class="col border border-1 shadow mt-3">
+
                 <div class="mx-auto">
 
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-3 mt-3">
                             <div class="busquedas">
-                                <input type="text" placeholder="Buscar Cliente" class="form-control">
+                                <input type="number" placeholder="Buscar Cliente NIT o Código"
+                                    class="form-control gray">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 mt-3">
+                            <div class="añadir-cliente">
+                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuevo"><i
+                                        class="fa-solid fa-plus me-2"></i> Nuevo
+                                    Cliente</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row mt-5">
 
-                        <div class="col-lg-4">
-                            <p class="h3"><i class="fa-solid fa-user fs-6 me-2"></i> Cliente X</p>
-                            <div class="row">
-                                <div class="col-3">
+                        <div class="col-lg-4 mt-4 text-center">
+                            <p class="h3"><i class="fa-regular fa-user h1 me-2"></i> <span class="fw-bold h2">Daniel
+                                    Rivas</span></p>
+                            <div class="row mt-5">
+                                <div class="col-12 text-center">
                                     <div class="header">
-                                        <p>Membresía Activa</p>
+                                        <p class="text-muted">Membresía Activa</p>
                                     </div>
-                                    <div class="body text-end">
-                                        <p class="fw-bold">Gold</p>
+                                    <div class="body">
+                                        <p class="fw-bold h4">Platinum</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="border border-1">
+
+                        <div class="col-lg-4 mt-4">
+                            <div class="border border-2 p-3 py-5">
                                 <div class="card-header">
-                                    <p class="text-muted">Puntos</p>
+                                    <p class="text-muted">Puntos Disponibles</p>
                                 </div>
                                 <div class="card-body">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ea earum velit
-                                        repudiandae voluptates cum? Suscipit magnam ab quisquam aperiam quas blanditiis
-                                        eveniet doloribus similique, quod, magni quae? Distinctio, ea!</p>
+                                    <p class="fw-bold h3 text-center">14</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+
+                        <div class="col-lg-4 mt-4">
 
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="p-3">
-                                        <div class="card-body">
-                                            <p class="card-text">Subtotal</p>
+                                    <div>
+                                        <div class="card-body p-3">
+                                            <p class="card-text text-muted">Subtotal</p>
                                             <div class="icon p-1 text-center">
-                                                <p>Q <span>100.00</span></p>
+                                                <p class="fw-bold h4">Q <span>100.00</span></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <div class="p-3">
-                                        <div class="card-body">
-                                            <p class="card-text">Descuento</p>
+                                    <div>
+                                        <div class="card-body p-3">
+                                            <p class="card-text text-muted">Ahorró</p>
                                             <div class="icon p-1 text-center">
-                                                <p>Q <span>0.00</span></p>
+                                                <p class="fw-bold h4">Q <span>0.00</span></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12">
-                                    <div class="p-3">
-                                        <div class="card-body">
-                                            <p class="card-text">Total a Pagar</p>
+                                    <div>
+                                        <div class="card-body p-3">
+                                            <p class="card-text text-muted">Total a Pagar</p>
                                             <div class="icon p-1 text-center">
-                                                <p>Q <span>100.00</span></p>
+                                                <p class="fw-bold h3">Q <span>100.00</span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -170,10 +180,10 @@
 
                     </div>
 
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-lg-3">
                             <div class="busquedas">
-                                <input type="text" placeholder="Producto" class="form-control">
+                                <input type="text" placeholder="Añade un Producto" class="form-control gray">
                             </div>
                         </div>
                     </div>
@@ -187,6 +197,7 @@
                                     <th scope="col">Cant</th>
                                     <th scope="col">Precio</th>
                                     <th scope="col">Descuento</th>
+                                    <th scope="col">Subtotal</th>
                                     <th scope="col" class="text-center">Acciones</th>
                                 </tr>
                             </thead>
@@ -196,27 +207,6 @@
                                     <td>Mark</td>
                                     <td>Otto</td>
                                     <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                class="fa-solid fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                class="fa-solid fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
                                     <td>@mdo</td>
                                     <td>@mdo</td>
                                     <td class="text-center">
@@ -228,18 +218,136 @@
                         </table>
                     </div>
 
-                    <div class="botones-de-accion text-center container">
+                    <div class="botones-de-accion container-fluid">
                         <div class="row">
-                            <div class="col">
-                                <button>Pagar</button>
+                            <div class="col-lg-4 text-start mt-4">
+                                <!-- Vacio -->
                             </div>
-                            <div class="col">
-                                <button>Cancelar</button>
+                            <div class="col-lg-12 text-end mt-4 mb-4">
+                                <button class="btn btn-success px-5 py-3 fw-bold" data-bs-toggle="modal"
+                                    data-bs-target="#pago-efectivo">Pago Efectivo</button>
+                                <button class="btn btn-warning px-5 py-3 fw-bold">Pago Tarjeta</button>
+                                <a href="dashboard.html" class="btn btn-danger px-5 py-3 fw-bold">Cancelar</a>
                             </div>
                         </div>
                     </div>
 
                 </div>
+
+                <!-- Modal pago efectivo -->
+                <div class="moda-new">
+
+                    <div class="modal fade" id="pago-efectivo" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header green">
+                                    <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
+                                        Efectivo</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="row g-3">
+
+                                        <div class="col-12">
+                                            <label class="form-label">Total a Pagar</label>
+                                            <input type="text" class="form-control" placeholder="0.00" min="1" disabled>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label class="form-label">Efectivo Recibido *</label>
+                                            <input type="number" class="form-control gray" placeholder="0.00" min="1">
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label class="form-label">Cambio</label>
+                                            <input type="number" class="form-control gray" placeholder="0.00" min="1" readonly>
+                                        </div>
+
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn btn-success px-3 py-2"><i
+                                                    class="fa-solid fa-floppy-disk me-2"></i> Facturar</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin modal pago efectivo -->
+
+                <!-- Modal para crear nuevos clientes -->
+                <div class="moda-new">
+
+                    <div class="modal fade" id="nuevo" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header blue">
+                                    <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
+                                        Agregar</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="row g-3">
+
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control gray" id="inputEmail4"
+                                                placeholder="Código" readonly>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="number" class="form-control gray" id="inputPassword4"
+                                                placeholder="NIT *">
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="text" class="form-control gray"
+                                                placeholder="Nombre Completo *">
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="text" class="form-control gray" placeholder="Dirección *">
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="number" class="form-control gray" placeholder="Teléfono *">
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="email" class="form-control gray"
+                                                placeholder="Correo Electrónico *">
+                                        </div>
+                                        <div class="col-12">
+                                            <select class="form-select gray" aria-label="Default select example">
+                                                <option value="">Tipo de Membresía</option>
+                                                <option value="1">Ninguna</option>
+                                                <option value="2">Fashionista Oro</option>
+                                                <option value="3">Fashionista Platinum</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="email" class="form-control gray" placeholder="FSMP104223510"
+                                                readonly>
+                                            <p class="text-muted text-center">Este es el código de su
+                                                membresía, guárdelo.</p>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn btn-success px-3 py-2"><i
+                                                    class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                                Datos</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer gray text-center">
+                                    <p class="text-muted mt-2 mb-2">Puedes agregar la información de un
+                                        cliente desde este módulo
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin modal nuevo cliente -->
+
             </div>
         </div>
 
@@ -266,6 +374,7 @@
     <script>
         $(document).ready(function () {
             $('#example').DataTable({
+                "bFilter": false,
                 "language": {
                     "decimal": ".",
                     "emptyTable": "-- No hay información --",
@@ -277,7 +386,7 @@
                     "lengthMenu": "",
                     "loadingRecords": "Cargando...",
                     "processing": "Procesando...",
-                    "search": "Buscar Artículo:",
+                    "search": "",
                     "zeroRecords": "-- Sin resultados encontrados --",
                     "paginate": {
                         "first": "Primero",
