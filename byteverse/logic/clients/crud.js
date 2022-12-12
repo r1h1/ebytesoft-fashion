@@ -15,7 +15,7 @@ function apiDelete() {
                 title: 'Operación Exitosa',
                 icon: 'success',
                 confirmButtonText: 'Entendido'
-            })
+            });
         }
     });
 
