@@ -87,7 +87,7 @@
             <div class="col text-start mb-4">
                 <h2 class="fw-bold mb-3">Clientes</h2>
                 <a href="dashboard.html" class="boton oranje text-white mb-5"><i
-                        class="fa-solid fa-arrow-left fs-6 me-2"></i> Regresar a pantalla anterior</a>
+                        class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
             </div>
 
         </div>
@@ -110,9 +110,14 @@
                                     <thead class=" blue text-white">
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
+                                            <th scope="col">Código de Empleado</th>
+                                            <th scope="col">Membresía</th>
+                                            <th scope="col">Código de Membresía</th>
+                                            <th scope="col">NIT</th>
+                                            <th scope="col">Nombre Completo</th>
+                                            <th scope="col">Dirección</th>
+                                            <th scope="col">Teléfono</th>
+                                            <th scope="col">Email</th>
                                             <th scope="col" class="text-center">Acciones</th>
                                         </tr>
                                     </thead>
@@ -122,6 +127,11 @@
                                             <td>Mark</td>
                                             <td>Otto</td>
                                             <td>@mdo</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
                                             <td class="text-center">
                                                 <button class="btn btn-warning" data-bs-toggle="modal"
                                                     data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
@@ -130,26 +140,36 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
                                             <td class="text-center">
                                                 <button class="btn btn-warning" data-bs-toggle="modal"
                                                     data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
-                                                <button class="btn btn-danger"><i
+                                                <button class="btn btn-danger" onclick="apiDelete()"><i
                                                         class="fa-solid fa-trash"></i></button>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry the Bird</td>
-                                            <td>Larry the Bird</td>
-                                            <td>@twitter</td>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
+                                            <td>@mdo</td>
                                             <td class="text-center">
                                                 <button class="btn btn-warning" data-bs-toggle="modal"
                                                     data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
-                                                <button class="btn btn-danger"><i
+                                                <button class="btn btn-danger" onclick="apiDelete()"><i
                                                         class="fa-solid fa-trash"></i></button>
                                             </td>
                                         </tr>
@@ -329,7 +349,7 @@
                 "language": {
                     "decimal": "",
                     "emptyTable": "-- No hay información --",
-                    "info": "Página _START_ de _TOTAL_",
+                    "info": "Página _PAGE_ de _PAGES_",
                     "infoEmpty": "Mostrando 0 de 0 Registros",
                     "infoFiltered": "(Filtrado de _MAX_ total entradas)",
                     "infoPostFix": "",
