@@ -81,7 +81,7 @@
     </header>
 
     <!-- Principal menu of POS - Cards -->
-    <main class="container">
+    <main class="container-fluid px-5">
         <div class="row">
 
             <div class="col text-start mb-4">
@@ -182,7 +182,7 @@
 
                                 <div class="modal fade" id="nuevo" tabindex="-1" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
-                                    <div class="modal-dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header blue">
                                                 <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
@@ -194,31 +194,31 @@
                                                 <form class="row g-3">
 
                                                     <div class="col-md-6">
-                                                        <input type="text" class="form-control gray" id="inputEmail4"
+                                                        <input type="text" class="form-control gray inputClass" id="inputEmail4"
                                                             placeholder="Código" readonly>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="number" class="form-control gray"
+                                                        <input type="number" class="form-control gray inputClass"
                                                             id="inputPassword4" placeholder="NIT *">
                                                     </div>
                                                     <div class="col-12">
-                                                        <input type="text" class="form-control gray"
+                                                        <input type="text" class="form-control gray inputClass"
                                                             placeholder="Nombre Completo *">
                                                     </div>
                                                     <div class="col-12">
-                                                        <input type="text" class="form-control gray"
+                                                        <input type="text" class="form-control gray inputClass"
                                                             placeholder="Dirección *">
                                                     </div>
                                                     <div class="col-6">
-                                                        <input type="number" class="form-control gray"
+                                                        <input type="number" class="form-control gray inputClass"
                                                             placeholder="Teléfono *">
                                                     </div>
                                                     <div class="col-6">
-                                                        <input type="email" class="form-control gray"
+                                                        <input type="email" class="form-control gray inputClass"
                                                             placeholder="Correo Electrónico *">
                                                     </div>
                                                     <div class="col-12">
-                                                        <select class="form-select gray"
+                                                        <select class="form-select gray inputClass"
                                                             aria-label="Default select example">
                                                             <option value="">Tipo de Membresía</option>
                                                             <option value="1">Ninguna</option>
@@ -227,7 +227,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-12">
-                                                        <input type="email" class="form-control gray"
+                                                        <input type="email" class="form-control gray inputClass"
                                                             placeholder="FSMP104223510" readonly>
                                                         <p class="text-muted text-center">Este es el código de su
                                                             membresía, guárdelo.</p>
@@ -255,7 +255,7 @@
 
                                 <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
-                                    <div class="modal-dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header green">
                                                 <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
@@ -266,36 +266,32 @@
                                             <div class="modal-body">
                                                 <form class="row g-3">
 
-                                                    <div class="col-md-6">
-                                                        <input type="text" class="form-control gray" id="inputEmail4"
-                                                            placeholder="Código" readonly>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input type="number" class="form-control gray"
+                                                    <div class="col-md-12">
+                                                        <input type="number" class="form-control gray inputClass"
                                                             id="inputPassword4" placeholder="NIT *">
                                                     </div>
                                                     <div class="col-12">
-                                                        <input type="text" class="form-control gray"
+                                                        <input type="text" class="form-control gray inputClass"
                                                             placeholder="Nombre Completo *">
                                                     </div>
                                                     <div class="col-12">
-                                                        <input type="text" class="form-control gray"
+                                                        <input type="text" class="form-control gray inputClass"
                                                             placeholder="Dirección *">
                                                     </div>
                                                     <div class="col-6">
-                                                        <input type="number" class="form-control gray"
+                                                        <input type="number" class="form-control gray inputClass"
                                                             placeholder="Teléfono *">
                                                     </div>
                                                     <div class="col-6">
-                                                        <input type="email" class="form-control gray"
+                                                        <input type="email" class="form-control gray inputClass"
                                                             placeholder="Correo Electrónico *">
                                                     </div>
                                                     <div class="col-12">
-                                                        <input type="email" class="form-control gray"
-                                                            placeholder="Membresía Actual">
+                                                        <input type="email" class="form-control gray inputClass"
+                                                            placeholder="Membresía Actual" readonly>
                                                     </div>
                                                     <div class="col-12">
-                                                        <select class="form-select gray"
+                                                        <select class="form-select gray inputClass"
                                                             aria-label="Default select example">
                                                             <option value="">¿Cambiar categoría Membresía?</option>
                                                             <option value="2">Fashionista Oro</option>

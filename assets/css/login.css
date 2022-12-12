@@ -1,17 +1,31 @@
-.green{
+.green {
     background: #2CC3B4;
 }
 
-.blue{
+.blue {
     background: #4a8eec;
 }
 
-.oranje{
+.oranje {
     background: #E98B14;
 }
 
-.gray{
+.gray {
     background: #e7e7e7;
+}
+
+.inputClass {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    border-bottom: 1px solid #c6c6c6;
+    border-radius: 0;
+    padding-bottom: 0;
+    background: #f9f9f9;
+    width: 100%;
+    padding: 15px 15px 3px 10px;
+    color: #707981;
 }
 
 body {
@@ -34,15 +48,15 @@ body {
     margin: 20vh 0px 50px 0px;
 }
 
-.container-sm .login-card .principal-container .card .card-body .wave-hand{
+.container-sm .login-card .principal-container .card .card-body .wave-hand {
     font-size: 60px;
 }
 
-.container-sm .login-card .principal-container .card .card-body .boton-ingresar{
+.container-sm .login-card .principal-container .card .card-body .boton-ingresar {
     padding: 9px;
 }
 
-.container-sm .login-card .principal-container .card .card-body .boton-ingresar:hover{
+.container-sm .login-card .principal-container .card .card-body .boton-ingresar:hover {
     color: #FFFFFF;
     background: #68a7ff;
 }

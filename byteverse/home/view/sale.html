@@ -96,13 +96,13 @@
                 <div class="mx-auto">
 
                     <div class="row">
-                        <div class="col-lg-3 mt-3">
+                        <div class="col-lg-3 mt-4 mb-4">
                             <div class="busquedas">
-                                <input type="number" placeholder="Buscar Cliente NIT o Código"
-                                    class="form-control gray">
+                                <input type="number" placeholder="Buscar cliente aquí"
+                                    class="form-control gray inputClass">
                             </div>
                         </div>
-                        <div class="col-lg-3 mt-3">
+                        <div class="col-lg-3 mt-4">
                             <div class="añadir-cliente">
                                 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuevo"><i
                                         class="fa-solid fa-plus me-2"></i> Nuevo
@@ -111,127 +111,179 @@
                         </div>
                     </div>
 
-                    <div class="row mt-5">
+                    <div class="informacion-venta">
+                        <div class="row mt-5">
 
-                        <div class="col-lg-4 mt-4 text-center">
-                            <p class="h3"><i class="fa-regular fa-user h1 me-2"></i> <span class="fw-bold h2">Daniel
-                                    Rivas</span></p>
-                            <div class="row mt-5">
-                                <div class="col-12 text-center">
+                            <div class="col-lg-4 mt-5 text-center">
+                                <p class="h3"><i class="fa-regular fa-user h1 me-2"></i> <span class="fw-bold h2">Daniel
+                                        Rivas</span></p>
+                                <div class="row mt-5">
+                                    <div class="col-12 text-center mt-2 mb-4">
+                                        <div class="header">
+                                            <p class="text-muted">Tipo de Membresía</p>
+                                        </div>
+                                        <div class="body">
+                                            <p class="fw-bold h4">Platinum</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 mt-4 card">
+                                <div class="p-3 py-5">
                                     <div class="header">
-                                        <p class="text-muted">Tipo de Membresía</p>
+                                        <p class="text-muted">Puntos Disponibles</p>
                                     </div>
-                                    <div class="body">
-                                        <p class="fw-bold h4">Platinum</p>
+                                    <div class="card-body">
+                                        <p class="fw-bold h1 text-center">14</p>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5 mt-4">
+
+                                <div class="row g-2">
+
+                                    <div class="col-lg-6">
+                                        <div class="card">
+                                            <div class="card-body p-3">
+                                                <p class="card-text text-muted">Subtotal</p>
+                                                <div class="icon p-1 text-center">
+                                                    <p class="fw-bold h2">Q <span>100.00</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="card">
+                                            <div class="card-body p-3">
+                                                <p class="card-text text-muted">Ahorró</p>
+                                                <div class="icon p-1 text-center">
+                                                    <p class="fw-bold h2">Q <span>0.00</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="card gray">
+                                            <div class="card-body p-3">
+                                                <p class="card-text text-muted fw-bold">Total a Pagar</p>
+                                                <div class="icon p-1 text-center">
+                                                    <p class="fw-bold h1">Q <span>100.00</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-lg-3">
+                                <div class="busquedas">
+                                    <input type="text" placeholder="Busca un producto aquí"
+                                        class="form-control gray inputClass">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 mt-4">
-                            <div class="border border-2 p-3 py-5">
-                                <div class="card-header">
-                                    <p class="text-muted">Puntos Disponibles</p>
-                                </div>
-                                <div class="card-body">
-                                    <p class="fw-bold h2 text-center">14</p>
-                                </div>
-                            </div>
+                        <div class="contenedor-articulos-comprar table-responsive">
+                            <table id="example" class="table table-striped">
+                                <thead class="blue text-white">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Cant</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">Descuento</th>
+                                        <th scope="col">Subtotal</th>
+                                        <th scope="col" class="text-center">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger" onclick="apiDelete()"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger" onclick="apiDelete()"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger" onclick="apiDelete()"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger" onclick="apiDelete()"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger" onclick="apiDelete()"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
 
-                        <div class="col-lg-4 mt-4">
-
+                        <div class="botones-de-accion container-fluid">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div>
-                                        <div class="card-body p-3">
-                                            <p class="card-text text-muted">Subtotal</p>
-                                            <div class="icon p-1 text-center">
-                                                <p class="fw-bold h3">Q <span>100.00</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-lg-4 text-start mt-4">
+                                    <!-- Vacio -->
                                 </div>
-
-                                <div class="col-lg-6">
-                                    <div>
-                                        <div class="card-body p-3">
-                                            <p class="card-text text-muted">Ahorró</p>
-                                            <div class="icon p-1 text-center">
-                                                <p class="fw-bold h3">Q <span>0.00</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div>
-                                        <div class="card-body p-3">
-                                            <p class="card-text text-muted">Total a Pagar</p>
-                                            <div class="icon p-1 text-center">
-                                                <p class="fw-bold h2">Q <span>100.00</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-lg-12 text-end mt-4 mb-4">
+                                    <button class="btn btn-success px-5 py-3 fw-bold" data-bs-toggle="modal"
+                                        data-bs-target="#pago-efectivo">Pago Efectivo</button>
+                                    <button class="btn btn-warning px-5 py-3 fw-bold">Pago Tarjeta</button>
+                                    <a href="dashboard.html" class="btn btn-danger px-5 py-3 fw-bold">Cancelar</a>
                                 </div>
                             </div>
-
                         </div>
 
                     </div>
-
-                    <div class="row mt-4">
-                        <div class="col-lg-3">
-                            <div class="busquedas">
-                                <input type="text" placeholder="Busca un Producto" class="form-control gray">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contenedor-articulos-comprar table-responsive">
-                        <table id="example" class="table table-striped">
-                            <thead class="blue text-white">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Cant</th>
-                                    <th scope="col">Precio</th>
-                                    <th scope="col">Descuento</th>
-                                    <th scope="col">Subtotal</th>
-                                    <th scope="col" class="text-center">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                class="fa-solid fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="botones-de-accion container-fluid">
-                        <div class="row">
-                            <div class="col-lg-4 text-start mt-4">
-                                <!-- Vacio -->
-                            </div>
-                            <div class="col-lg-12 text-end mt-4 mb-4">
-                                <button class="btn btn-success px-5 py-3 fw-bold" data-bs-toggle="modal"
-                                    data-bs-target="#pago-efectivo">Pago Efectivo</button>
-                                <button class="btn btn-warning px-5 py-3 fw-bold">Pago Tarjeta</button>
-                                <a href="dashboard.html" class="btn btn-danger px-5 py-3 fw-bold">Cancelar</a>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
                 <!-- Modal pago efectivo -->
@@ -239,7 +291,7 @@
 
                     <div class="modal fade" id="pago-efectivo" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header green">
                                     <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
@@ -252,21 +304,21 @@
 
                                         <div class="col-12">
                                             <label class="form-label">Total a Pagar</label>
-                                            <input type="text" id="total-a-pagar" class="form-control gray" step="any"
-                                                value="100.00" disabled>
+                                            <input type="text" id="total-a-pagar" class="form-control gray inputClass"
+                                                step="any" value="100.00" disabled>
                                         </div>
 
                                         <div class="col-12">
                                             <label class="form-label">Efectivo Recibido *</label>
-                                            <input type="number" id="efectivo-recibido" class="form-control gray"
-                                                step="any" placeholder="0.00" min="1"
-                                                onchange="calcularCambioEfectivo()">
+                                            <input type="number" id="efectivo-recibido"
+                                                class="form-control gray inputClass" step="any" placeholder="0.00"
+                                                min="1" onchange="calcularCambioEfectivo()">
                                         </div>
 
                                         <div class="col-12">
                                             <label class="form-label">Cambio</label>
-                                            <input type="number" id="cambio" class="form-control gray" step="any"
-                                                placeholder="0.00" disabled>
+                                            <input type="number" id="cambio" class="form-control gray inputClass"
+                                                step="any" placeholder="0.00" disabled>
                                         </div>
 
                                         <div class="col-12 text-center">
@@ -287,7 +339,7 @@
 
                     <div class="modal fade" id="nuevo" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header blue">
                                     <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
@@ -299,29 +351,32 @@
                                     <form class="row g-3">
 
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control gray" id="inputEmail4"
+                                            <input type="text" class="form-control gray inputClass" id="inputEmail4"
                                                 placeholder="Código" readonly>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="number" class="form-control gray" id="inputPassword4"
-                                                placeholder="NIT *">
+                                            <input type="number" class="form-control gray inputClass"
+                                                id="inputPassword4" placeholder="NIT *">
                                         </div>
                                         <div class="col-12">
-                                            <input type="text" class="form-control gray"
+                                            <input type="text" class="form-control gray inputClass"
                                                 placeholder="Nombre Completo *">
                                         </div>
                                         <div class="col-12">
-                                            <input type="text" class="form-control gray" placeholder="Dirección *">
+                                            <input type="text" class="form-control gray inputClass"
+                                                placeholder="Dirección *">
                                         </div>
                                         <div class="col-6">
-                                            <input type="number" class="form-control gray" placeholder="Teléfono *">
+                                            <input type="number" class="form-control gray inputClass"
+                                                placeholder="Teléfono *">
                                         </div>
                                         <div class="col-6">
-                                            <input type="email" class="form-control gray"
+                                            <input type="email" class="form-control gray inputClass"
                                                 placeholder="Correo Electrónico *">
                                         </div>
                                         <div class="col-12">
-                                            <select class="form-select gray" aria-label="Default select example">
+                                            <select class="form-select gray inputClass"
+                                                aria-label="Default select example">
                                                 <option value="">Tipo de Membresía</option>
                                                 <option value="1">Ninguna</option>
                                                 <option value="2">Fashionista Oro</option>
@@ -329,8 +384,8 @@
                                             </select>
                                         </div>
                                         <div class="col-12">
-                                            <input type="email" class="form-control gray" placeholder="FSMP104223510"
-                                                readonly>
+                                            <input type="email" class="form-control gray inputClass"
+                                                placeholder="FSMP104223510" readonly>
                                             <p class="text-muted text-center">Este es el código de su
                                                 membresía, guárdelo.</p>
                                         </div>

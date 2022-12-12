@@ -55,6 +55,20 @@ a {
     width: 96%;
 }
 
+.inputClass {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    border-bottom: 1px solid #c6c6c6;
+    border-radius: 0;
+    padding-bottom: 0;
+    background: #f9f9f9;
+    width: 100%;
+    padding: 15px 15px 3px 10px;
+    color: #707981;
+}
+
 @media (max-width: 992px) {
     .date-hour {
         display: none;
