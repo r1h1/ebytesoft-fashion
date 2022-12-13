@@ -1,25 +1,16 @@
-function apiDelete() {
 
-    Swal.fire({
-        title: '¿Estás Seguro?',
-        text: "No puedes revertir esta acción",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Continuar'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                title: 'Operación Exitosa',
-                icon: 'success',
-                confirmButtonText: 'Entendido'
-            });
-        }
-    });
-
+// Función para calcular el cambio que hay que dar al recibir efectivo
+function calcularCambioEfectivo() {
+    var e = parseFloat(document.getElementById("total-a-pagar").innerHTML),
+        a = parseFloat(document.getElementById("efectivo-recibido").value);
+    a < e && (Swal.fire({
+        title: "Error en la Operaci\xf3n",
+        text: "La cantidad de efectivo recibida no puede ser menor que el total a pagar o cero",
+        icon: "error",
+        confirmButtonText: "Entendido"
+    }), document.getElementById("efectivo-recibido").value = "", document.getElementById("cambio").value = ""), a > e && (document.getElementById("cambio").value = Math.abs(e - a).toFixed(2))
 }
+
 
 // Función para generar números random
 function randomNumberGenerator() {

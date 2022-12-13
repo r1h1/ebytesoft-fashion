@@ -33,7 +33,7 @@
     <link rel="icon" href="../../../assets/img/logo.png">
 
 </head>
-<title>ebytesoft</title>
+<title>POS | MiniByte</title>
 
 <body>
 
@@ -193,13 +193,13 @@
                                             <div class="modal-body">
                                                 <form class="row g-3">
 
-                                                    <div class="col-md-6">
-                                                        <input type="text" class="form-control gray inputClass" id="inputEmail4"
-                                                            placeholder="Código" readonly>
+                                                    <div class="col-md-12">
+                                                        <input type="text" class="form-control gray inputClass"
+                                                            placeholder="Código" id="empleado-codigo" hidden>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <input type="number" class="form-control gray inputClass"
-                                                            id="inputPassword4" placeholder="NIT *">
+                                                            id="inputPassword4" placeholder="NIT *" min="1">
                                                     </div>
                                                     <div class="col-12">
                                                         <input type="text" class="form-control gray inputClass"
@@ -218,17 +218,17 @@
                                                             placeholder="Correo Electrónico *">
                                                     </div>
                                                     <div class="col-12">
-                                                        <select class="form-select gray inputClass"
-                                                            aria-label="Default select example">
-                                                            <option value="">Tipo de Membresía</option>
-                                                            <option value="1">Ninguna</option>
-                                                            <option value="2">Fashionista Oro</option>
-                                                            <option value="3">Fashionista Platinum</option>
+                                                        <select class="form-select gray inputClass" id="tipo-membresia"
+                                                            onchange="codigoMembresiaCliente()">
+                                                            <option value="0">Tipo de Membresía</option>
+                                                            <option value="0">Ninguna</option>
+                                                            <option value="1">Fashion Oro</option>
+                                                            <option value="2">Fashion Platinum</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-12">
+                                                    <div class="col-12" id="div-membresia">
                                                         <input type="email" class="form-control gray inputClass"
-                                                            placeholder="FSMP104223510" readonly>
+                                                            placeholder="" id="membresia-codigo" readonly>
                                                         <p class="text-muted text-center">Este es el código de su
                                                             membresía, guárdelo.</p>
                                                     </div>
@@ -364,6 +364,8 @@
                 }
             });
         });
+
+        document.getElementById("div-membresia").style.display = "none";
     </script>
 
 </body>
