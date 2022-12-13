@@ -36,17 +36,22 @@ function randomNumberGenerator() {
 
 }
 
-// Función para setear los valores en los inputs de membresía y empleado
-function codigoMembresiaCliente() {
+// Función para setear los valores en los inputs de membresía
+function membresiaCliente() {
 
     var membresia = document.getElementById("tipo-membresia").value;
 
     if (membresia != 0) {
         document.getElementById("div-membresia").style.display = "block";
         document.getElementById("membresia-codigo").value = 'FS' + '-' + membresia + '-' + randomNumberGenerator();
-        document.getElementById("empleado-codigo").value = 'FS' + randomNumberGenerator();
     }
     else {
         document.getElementById("div-membresia").style.display = "none";
     }
+}
+
+
+// Función para setear los valores en los inputs de empleado
+function codigoCliente() {
+    document.getElementById("empleado-codigo").value = 'FS' + randomNumberGenerator();
 }

@@ -107,15 +107,16 @@
                         </div>
                         <div class="col-lg-3 mt-4">
                             <div class="añadir-cliente">
-                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuevo"><i
-                                        class="fa-solid fa-plus me-2"></i> Nuevo
+                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuevo"
+                                    onclick="codigoCliente()"><i class="fa-solid fa-plus me-2"></i> Nuevo
                                     Cliente</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="informacion-venta">
-                        <div class="row mt-5">
+                    <div id="informacion-cliente">
+
+                        <div class="row mt-5 mb-5 px-3">
 
                             <div class="col-lg-4 mt-5 text-center">
                                 <p class="h3"><i class="fa-solid fa-user h1 me-2"></i> <span class="fw-bold h2">Daniel
@@ -126,7 +127,7 @@
                                             <p class="text-muted">Tipo de Membresía</p>
                                         </div>
                                         <div class="body">
-                                            <p class="fw-bold h4">Platinum</p>
+                                            <p class="fw-bold h4">Oro</p>
                                         </div>
                                     </div>
                                 </div>
@@ -186,109 +187,113 @@
                         </div>
                     </div>
 
-                    <div class="row mt-4">
-                        <div class="col-lg-3">
-                            <div class="busquedas input-group">
-                                <input type="text" placeholder="Busca un producto aquí"
-                                    class="form-control gray inputClass">
-                                <span class="input-group-text"><i class="fa-solid fa-barcode"></i></span>
+
+                    <div id="informacion-venta">
+
+                        <div class="row mt-4">
+                            <div class="col-lg-3">
+                                <div class="busquedas input-group">
+                                    <input type="text" placeholder="Busca un producto aquí"
+                                        class="form-control gray inputClass">
+                                    <span class="input-group-text"><i class="fa-solid fa-barcode"></i></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="contenedor-articulos-comprar table-responsive">
-                        <table id="example" class="table table-striped">
-                            <thead class="blue text-white">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Cant</th>
-                                    <th scope="col">Precio</th>
-                                    <th scope="col">Descuento</th>
-                                    <th scope="col">Subtotal</th>
-                                    <th scope="col" class="text-center">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                class="fa-solid fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                class="fa-solid fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                class="fa-solid fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                class="fa-solid fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                class="fa-solid fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        <div class="contenedor-articulos-comprar table-responsive">
+                            <table id="example" class="table table-striped">
+                                <thead class="blue text-white">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Cant</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">Descuento</th>
+                                        <th scope="col">Subtotal</th>
+                                        <th scope="col" class="text-center">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger" onclick="apiDelete()"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger" onclick="apiDelete()"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger" onclick="apiDelete()"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger" onclick="apiDelete()"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger" onclick="apiDelete()"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                    <div class="botones-de-accion container-fluid">
-                        <div class="row">
-                            <div class="col-lg-4 text-start mt-4">
-                                <!-- Vacio -->
-                            </div>
-                            <div class="col-lg-12 text-end mt-4 mb-4">
-                                <button class="btn btn-success px-5 py-3 fw-bold" data-bs-toggle="modal"
-                                    data-bs-target="#pago-efectivo">Pago Efectivo</button>
-                                <button class="btn btn-warning px-5 py-3 fw-bold" data-bs-toggle="modal"
-                                    data-bs-target="#pago-tarjeta">Pago Tarjeta</button>
-                                <a href="dashboard.html" class="btn btn-danger px-5 py-3 fw-bold">Cancelar</a>
+                        <div class="botones-de-accion container-fluid">
+                            <div class="row">
+                                <div class="col-lg-4 text-start mt-4">
+                                    <!-- Vacio -->
+                                </div>
+                                <div class="col-lg-12 text-end mt-4 mb-4">
+                                    <button class="btn btn-success px-5 py-3 fw-bold" data-bs-toggle="modal"
+                                        data-bs-target="#pago-efectivo">Pago Efectivo</button>
+                                    <button class="btn btn-warning px-5 py-3 fw-bold" data-bs-toggle="modal"
+                                        data-bs-target="#pago-tarjeta">Pago Tarjeta</button>
+                                    <a href="dashboard.html" class="btn btn-danger px-5 py-3 fw-bold">Cancelar</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
 
@@ -433,7 +438,7 @@
                                     </div>
                                     <div class="col-6">
                                         <input type="number" class="form-control gray inputClass"
-                                            placeholder="Teléfono *" min="1">
+                                            placeholder="Teléfono *">
                                     </div>
                                     <div class="col-6">
                                         <input type="email" class="form-control gray inputClass"
@@ -441,7 +446,7 @@
                                     </div>
                                     <div class="col-12">
                                         <select class="form-select gray inputClass" id="tipo-membresia"
-                                            onchange="codigoMembresiaCliente()">
+                                            onchange="membresiaCliente()">
                                             <option value="0">Tipo de Membresía</option>
                                             <option value="0">Ninguna</option>
                                             <option value="1">Fashion Oro</option>
@@ -454,7 +459,7 @@
                                         <p class="text-muted text-center">Este es el código de su
                                             membresía, guárdelo.</p>
                                     </div>
-                                    <div class="col-12 text-center mt-4">
+                                    <div class="col-12 text-center">
                                         <button type="submit" class="btn btn-success px-3 py-2"><i
                                                 class="fa-solid fa-floppy-disk me-2"></i> Guardar
                                             Datos</button>
