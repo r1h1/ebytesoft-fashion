@@ -16,6 +16,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../../../assets/css/dashboard.css">
 
+
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/be221c52b4.js" crossorigin="anonymous"></script>
 
@@ -43,8 +44,8 @@
             <div class="container-fluid">
 
                 <a class="nav-link text-muted" href="dashboard.html">
+                    Dashboard | ebyte-soft
                 </a>
-                POS | ebyte-soft
 
                 <form class="d-flex ms-auto my-3 my-lg-0"></form>
 
@@ -58,12 +59,6 @@
                                 <a class="dropdown-item" href="profile.html"><i
                                         class="fa-solid fa-user green-text me-2"></i>
                                     Editar Perfil</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#"><i class="fa-solid fa-bell green-text me-2"></i>
-                                    Informar
-                                    sobre un
-                                    problema</a>
                             </li>
                             <li>
                                 <a class="dropdown-item dropdown-item bg-danger mt-2 text-white"
@@ -84,16 +79,18 @@
         <div class="row">
 
             <div class="col-md-12 col-lg-3 rounded rounded-5 border border-1 perfil shadow mb-5">
-                <p class="p-4 h5">Bienvenido</p>
-                <div class="perfil-bienvenida mt-3">
+                <p class="p-3 h5 text-muted mt-2">Bienvenido</p>
+                <div class="perfil-bienvenida mt-5">
                     <div class="imagen text-center d-block">
                         <img src="../../../assets/img/logo.png" alt="logo" width="100">
                     </div>
                     <div class="text-center">
-                        <h3 class="fw-bold mt-4">Daniel Rivas</h3>
+                        <h4 class="fw-bold mt-4">Daniel Rivas</h4>
                         <p class="mt-4"><i class="fa-solid fa-phone fs-6 me-2"></i> (+502) 4502-4363</p>
                         <p><i class="fa-solid fa-cash-register fs-6 me-2"></i> Caja #2</p>
-                        <a href="../../start.html" class="btn btn-danger mt-4 mb-5"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                        <p class="h6 text-muted mt-4">Fashion, tu mejor opción</p>
+                        <a href="../../start.html" class="btn btn-danger mt-4 mb-5"><i
+                                class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                             Sesión</a>
                     </div>
                 </div>
@@ -102,152 +99,153 @@
             <div class="col-md-12 col-lg-9 px-4">
 
                 <div class="bienvenida mb-4 text-end">
-                    <h3>Dashboard</h3>
-                    <p id="fechaYHora" class="h5"></p>
-                    <p class="h5 text-muted">Fashion, tu mejor opción</p>
+                    <p id="fechaYHora" class="h5 text-muted"></p>
                 </div>
 
-                <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2">
 
                     <div class="col">
-                        <div class="p-4 green zoom-out rounded rounded-3">
+                        <div class="p-2 green zoom-out rounded rounded-3">
                             <div class="card-body">
-                                <div class="icon p-5 text-center">
+                                <div class="icon text-center p-4">
                                     <i class="fa-solid fa-money-bill h1 text-white"></i>
                                 </div>
-                                <p class="card-text text-white">Dinero</p>
+                                <p class="card-text text-white ms-2">Dinero</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="p-4 oranje zoom-out rounded rounded-3">
+                        <div class="p-2 oranje zoom-out rounded rounded-3">
                             <div class="card-body">
-                                <div class="icon p-5 text-center">
+                                <div class="icon text-center p-4">
                                     <i class="fa-solid fa-users h1 text-white"></i>
                                 </div>
-                                <p class="card-text text-white">Empleados</p>
+                                <p class="card-text text-white ms-2">Empleados</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="p-4 gray-card zoom-out rounded rounded-3">
+                        <div class="p-2 gray-card zoom-out rounded rounded-3">
                             <div class="card-body">
-                                <div class="icon p-5 text-center">
+                                <div class="icon text-center p-4">
                                     <i class="fa-solid fa-list h1 text-white"></i>
                                 </div>
-                                <p class="card-text text-white">Inventario</p>
+                                <p class="card-text text-white ms-2">Inventario</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="p-4 purple zoom-out rounded rounded-3">
+                        <div class="p-2 purple zoom-out rounded rounded-3">
                             <div class="card-body">
-                                <div class="icon p-5 text-center">
+                                <div class="icon text-center p-4">
                                     <i class="fa-solid fa-sack-dollar h1 text-white"></i>
                                 </div>
-                                <p class="card-text text-white">Inicio de Venta</p>
+                                <p class="card-text text-white ms-2">Inicio de Venta</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <a href="cash_registers.html">
-                            <div class="p-4 blue zoom-out rounded rounded-3">
+                            <div class="p-2 blue zoom-out rounded rounded-3">
                                 <div class="card-body">
-                                    <div class="icon p-5 text-center">
+                                    <div class="icon text-center p-4">
                                         <i class="fa-solid fa-cash-register h1 text-white"></i>
                                     </div>
-                                    <p class="card-text text-white">Cajas</p>
+                                    <p class="card-text text-white ms-2">Cajas</p>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col">
                         <a href="sale.html">
-                            <div class="p-4 green zoom-out rounded rounded-3">
+                            <div class="p-2 green zoom-out rounded rounded-3">
                                 <div class="card-body">
-                                    <div class="icon p-5 text-center">
+                                    <div class="icon text-center p-4">
                                         <i class="fa-solid fa-cart-arrow-down h1 text-white"></i>
                                     </div>
-                                    <p class="card-text text-white">Venta</p>
+                                    <p class="card-text text-white ms-2">Venta</p>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col">
                         <a href="return_clothes.html">
-                            <div class="p-4 oranje zoom-out rounded rounded-3">
+                            <div class="p-2 oranje zoom-out rounded rounded-3">
                                 <div class="card-body">
-                                    <div class="icon p-5 text-center">
+                                    <div class="icon text-center p-4">
                                         <i class="fa-solid fa-shirt h1 text-white"></i>
                                     </div>
-                                    <p class="card-text text-white">Devolución</p>
+                                    <p class="card-text text-white ms-2">Devolución</p>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col">
                         <a href="providers.html">
-                            <div class="p-4 gray-card zoom-out rounded rounded-3">
+                            <div class="p-2 gray-card zoom-out rounded rounded-3">
                                 <div class="card-body">
-                                    <div class="icon p-5 text-center">
+                                    <div class="icon text-center p-4">
                                         <i class="fa-solid fa-people-carry-box h1 text-white"></i>
                                     </div>
-                                    <p class="card-text text-white">Proveedores</p>
+                                    <p class="card-text text-white ms-2">Proveedores</p>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col">
                         <a href="clients.html">
-                            <div class="p-4 purple zoom-out rounded rounded-3">
+                            <div class="p-2 purple zoom-out rounded rounded-3">
                                 <div class="card-body">
-                                    <div class="icon p-5 text-center">
+                                    <div class="icon text-center p-4">
                                         <i class="fa-solid fa-user-tie h1 text-white"></i>
                                     </div>
-                                    <p class="card-text text-white">Clientes</p>
+                                    <p class="card-text text-white ms-2">Clientes</p>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col">
-                        <div class="p-4 blue zoom-out rounded rounded-3">
+                        <div class="p-2 blue zoom-out rounded rounded-3">
                             <div class="card-body">
-                                <div class="icon p-5 text-center">
+                                <div class="icon text-center p-4">
                                     <i class="fa-solid fa-tag h1 text-white"></i>
                                 </div>
-                                <p class="card-text text-white">Descuentos</p>
+                                <p class="card-text text-white ms-2">Descuentos</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <a href="locals.html">
-                            <div class="p-4 green zoom-out rounded rounded-3">
+                            <div class="p-2 green zoom-out rounded rounded-3">
                                 <div class="card-body">
-                                    <div class="icon p-5 text-center">
+                                    <div class="icon text-center p-4">
                                         <i class="fa-solid fa-store h1 text-white"></i>
                                     </div>
-                                    <p class="card-text text-white">Locales</p>
+                                    <p class="card-text text-white ms-2">Locales</p>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col">
-                        <div class="p-4 oranje zoom-out rounded rounded-3">
+                        <div class="p-2 oranje zoom-out rounded rounded-3">
                             <div class="card-body">
-                                <div class="icon p-5 text-center">
+                                <div class="icon text-center p-4">
                                     <i class="fa-solid fa-chart-pie h1 text-white"></i>
                                 </div>
-                                <p class="card-text text-white">Reportes</p>
+                                <p class="card-text text-white ms-2">Reportes</p>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="row row-cols-sm-1 row-cols-md-1 row-cols-lg-1 mt-2">
                     <div class="col">
-                        <div class="p-4 gray-card zoom-out rounded rounded-3">
+                        <div class="p-2 gray-card zoom-out rounded rounded-3">
                             <div class="card-body">
-                                <div class="icon p-5 text-center">
+                                <div class="icon text-center p-4">
                                     <i class="fa-solid fa-gear h1 text-white"></i>
                                 </div>
-                                <p class="card-text text-white">Mantenimiento</p>
+                                <p class="card-text text-white ms-2">Mantenimiento</p>
                             </div>
                         </div>
                     </div>
@@ -279,7 +277,8 @@
         function fechaYHora() {
 
             var hoy = new Date();
-            var fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
+            var opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            var fecha = hoy.toLocaleString('es-GT', opciones);
             var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
 
             // Se imprime en pantalla con el ID fechaYHora

@@ -32,14 +32,14 @@ body {
 }
 
 main {
-    margin-top: 100px;
-    margin-bottom: 60px;
+    margin-top: 75px;
+    margin-bottom: 37px;
     height: auto;
 }
 
 main .zoom-out:hover {
     transition: 0.3s;
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 a {
@@ -72,13 +72,19 @@ footer {
     color: #707981;
 }
 
-.perfil{
-    height: auto;
+.perfil {
+    margin-top: 28px;
+    height: 600px;
+}
+
+.perfil:hover {
+    transition: 0.3s;
+    background: #f9fcff;
 }
 
 @media (max-width: 992px) {
 
-    .perfil{
+    .perfil {
         display: none;
     }
 

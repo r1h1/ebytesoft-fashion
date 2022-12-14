@@ -96,10 +96,10 @@
                 <div class="mx-auto">
 
                     <div class="row">
-                        <div class="col-lg-3 mt-4 mb-4">
+                        <div class="col-lg-4 mt-4 mb-4">
 
                             <div class="busquedas input-group">
-                                <input type="number" placeholder="Buscar cliente aquí"
+                                <input type="number" placeholder="Busca el cliente aquí"
                                     class="form-control gray inputClass">
                                 <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
                             </div>
@@ -193,7 +193,7 @@
                         <div class="row mt-4">
                             <div class="col-lg-3">
                                 <div class="busquedas input-group">
-                                    <input type="text" placeholder="Busca un producto aquí"
+                                    <input type="text" placeholder="Escanea el producto aquí"
                                         class="form-control gray inputClass">
                                     <span class="input-group-text"><i class="fa-solid fa-barcode"></i></span>
                                 </div>
@@ -326,6 +326,11 @@
                                     </div>
 
                                     <div class="col-12">
+                                        <!-- metodo de pago = 1 = efectivo -->
+                                        <input type="text" value="1" id="metodo-pago-efectivo" hidden>
+                                    </div>
+
+                                    <div class="col-12">
                                         <label class="form-label">Efectivo Recibido *</label>
                                         <input type="number" id="efectivo-recibido" class="form-control gray inputClass"
                                             step="any" placeholder="0.00" min="1" onchange="calcularCambioEfectivo()">
@@ -378,6 +383,11 @@
                                         </div>
                                         <p class="text-muted text-center mt-2">** Coloca esta cantidad en el POS **
                                         </p>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <!-- metodo de pago = 2 = tarjeta -->
+                                        <input type="text" value="2" id="metodo-pago-tarjeta" hidden>
                                     </div>
 
                                     <div class="col-12">
