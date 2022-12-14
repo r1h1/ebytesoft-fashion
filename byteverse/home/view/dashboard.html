@@ -57,7 +57,7 @@
                             <li>
                                 <a class="dropdown-item" href="profile.html"><i
                                         class="fa-solid fa-user green-text me-2"></i>
-                                    Perfil</a>
+                                    Editar Perfil</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#"><i class="fa-solid fa-bell green-text me-2"></i>
@@ -83,164 +83,179 @@
 
         <div class="row">
 
-            <div class="col text-start mb-4">
-                <h2 class="fw-bold">Fashion, tu mejor opción</h2>
-                <p>Bienvenido, <span id="user-in-dashboard">Cristiano Ronaldo</span></p>
+            <div class="col-md-12 col-lg-3 rounded rounded-5 border border-1 perfil shadow mb-5">
+                <p class="p-4 h5">Bienvenido</p>
+                <div class="perfil-bienvenida mt-3">
+                    <div class="imagen text-center d-block">
+                        <img src="../../../assets/img/logo.png" alt="logo" width="100">
+                    </div>
+                    <div class="text-center">
+                        <h3 class="fw-bold mt-4">Daniel Rivas</h3>
+                        <p class="mt-4"><i class="fa-solid fa-phone fs-6 me-2"></i> (+502) 4502-4363</p>
+                        <p><i class="fa-solid fa-cash-register fs-6 me-2"></i> Caja #2</p>
+                        <a href="../../start.html" class="btn btn-danger mt-4 mb-5"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                            Sesión</a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Print date and hour -->
-            <div class="col text-end date-hour">
-                <p class="fw-bold">Fecha y hora</p>
-                <p id="fechaYHora" class="fs-5"></p>
+            <div class="col-md-12 col-lg-9 px-4">
+
+                <div class="bienvenida mb-4 text-end">
+                    <h3>Dashboard</h3>
+                    <p id="fechaYHora" class="h5"></p>
+                    <p class="h5 text-muted">Fashion, tu mejor opción</p>
+                </div>
+
+                <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+
+                    <div class="col">
+                        <div class="p-4 green zoom-out rounded rounded-3">
+                            <div class="card-body">
+                                <div class="icon p-5 text-center">
+                                    <i class="fa-solid fa-money-bill h1 text-white"></i>
+                                </div>
+                                <p class="card-text text-white">Dinero</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-4 oranje zoom-out rounded rounded-3">
+                            <div class="card-body">
+                                <div class="icon p-5 text-center">
+                                    <i class="fa-solid fa-users h1 text-white"></i>
+                                </div>
+                                <p class="card-text text-white">Empleados</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-4 gray-card zoom-out rounded rounded-3">
+                            <div class="card-body">
+                                <div class="icon p-5 text-center">
+                                    <i class="fa-solid fa-list h1 text-white"></i>
+                                </div>
+                                <p class="card-text text-white">Inventario</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-4 purple zoom-out rounded rounded-3">
+                            <div class="card-body">
+                                <div class="icon p-5 text-center">
+                                    <i class="fa-solid fa-sack-dollar h1 text-white"></i>
+                                </div>
+                                <p class="card-text text-white">Inicio de Venta</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <a href="cash_registers.html">
+                            <div class="p-4 blue zoom-out rounded rounded-3">
+                                <div class="card-body">
+                                    <div class="icon p-5 text-center">
+                                        <i class="fa-solid fa-cash-register h1 text-white"></i>
+                                    </div>
+                                    <p class="card-text text-white">Cajas</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="sale.html">
+                            <div class="p-4 green zoom-out rounded rounded-3">
+                                <div class="card-body">
+                                    <div class="icon p-5 text-center">
+                                        <i class="fa-solid fa-cart-arrow-down h1 text-white"></i>
+                                    </div>
+                                    <p class="card-text text-white">Venta</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="return_clothes.html">
+                            <div class="p-4 oranje zoom-out rounded rounded-3">
+                                <div class="card-body">
+                                    <div class="icon p-5 text-center">
+                                        <i class="fa-solid fa-shirt h1 text-white"></i>
+                                    </div>
+                                    <p class="card-text text-white">Devolución</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="providers.html">
+                            <div class="p-4 gray-card zoom-out rounded rounded-3">
+                                <div class="card-body">
+                                    <div class="icon p-5 text-center">
+                                        <i class="fa-solid fa-people-carry-box h1 text-white"></i>
+                                    </div>
+                                    <p class="card-text text-white">Proveedores</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="clients.html">
+                            <div class="p-4 purple zoom-out rounded rounded-3">
+                                <div class="card-body">
+                                    <div class="icon p-5 text-center">
+                                        <i class="fa-solid fa-user-tie h1 text-white"></i>
+                                    </div>
+                                    <p class="card-text text-white">Clientes</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <div class="p-4 blue zoom-out rounded rounded-3">
+                            <div class="card-body">
+                                <div class="icon p-5 text-center">
+                                    <i class="fa-solid fa-tag h1 text-white"></i>
+                                </div>
+                                <p class="card-text text-white">Descuentos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <a href="locals.html">
+                            <div class="p-4 green zoom-out rounded rounded-3">
+                                <div class="card-body">
+                                    <div class="icon p-5 text-center">
+                                        <i class="fa-solid fa-store h1 text-white"></i>
+                                    </div>
+                                    <p class="card-text text-white">Locales</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <div class="p-4 oranje zoom-out rounded rounded-3">
+                            <div class="card-body">
+                                <div class="icon p-5 text-center">
+                                    <i class="fa-solid fa-chart-pie h1 text-white"></i>
+                                </div>
+                                <p class="card-text text-white">Reportes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-4 gray-card zoom-out rounded rounded-3">
+                            <div class="card-body">
+                                <div class="icon p-5 text-center">
+                                    <i class="fa-solid fa-gear h1 text-white"></i>
+                                </div>
+                                <p class="card-text text-white">Mantenimiento</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
 
-        <div class="row row-cols-1 row-cols-md-4 row-cols-lg-6 g-3">
-
-            <div class="col">
-                <div class="p-3 green zoom-out">
-                    <div class="card-body">
-                        <div class="icon p-5 text-center">
-                            <i class="fa-solid fa-money-bill h1 text-white"></i>
-                        </div>
-                        <p class="card-text text-white">Flujo de Dinero</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="p-3 oranje zoom-out">
-                    <div class="card-body">
-                        <div class="icon p-5 text-center">
-                            <i class="fa-solid fa-users h1 text-white"></i>
-                        </div>
-                        <p class="card-text text-white">Empleados</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="p-3 gray-card zoom-out">
-                    <div class="card-body">
-                        <div class="icon p-5 text-center">
-                            <i class="fa-solid fa-list h1 text-white"></i>
-                        </div>
-                        <p class="card-text text-white">Inventario</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="p-3 purple zoom-out">
-                    <div class="card-body">
-                        <div class="icon p-5 text-center">
-                            <i class="fa-solid fa-sack-dollar h1 text-white"></i>
-                        </div>
-                        <p class="card-text text-white">Inicio de Venta</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <a href="cash_registers.html">
-                    <div class="p-3 blue zoom-out">
-                        <div class="card-body">
-                            <div class="icon p-5 text-center">
-                                <i class="fa-solid fa-cash-register h1 text-white"></i>
-                            </div>
-                            <p class="card-text text-white">Cajas</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col">
-                <a href="sale.html">
-                    <div class="p-3 green zoom-out">
-                        <div class="card-body">
-                            <div class="icon p-5 text-center">
-                                <i class="fa-solid fa-cart-arrow-down h1 text-white"></i>
-                            </div>
-                            <p class="card-text text-white">Venta</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col">
-                <a href="return_clothes.html">
-                    <div class="p-3 oranje zoom-out">
-                        <div class="card-body">
-                            <div class="icon p-5 text-center">
-                                <i class="fa-solid fa-shirt h1 text-white"></i>
-                            </div>
-                            <p class="card-text text-white">Devolución de Prendas</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col">
-                <a href="providers.html">
-                    <div class="p-3 gray-card zoom-out">
-                        <div class="card-body">
-                            <div class="icon p-5 text-center">
-                                <i class="fa-solid fa-people-carry-box h1 text-white"></i>
-                            </div>
-                            <p class="card-text text-white">Proveedores</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col">
-                <a href="clients.html">
-                    <div class="p-3 purple zoom-out">
-                        <div class="card-body">
-                            <div class="icon p-5 text-center">
-                                <i class="fa-solid fa-user-tie h1 text-white"></i>
-                            </div>
-                            <p class="card-text text-white">Clientes</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col">
-                <div class="p-3 blue zoom-out">
-                    <div class="card-body">
-                        <div class="icon p-5 text-center">
-                            <i class="fa-solid fa-tag h1 text-white"></i>
-                        </div>
-                        <p class="card-text text-white">Descuentos</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <a href="locals.html">
-                    <div class="p-3 green zoom-out">
-                        <div class="card-body">
-                            <div class="icon p-5 text-center">
-                                <i class="fa-solid fa-store h1 text-white"></i>
-                            </div>
-                            <p class="card-text text-white">Locales</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col">
-                <div class="p-3 oranje zoom-out">
-                    <div class="card-body">
-                        <div class="icon p-5 text-center">
-                            <i class="fa-solid fa-chart-pie h1 text-white"></i>
-                        </div>
-                        <p class="card-text text-white">Reportes</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="p-3 gray-card zoom-out">
-                    <div class="card-body">
-                        <div class="icon p-5 text-center">
-                            <i class="fa-solid fa-gear h1 text-white"></i>
-                        </div>
-                        <p class="card-text text-white">Mantenimiento</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
     <!-- Footer or pie de página -->

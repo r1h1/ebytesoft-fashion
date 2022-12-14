@@ -72,13 +72,18 @@ footer {
     color: #707981;
 }
 
+.perfil{
+    height: auto;
+}
+
 @media (max-width: 992px) {
-    .date-hour {
+
+    .perfil{
         display: none;
     }
 
     .container {
-        margin-top: 90px;
+        margin-top: 92px;
     }
 
     footer {
