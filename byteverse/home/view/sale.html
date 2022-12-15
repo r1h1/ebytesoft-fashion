@@ -90,7 +90,7 @@
                 <div class="mx-auto">
 
                     <div class="row">
-                        <div class="col-lg-4 mt-4 mb-4">
+                        <div class="col-lg-6 mt-3 mb-5">
 
                             <div class="busquedas input-group">
                                 <input type="number" placeholder="Busca el cliente aquí"
@@ -99,11 +99,13 @@
                             </div>
 
                         </div>
-                        <div class="col-lg-3 mt-4">
+                        <div class="col-lg-6 mt-3">
                             <div class="añadir-cliente">
                                 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuevo"
                                     onclick="codigoCliente()"><i class="fa-solid fa-plus me-2"></i> Nuevo
                                     Cliente</button>
+                                <button class="btn btn-danger"><i class="fa-solid fa-user me-2"></i> Facturar
+                                    CF</button>
                             </div>
                         </div>
                     </div>
@@ -182,14 +184,21 @@
                     </div>
 
 
-                    <div id="informacion-venta">
+                    <div id="informacion-venta mt-5">
 
-                        <div class="row mt-4">
-                            <div class="col-lg-3">
+                        <div class="row">
+                            <div class="col-lg-4">
                                 <div class="busquedas input-group">
                                     <input type="text" placeholder="Escanea el producto aquí"
                                         class="form-control gray inputClass">
                                     <span class="input-group-text"><i class="fa-solid fa-barcode"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="busquedas input-group">
+                                    <input type="text" placeholder="Ingresa el producto manualmente aquí"
+                                        class="form-control gray inputClass">
+                                    <span class="input-group-text"><i class="fa-solid fa-hand"></i></span>
                                 </div>
                             </div>
                         </div>
