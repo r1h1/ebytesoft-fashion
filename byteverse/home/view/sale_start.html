@@ -37,6 +37,13 @@
 
 <body>
 
+    <!-- loader page -->
+    <div class="preloader-wrapper">
+        <div class="spinner-border text-primary" style="width: 3rem;height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
     <header>
 
         <!-- Navbar with information of users and report problems -->
@@ -96,6 +103,13 @@
                         <div class="col-lg-6 mt-5 text-center">
                             <p class="h3"><i class="fa-solid fa-cash-register h1 me-2"></i> <span
                                     class="fw-bold h2">Apertura de Caja</span></p>
+                            <div class="row mt-5 text-center justify-content-center">
+                                <div class="col-sm-6 col-md-4 col-lg-4 mt-2 mb-4">
+                                    <div class="body">
+                                        <p class="fw-bold h4 bg-success py-2 text-white rounded rounded-2">Abierta</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-lg-6 mt-2">
@@ -365,6 +379,14 @@
         // Se inicia la función y se repite cada segundo
         fechaYHora();
         setInterval(fechaYHora, 1000);
+
+
+        // Loading spinner
+        const preloaderWrapper = document.querySelector('.preloader-wrapper');
+
+        window.addEventListener('load', function () {
+            preloaderWrapper.classList.add('fade-out-animation');
+        });
     </script>
 
 </body>

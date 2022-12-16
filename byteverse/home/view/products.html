@@ -37,6 +37,13 @@
 
 <body>
 
+    <!-- loader page -->
+    <div class="preloader-wrapper">
+        <div class="spinner-border text-primary" style="width: 3rem;height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
     <header>
 
         <!-- Navbar with information of users and report problems -->
@@ -246,12 +253,12 @@
 
                                             <form class="row g-3">
 
-                                                
+
                                                 <div class="col-12">
                                                     <input type="text" class="form-control gray inputClass"
                                                         placeholder="Nombre de Categoría *">
                                                 </div>
-                                                
+
                                                 <div class="col-12 text-center mt-4">
                                                     <button type="submit" class="btn btn-success px-3 py-2"><i
                                                             class="fa-solid fa-floppy-disk me-2"></i> Guardar
@@ -388,6 +395,13 @@
                     }
                 }
             });
+        });
+
+        // Loading spinner
+        const preloaderWrapper = document.querySelector('.preloader-wrapper');
+
+        window.addEventListener('load', function () {
+            preloaderWrapper.classList.add('fade-out-animation');
         });
     </script>
 

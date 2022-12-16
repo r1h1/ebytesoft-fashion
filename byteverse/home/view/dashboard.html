@@ -36,6 +36,13 @@
 
 <body>
 
+    <!-- loader page -->
+    <div class="preloader-wrapper">
+        <div class="spinner-border text-primary" style="width: 3rem;height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
     <header>
 
         <!-- Navbar with information of users and report problems -->
@@ -285,7 +292,6 @@
         // Función para obtener fecha y hora desde una instancia de tipo fecha
         // esta se concatena y se hace un inner a una propiedad HTML
         // la funcion se inicia al iniciar la página y se repite cada segundo para la fecha
-
         function fechaYHora() {
 
             var hoy = new Date();
@@ -301,6 +307,14 @@
         // Se inicia la función y se repite cada segundo
         fechaYHora();
         setInterval(fechaYHora, 1000);
+
+
+        // Loading spinner
+        const preloaderWrapper = document.querySelector('.preloader-wrapper');
+
+        window.addEventListener('load', function () {
+            preloaderWrapper.classList.add('fade-out-animation');
+        });
 
     </script>
 </body>

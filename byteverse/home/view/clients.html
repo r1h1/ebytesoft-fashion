@@ -37,6 +37,13 @@
 
 <body>
 
+    <!-- loader page -->
+    <div class="preloader-wrapper">
+        <div class="spinner-border text-primary" style="width: 3rem;height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
     <header>
 
         <!-- Navbar with information of users and report problems -->
@@ -114,8 +121,8 @@
                     <div class="col px-3 mt-5">
 
                         <div class="header text-end mb-3">
-                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo" onclick="codigoCliente()"><i
-                                    class="fa-solid fa-plus me-2 py-2"></i> Nuevo
+                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo"
+                                onclick="codigoCliente()"><i class="fa-solid fa-plus me-2 py-2"></i> Nuevo
                                 Cliente</button>
                         </div>
 
@@ -380,6 +387,13 @@
         });
 
         document.getElementById("div-membresia").style.display = "none";
+
+        // Loading spinner
+        const preloaderWrapper = document.querySelector('.preloader-wrapper');
+
+        window.addEventListener('load', function () {
+            preloaderWrapper.classList.add('fade-out-animation');
+        });
     </script>
 
 </body>
