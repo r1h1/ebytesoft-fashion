@@ -6,46 +6,44 @@
 	header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 	header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 	$method = $_SERVER['REQUEST_METHOD'];
-	if($method == "OPTIONS") {
+	if ($method == "OPTIONS") {
 		die();
 	}
 
 
-    //conexión a base de datos php
+	//conexión a base de datos php
 	include 'data/db.php';
-	
+
+
 	//inicio de la funcion PDO
 	$pdo = new Conexion();
 
-	
+
 	//Listar registros y consultar registro
-	if($_SERVER['REQUEST_METHOD'] == 'GET'){
-		if(isset($_GET['id']))
-		{
+	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+		if (isset($_GET['id'])) {
 			$sql = $pdo->prepare("SELECT * FROM providers WHERE id=:id");
 			$sql->bindValue(':id', $_GET['id']);
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			header("HTTP/1.1 200 Exist ID");
 			echo json_encode($sql->fetchAll());
-			exit;				
-			
-			} else {
-			
+			exit;
+		} else {
+
 			$sql = $pdo->prepare("SELECT * FROM providers");
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			header("HTTP/1.1 200 All Data");
 			echo json_encode($sql->fetchAll());
-			exit;		
+			exit;
 		}
 	}
-	
+
 	//Insertar registro
-	if($_SERVER['REQUEST_METHOD'] == 'POST')
-	{
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$sql = "INSERT INTO providers(codigo, tipoProveedor, tipoPago, telefono, direccion, correoElectronico) 
-		VALUES (:codigo, :tipoProveedor, :tipoPago, :telefono, :direccion, :correoElectronico)";
+			VALUES (:codigo, :tipoProveedor, :tipoPago, :telefono, :direccion, :correoElectronico)";
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(':codigo', $_POST['codigo']);
 		$stmt->bindValue(':tipoProveedor', $_POST['tipoProveedor']);
@@ -55,38 +53,42 @@
 		$stmt->bindValue(':correoElectronico', $_POST['correoElectronico']);
 		$stmt->execute();
 		$idPost = $pdo->lastInsertId();
-		if($idPost)
-		{
+		if ($idPost) {
 			header("HTTP/1.1 200 OK");
 			echo json_encode($idPost);
 			exit;
 		}
 	}
-	
+
 	//Actualizar registro
-	if($_SERVER['REQUEST_METHOD'] == 'PUT')
-	{		
-		$sql = "UPDATE providers SET nombre=:nombre, telefono=:telefono, email=:email WHERE id=:id";
+	if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
+		$sql = "UPDATE providers SET codigo=:codigo,tipoProveedor=:tipoProveedor,tipoPago=:tipoPago,telefono=:telefono,direccion=:direccion,correoElectronico=:correoElectronico WHERE id=:id";
 		$stmt = $pdo->prepare($sql);
-		$stmt->bindValue(':nombre', $_GET['nombre']);
+		$stmt->bindValue(':codigo', $_GET['codigo']);
+		$stmt->bindValue(':tipoProveedor', $_GET['tipoProveedor']);
+		$stmt->bindValue(':tipoPago', $_GET['tipoPago']);
 		$stmt->bindValue(':telefono', $_GET['telefono']);
-		$stmt->bindValue(':email', $_GET['email']);
+		$stmt->bindValue(':direccion', $_GET['direccion']);
+		$stmt->bindValue(':correoElectronico', $_GET['correoElectronico']);
 		$stmt->bindValue(':id', $_GET['id']);
 		$stmt->execute();
+		echo json_encode(1);
 		header("HTTP/1.1 200 OK");
 		exit;
 	}
-	
+
 	//Eliminar registro
-	if($_SERVER['REQUEST_METHOD'] == 'DELETE')
-	{
+	if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
 		$sql = "DELETE FROM providers WHERE id=:id";
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(':id', $_GET['id']);
 		$stmt->execute();
+		echo json_encode(1);
 		header("HTTP/1.1 200 OK");
 		exit;
 	}
-	
+
 	//Si no corresponde a ninguna opción anterior
 	header("HTTP/1.1 400 Bad Request");
+
+?>
