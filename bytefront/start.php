@@ -51,7 +51,7 @@
                     <div class="card-body p-4">
 
                         <div class="principal-img text-center mb-4">
-                            <img src="../assets/img/logo.png" alt="logo" width="100">
+                            <img src="../assets/img/logo.png" alt="logo-minibyte" width="100">
                         </div>
 
                         <div>
@@ -69,7 +69,7 @@
                                     placeholder="Código de acceso *" name="clave" required />
 
                                 <div class="action-buttons text-center mt-4">
-                                    <a href="home/view/dashboard.html"
+                                    <a href="home/view/dashboard"
                                         class="btn blue text-white w-100 boton-ingresar">Ingresar</a>
                                 </div>
                             </form>

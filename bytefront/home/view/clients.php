@@ -51,7 +51,7 @@
 
             <div class="container-fluid">
 
-                <a class="nav-link text-muted" href="dashboard.html">
+                <a class="nav-link text-muted" href="dashboard">
                     POS | ebyte-soft
                 </a>
 
@@ -64,13 +64,13 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="profile.html"><i
+                                <a class="dropdown-item" href="profile"><i
                                         class="fa-solid fa-user green-text me-2"></i>
                                     Editar Perfil</a>
                             </li>
                             <li>
                                 <a class="dropdown-item dropdown-item bg-danger mt-2 text-white"
-                                    href="../../start.html"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                    href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -86,7 +86,7 @@
         <div class="row">
 
             <div class="col text-start mb-4">
-                <a href="dashboard.html" class="boton oranje text-white mb-5"><i
+                <a href="dashboard" class="boton oranje text-white mb-5"><i
                         class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
             </div>
 
@@ -101,16 +101,16 @@
                     <div class="row mt-5">
 
                         <div class="col-lg-6 mt-5 text-center">
-                            <p class="h3"><i class="fa-solid fa-store h1 me-2"></i> <span
-                                    class="fw-bold h2">Locales</span></p>
+                            <p class="h3"><i class="fa-solid fa-user-tie h1 me-2"></i> <span
+                                    class="fw-bold h2">Clientes</span></p>
                         </div>
 
                         <div class="col-lg-6 mt-2">
                             <div class="card">
                                 <div class="card-body p-3">
-                                    <p class="card-text text-muted fw-bold">Locales Registrados</p>
+                                    <p class="card-text text-muted fw-bold">Clientes Registrados</p>
                                     <div class="icon p-1 text-center">
-                                        <p class="fw-bold h1">2</p>
+                                        <p class="fw-bold h1">3</p>
                                     </div>
                                 </div>
                             </div>
@@ -121,8 +121,9 @@
                     <div class="col px-3 mt-5">
 
                         <div class="header text-end mb-3">
-                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo"><i
-                                    class="fa-solid fa-plus me-2 py-2"></i> Nuevo Local</button>
+                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo"
+                                onclick="codigoCliente()"><i class="fa-solid fa-plus me-2 py-2"></i> Nuevo
+                                Cliente</button>
                         </div>
 
                         <div class="table-responsive mt-5 mb-5">
@@ -130,11 +131,13 @@
                                 <thead class=" blue text-white">
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Código</th>
-                                        <th scope="col">Nombre del Local</th>
-                                        <th scope="col">Empresa Pertenece</th>
-                                        <th scope="col">Teléfono</th>
+                                        <th scope="col">Código de Empleado</th>
+                                        <th scope="col">Membresía</th>
+                                        <th scope="col">Código de Membresía</th>
+                                        <th scope="col">NIT</th>
+                                        <th scope="col">Nombre Completo</th>
                                         <th scope="col">Dirección</th>
+                                        <th scope="col">Teléfono</th>
                                         <th scope="col">Email</th>
                                         <th scope="col" class="text-center">Acciones</th>
                                     </tr>
@@ -142,12 +145,14 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>PROV000001</td>
-                                        <td>San Miguel Petapa</td>
-                                        <td>Fashion GT</td>
-                                        <td>45024363</td>
-                                        <td>Ciudad de Guatemala, Guatemala</td>
-                                        <td>de.rivasherrera@gmail.com</td>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
                                         <td class="text-center">
                                             <button class="btn btn-warning" data-bs-toggle="modal"
                                                 data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
@@ -157,12 +162,31 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
-                                        <td>PROV000002</td>
-                                        <td>Villa Nueva</td>
-                                        <td>Fashion GT</td>
-                                        <td>45024363</td>
-                                        <td>Ciudad de Guatemala, Guatemala</td>
-                                        <td>de.rivasherrera@gmail.com</td>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td class="text-center">
+                                            <button class="btn btn-warning" data-bs-toggle="modal"
+                                                data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
+                                            <button class="btn btn-danger" onclick="apiDelete()"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
                                         <td class="text-center">
                                             <button class="btn btn-warning" data-bs-toggle="modal"
                                                 data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
@@ -181,39 +205,53 @@
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
-                                        <div class="modal-header green">
+                                        <div class="modal-header blue">
                                             <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
                                                 Agregar</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-
                                             <form class="row g-3">
 
                                                 <div class="col-md-12">
                                                     <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Código" id="local-codigo" hidden>
+                                                        placeholder="Código" id="empleado-codigo" hidden>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Nombre del Local *" min="1">
-                                                </div>
-                                                <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Empresa a la que Pertenece *">
-                                                </div>
-                                                <div class="col-12">
                                                     <input type="number" class="form-control gray inputClass"
-                                                        placeholder="Teléfono *" min="1">
+                                                        id="inputPassword4" placeholder="NIT *" min="1">
+                                                </div>
+                                                <div class="col-12">
+                                                    <input type="text" class="form-control gray inputClass"
+                                                        placeholder="Nombre Completo *">
                                                 </div>
                                                 <div class="col-12">
                                                     <input type="text" class="form-control gray inputClass"
                                                         placeholder="Dirección *">
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-6">
+                                                    <input type="number" class="form-control gray inputClass"
+                                                        placeholder="Teléfono *">
+                                                </div>
+                                                <div class="col-6">
                                                     <input type="email" class="form-control gray inputClass"
                                                         placeholder="Correo Electrónico *">
+                                                </div>
+                                                <div class="col-12">
+                                                    <select class="form-select gray inputClass" id="tipo-membresia"
+                                                        onchange="membresiaCliente()">
+                                                        <option value="0">Tipo de Membresía</option>
+                                                        <option value="0">Ninguna</option>
+                                                        <option value="1">Fashion Oro</option>
+                                                        <option value="2">Fashion Platinum</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12" id="div-membresia">
+                                                    <input type="email" class="form-control gray inputClass"
+                                                        placeholder="" id="membresia-codigo" readonly>
+                                                    <p class="text-muted text-center">Este es el código de su
+                                                        membresía, guárdelo.</p>
                                                 </div>
                                                 <div class="col-12 text-center">
                                                     <button type="submit" class="btn btn-success px-3 py-2"><i
@@ -221,12 +259,10 @@
                                                         Datos</button>
                                                 </div>
                                             </form>
-
                                         </div>
                                         <div class="modal-footer gray text-center">
-                                            <p class="text-muted mt-2 mb-2">Puedes agregar la información
-                                                correspondiente desde este
-                                                módulo
+                                            <p class="text-muted mt-2 mb-2">Puedes agregar la información de un
+                                                cliente desde este módulo
                                             </p>
                                         </div>
                                     </div>
@@ -242,39 +278,46 @@
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
-                                        <div class="modal-header oranje">
+                                        <div class="modal-header green">
                                             <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
                                                 Editar</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-
                                             <form class="row g-3">
 
                                                 <div class="col-md-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Código" id="local-codigo" hidden>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Nombre del Local *" min="1">
-                                                </div>
-                                                <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Empresa a la que Pertenece *">
-                                                </div>
-                                                <div class="col-12">
                                                     <input type="number" class="form-control gray inputClass"
-                                                        placeholder="Teléfono *" min="1">
+                                                        id="inputPassword4" placeholder="NIT *">
+                                                </div>
+                                                <div class="col-12">
+                                                    <input type="text" class="form-control gray inputClass"
+                                                        placeholder="Nombre Completo *">
                                                 </div>
                                                 <div class="col-12">
                                                     <input type="text" class="form-control gray inputClass"
                                                         placeholder="Dirección *">
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-6">
+                                                    <input type="number" class="form-control gray inputClass"
+                                                        placeholder="Teléfono *">
+                                                </div>
+                                                <div class="col-6">
                                                     <input type="email" class="form-control gray inputClass"
                                                         placeholder="Correo Electrónico *">
+                                                </div>
+                                                <div class="col-12">
+                                                    <input type="email" class="form-control gray inputClass"
+                                                        placeholder="Membresía Actual" readonly>
+                                                </div>
+                                                <div class="col-12">
+                                                    <select class="form-select gray inputClass"
+                                                        aria-label="Default select example">
+                                                        <option value="">¿Cambiar categoría Membresía?</option>
+                                                        <option value="2">Fashionista Oro</option>
+                                                        <option value="3">Fashionista Platinum</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-12 text-center">
                                                     <button type="submit" class="btn btn-warning px-3 py-2"><i
@@ -282,12 +325,10 @@
                                                         Datos</button>
                                                 </div>
                                             </form>
-
                                         </div>
                                         <div class="modal-footer gray text-center">
-                                            <p class="text-muted mt-2 mb-2">Puedes editar toda la información que
-                                                necesites
-                                                desde este módulo
+                                            <p class="text-muted mt-2 mb-2">Puedes editar la información de un
+                                                cliente desde este módulo
                                             </p>
                                         </div>
                                     </div>
@@ -312,6 +353,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+    <script src="../../logic/clients/crud.js"></script>
 
     <!-- Data Table Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -342,6 +385,8 @@
                 }
             });
         });
+
+        document.getElementById("div-membresia").style.display = "none";
 
         // Loading spinner
         const preloaderWrapper = document.querySelector('.preloader-wrapper');

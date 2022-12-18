@@ -51,7 +51,7 @@
 
             <div class="container-fluid">
 
-                <a class="nav-link text-muted" href="dashboard.html">
+                <a class="nav-link text-muted" href="dashboard">
                     POS | ebyte-soft
                 </a>
 
@@ -64,13 +64,13 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="profile.html"><i
+                                <a class="dropdown-item" href="profile"><i
                                         class="fa-solid fa-user green-text me-2"></i>
                                     Editar Perfil</a>
                             </li>
                             <li>
                                 <a class="dropdown-item dropdown-item bg-danger mt-2 text-white"
-                                    href="../../start.html"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                    href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -86,7 +86,7 @@
         <div class="row">
 
             <div class="col text-start mb-4">
-                <a href="dashboard.html" class="boton oranje text-white mb-5"><i
+                <a href="dashboard" class="boton oranje text-white mb-5"><i
                         class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
             </div>
 
@@ -101,16 +101,16 @@
                     <div class="row mt-5">
 
                         <div class="col-lg-6 mt-5 text-center">
-                            <p class="h3"><i class="fa-solid fa-people-carry-box h1 me-2"></i> <span
-                                    class="fw-bold h2">Proveedores</span></p>
+                            <p class="h3"><i class="fa-solid fa-users h1 me-2"></i> <span
+                                    class="fw-bold h2">Empleados</span></p>
                         </div>
 
                         <div class="col-lg-6 mt-2">
                             <div class="card">
                                 <div class="card-body p-3">
-                                    <p class="card-text text-muted fw-bold">Proveedores Registrados</p>
+                                    <p class="card-text text-muted fw-bold">Empleados Registrados</p>
                                     <div class="icon p-1 text-center">
-                                        <p class="fw-bold h1">5</p>
+                                        <p class="fw-bold h1">1</p>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
 
                         <div class="header text-end mb-3">
                             <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo"><i
-                                    class="fa-solid fa-plus me-2 py-2"></i> Nuevo Proveedor</button>
+                                    class="fa-solid fa-plus me-2 py-2"></i> Nuevo Empleado</button>
                         </div>
 
                         <div class="table-responsive mt-5 mb-5">
@@ -131,11 +131,16 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Código</th>
-                                        <th scope="col">Tipo de Proveedor</th>
-                                        <th scope="col">Tipo de Pago</th>
+                                        <th scope="col">Local Pertenece</th>
+                                        <th scope="col">Departamento</th>
+                                        <th scope="col">Nombre Completo</th>
+                                        <th scope="col">DPI / NIT</th>
                                         <th scope="col">Teléfono</th>
                                         <th scope="col">Dirección</th>
                                         <th scope="col">Email</th>
+                                        <th scope="col">Fecha de Nacimiento</th>
+                                        <th scope="col">Puesto Actual</th>
+                                        <th scope="col">Salario</th>
                                         <th scope="col" class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
@@ -143,71 +148,16 @@
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>PROV000001</td>
+                                        <td>PROV000001</td>
                                         <td>Limpieza</td>
                                         <td>Crédito</td>
                                         <td>45024363</td>
                                         <td>Ciudad de Guatemala, Guatemala</td>
                                         <td>de.rivasherrera@gmail.com</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-warning" data-bs-toggle="modal"
-                                                data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                    class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>PROV000002</td>
+                                        <td>PROV000001</td>
                                         <td>Limpieza</td>
-                                        <td>Pago contra Entrega</td>
-                                        <td>45024363</td>
-                                        <td>Ciudad de Guatemala, Guatemala</td>
-                                        <td>de.rivasherrera@gmail.com</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-warning" data-bs-toggle="modal"
-                                                data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                    class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>PROV000003</td>
-                                        <td>Seguridad</td>
                                         <td>Crédito</td>
                                         <td>45024363</td>
-                                        <td>Ciudad de Guatemala, Guatemala</td>
-                                        <td>de.rivasherrera@gmail.com</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-warning" data-bs-toggle="modal"
-                                                data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                    class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>PROV000004</td>
-                                        <td>Internet</td>
-                                        <td>Crédito</td>
-                                        <td>45024363</td>
-                                        <td>Ciudad de Guatemala, Guatemala</td>
-                                        <td>de.rivasherrera@gmail.com</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-warning" data-bs-toggle="modal"
-                                                data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                    class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>PROV000005</td>
-                                        <td>Ropa</td>
-                                        <td>Crédito</td>
-                                        <td>45024363</td>
-                                        <td>Ciudad de Guatemala, Guatemala</td>
-                                        <td>de.rivasherrera@gmail.com</td>
                                         <td class="text-center">
                                             <button class="btn btn-warning" data-bs-toggle="modal"
                                                 data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
@@ -238,17 +188,30 @@
 
                                                 <div class="col-md-12">
                                                     <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Código" id="proveedor-codigo" hidden>
+                                                        placeholder="Código" id="empleado-codigo" hidden>
                                                 </div>
-                                                <div class="col-md-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Tipo de Proveedor *" min="1">
+
+                                                <div class="col-12">
+                                                    <select class="form-select gray inputClass"
+                                                        aria-label="Default select example">
+                                                        <option value="">Local Pertenece</option>
+                                                        <option value="1">Crédito</option>
+                                                        <option value="2">Débito</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-12">
                                                     <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Tipo de Pago *">
+                                                        placeholder="Departamento *" min="1">
                                                 </div>
                                                 <div class="col-12">
+                                                    <input type="text" class="form-control gray inputClass"
+                                                        placeholder="Nombre Completo *">
+                                                </div>
+                                                <div class="col-6">
+                                                    <input type="number" class="form-control gray inputClass"
+                                                        placeholder="DPI / NIT *" min="1" min="1">
+                                                </div>
+                                                <div class="col-6">
                                                     <input type="number" class="form-control gray inputClass"
                                                         placeholder="Teléfono *" min="1">
                                                 </div>
@@ -260,6 +223,20 @@
                                                     <input type="email" class="form-control gray inputClass"
                                                         placeholder="Correo Electrónico *">
                                                 </div>
+                                                <div class="col-12">
+                                                    <label class="form-label">Fecha de Nacimiento *</label>
+                                                    <input type="date" class="form-control gray inputClass"
+                                                        placeholder="Fecha de Nacimiento *">
+                                                </div>
+                                                <div class="col-6">
+                                                    <input type="text" class="form-control gray inputClass"
+                                                        placeholder="Puesto Actual *">
+                                                </div>
+                                                <div class="col-6">
+                                                    <input type="number" class="form-control gray inputClass"
+                                                        placeholder="Salario *" min="1">
+                                                </div>
+
                                                 <div class="col-12 text-center">
                                                     <button type="submit" class="btn btn-success px-3 py-2"><i
                                                             class="fa-solid fa-floppy-disk me-2"></i> Guardar
@@ -299,17 +276,29 @@
 
                                                 <div class="col-md-12">
                                                     <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Código" id="proveedor-codigo" hidden>
+                                                        placeholder="Código" id="empleado-codigo" hidden>
+                                                </div>
+                                                <div class="col-12">
+                                                    <select class="form-select gray inputClass"
+                                                        aria-label="Default select example">
+                                                        <option value="">Local Pertenece</option>
+                                                        <option value="1">Crédito</option>
+                                                        <option value="2">Débito</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Tipo de Proveedor *" min="1">
+                                                        placeholder="Departamento *" min="1">
                                                 </div>
                                                 <div class="col-12">
                                                     <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Tipo de Pago *">
+                                                        placeholder="Nombre Completo *">
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-6">
+                                                    <input type="number" class="form-control gray inputClass"
+                                                        placeholder="DPI / NIT *" min="1" min="1">
+                                                </div>
+                                                <div class="col-6">
                                                     <input type="number" class="form-control gray inputClass"
                                                         placeholder="Teléfono *" min="1">
                                                 </div>
@@ -321,6 +310,20 @@
                                                     <input type="email" class="form-control gray inputClass"
                                                         placeholder="Correo Electrónico *">
                                                 </div>
+                                                <div class="col-12">
+                                                    <label class="form-label">Fecha de Nacimiento *</label>
+                                                    <input type="date" class="form-control gray inputClass"
+                                                        placeholder="Fecha de Nacimiento *">
+                                                </div>
+                                                <div class="col-6">
+                                                    <input type="text" class="form-control gray inputClass"
+                                                        placeholder="Puesto Actual *">
+                                                </div>
+                                                <div class="col-6">
+                                                    <input type="number" class="form-control gray inputClass"
+                                                        placeholder="Salario *" min="1">
+                                                </div>
+
                                                 <div class="col-12 text-center">
                                                     <button type="submit" class="btn btn-warning px-3 py-2"><i
                                                             class="fa-solid fa-floppy-disk me-2"></i> Guardar

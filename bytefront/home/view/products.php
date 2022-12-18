@@ -51,7 +51,7 @@
 
             <div class="container-fluid">
 
-                <a class="nav-link text-muted" href="dashboard.html">
+                <a class="nav-link text-muted" href="dashboard">
                     POS | ebyte-soft
                 </a>
 
@@ -64,13 +64,13 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="profile.html"><i
+                                <a class="dropdown-item" href="profile"><i
                                         class="fa-solid fa-user green-text me-2"></i>
                                     Editar Perfil</a>
                             </li>
                             <li>
                                 <a class="dropdown-item dropdown-item bg-danger mt-2 text-white"
-                                    href="../../start.html"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                    href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -86,7 +86,7 @@
         <div class="row">
 
             <div class="col text-start mb-4">
-                <a href="dashboard.html" class="boton oranje text-white mb-5"><i
+                <a href="dashboard" class="boton oranje text-white mb-5"><i
                         class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
             </div>
 
@@ -101,14 +101,14 @@
                     <div class="row mt-5">
 
                         <div class="col-lg-6 mt-5 text-center">
-                            <p class="h3"><i class="fa-solid fa-users h1 me-2"></i> <span
-                                    class="fw-bold h2">Empleados</span></p>
+                            <p class="h3"><i class="fa-solid fa-box h1 me-2"></i> <span
+                                    class="fw-bold h2">Inventario</span></p>
                         </div>
 
                         <div class="col-lg-6 mt-2">
                             <div class="card">
                                 <div class="card-body p-3">
-                                    <p class="card-text text-muted fw-bold">Empleados Registrados</p>
+                                    <p class="card-text text-muted fw-bold">Productos Registrados</p>
                                     <div class="icon p-1 text-center">
                                         <p class="fw-bold h1">1</p>
                                     </div>
@@ -122,7 +122,11 @@
 
                         <div class="header text-end mb-3">
                             <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo"><i
-                                    class="fa-solid fa-plus me-2 py-2"></i> Nuevo Empleado</button>
+                                    class="fa-solid fa-plus me-2 py-2"></i> Nuevo
+                                Producto</button>
+                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#categoria"><i
+                                    class="fa-solid fa-plus me-2 py-2"></i> Nueva
+                                Categoría</button>
                         </div>
 
                         <div class="table-responsive mt-5 mb-5">
@@ -130,34 +134,30 @@
                                 <thead class=" blue text-white">
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Código</th>
                                         <th scope="col">Local Pertenece</th>
-                                        <th scope="col">Departamento</th>
-                                        <th scope="col">Nombre Completo</th>
-                                        <th scope="col">DPI / NIT</th>
-                                        <th scope="col">Teléfono</th>
-                                        <th scope="col">Dirección</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Fecha de Nacimiento</th>
-                                        <th scope="col">Puesto Actual</th>
-                                        <th scope="col">Salario</th>
+                                        <th scope="col">Código Producto</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Descripcion</th>
+                                        <th scope="col">Categoría</th>
+                                        <th scope="col">Cantidad</th>
+                                        <th scope="col">Precio Unitario</th>
+                                        <th scope="col">Stock en Inventario</th>
+                                        <th scope="col">Estado</th>
                                         <th scope="col" class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>PROV000001</td>
-                                        <td>PROV000001</td>
-                                        <td>Limpieza</td>
-                                        <td>Crédito</td>
-                                        <td>45024363</td>
-                                        <td>Ciudad de Guatemala, Guatemala</td>
-                                        <td>de.rivasherrera@gmail.com</td>
-                                        <td>PROV000001</td>
-                                        <td>Limpieza</td>
-                                        <td>Crédito</td>
-                                        <td>45024363</td>
+                                        <td>Otto</td>
+                                        <td>Otto</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>Activo</td>
                                         <td class="text-center">
                                             <button class="btn btn-warning" data-bs-toggle="modal"
                                                 data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
@@ -169,7 +169,7 @@
                             </table>
                         </div>
 
-                        <!-- Modal para crear nuevos clientes -->
+                        <!-- Modal para crear nuevos productos -->
                         <div class="moda-new">
 
                             <div class="modal fade" id="nuevo" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -188,56 +188,41 @@
 
                                                 <div class="col-md-12">
                                                     <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Código" id="empleado-codigo" hidden>
+                                                        placeholder="Código Producto *">
                                                 </div>
-
                                                 <div class="col-12">
-                                                    <select class="form-select gray inputClass"
-                                                        aria-label="Default select example">
-                                                        <option value="">Local Pertenece</option>
-                                                        <option value="1">Crédito</option>
-                                                        <option value="2">Débito</option>
+                                                    <input type="text" class="form-control gray inputClass"
+                                                        placeholder="Nombre *">
+                                                </div>
+                                                <div class="col-12">
+                                                    <input type="text" class="form-control gray inputClass"
+                                                        placeholder="Descripcion *" maxlength="70">
+                                                </div>
+                                                <div class="col-12">
+                                                    <select class="form-select gray inputClass">
+                                                        <option value="">Categoría *</option>
+                                                        <option value="0">Ninguna</option>
+                                                        <option value="1">Fashion Oro</option>
+                                                        <option value="2">Fashion Platinum</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Departamento *" min="1">
-                                                </div>
-                                                <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Nombre Completo *">
-                                                </div>
-                                                <div class="col-6">
-                                                    <input type="number" class="form-control gray inputClass"
-                                                        placeholder="DPI / NIT *" min="1" min="1">
+                                                    <select class="form-select gray inputClass">
+                                                        <option value="">Local Asignado *</option>
+                                                        <option value="0">Ninguna</option>
+                                                        <option value="1">San Miguel Petapa</option>
+                                                        <option value="2">Villa Nueva</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-6">
                                                     <input type="number" class="form-control gray inputClass"
-                                                        placeholder="Teléfono *" min="1">
-                                                </div>
-                                                <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Dirección *">
-                                                </div>
-                                                <div class="col-12">
-                                                    <input type="email" class="form-control gray inputClass"
-                                                        placeholder="Correo Electrónico *">
-                                                </div>
-                                                <div class="col-12">
-                                                    <label class="form-label">Fecha de Nacimiento *</label>
-                                                    <input type="date" class="form-control gray inputClass"
-                                                        placeholder="Fecha de Nacimiento *">
-                                                </div>
-                                                <div class="col-6">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Puesto Actual *">
+                                                        placeholder="Cantidad *" min="1">
                                                 </div>
                                                 <div class="col-6">
                                                     <input type="number" class="form-control gray inputClass"
-                                                        placeholder="Salario *" min="1">
+                                                        placeholder="Precio Unitario *" min="1">
                                                 </div>
-
-                                                <div class="col-12 text-center">
+                                                <div class="col-12 text-center mt-4">
                                                     <button type="submit" class="btn btn-success px-3 py-2"><i
                                                             class="fa-solid fa-floppy-disk me-2"></i> Guardar
                                                         Datos</button>
@@ -245,11 +230,42 @@
                                             </form>
 
                                         </div>
-                                        <div class="modal-footer gray text-center">
-                                            <p class="text-muted mt-2 mb-2">Puedes agregar la información
-                                                correspondiente desde este
-                                                módulo
-                                            </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Modal para crear nuevas categorías -->
+                        <div class="moda-new">
+
+                            <div class="modal fade" id="categoria" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header green">
+                                            <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
+                                                Agregar</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <form class="row g-3">
+
+
+                                                <div class="col-12">
+                                                    <input type="text" class="form-control gray inputClass"
+                                                        placeholder="Nombre de Categoría *">
+                                                </div>
+
+                                                <div class="col-12 text-center mt-4">
+                                                    <button type="submit" class="btn btn-success px-3 py-2"><i
+                                                            class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                                        Datos</button>
+                                                </div>
+                                            </form>
+
                                         </div>
                                     </div>
                                 </div>
@@ -264,8 +280,8 @@
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
-                                        <div class="modal-header oranje">
-                                            <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
+                                        <div class="modal-header bg-warning">
+                                            <h1 class="modal-title fs-5 fw-bold " id="exampleModalLabel">
                                                 Editar</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
@@ -276,67 +292,55 @@
 
                                                 <div class="col-md-12">
                                                     <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Código" id="empleado-codigo" hidden>
+                                                        placeholder="Código Producto *">
                                                 </div>
                                                 <div class="col-12">
-                                                    <select class="form-select gray inputClass"
-                                                        aria-label="Default select example">
-                                                        <option value="">Local Pertenece</option>
-                                                        <option value="1">Crédito</option>
-                                                        <option value="2">Débito</option>
+                                                    <input type="text" class="form-control gray inputClass"
+                                                        placeholder="Nombre *">
+                                                </div>
+                                                <div class="col-12">
+                                                    <input type="text" class="form-control gray inputClass"
+                                                        placeholder="Descripcion *" maxlength="70">
+                                                </div>
+                                                <div class="col-12">
+                                                    <select class="form-select gray inputClass">
+                                                        <option value="">Categoría *</option>
+                                                        <option value="0">Ninguna</option>
+                                                        <option value="1">Fashion Oro</option>
+                                                        <option value="2">Fashion Platinum</option>
                                                     </select>
                                                 </div>
-                                                <div class="col-md-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Departamento *" min="1">
-                                                </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Nombre Completo *">
+                                                    <select class="form-select gray inputClass">
+                                                        <option value="">Local Asignado *</option>
+                                                        <option value="0">Ninguna</option>
+                                                        <option value="1">San Miguel Petapa</option>
+                                                        <option value="2">Villa Nueva</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-6">
                                                     <input type="number" class="form-control gray inputClass"
-                                                        placeholder="DPI / NIT *" min="1" min="1">
+                                                        placeholder="Cantidad *" min="1">
                                                 </div>
                                                 <div class="col-6">
                                                     <input type="number" class="form-control gray inputClass"
-                                                        placeholder="Teléfono *" min="1">
+                                                        placeholder="Precio Unitario *" min="1">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Dirección *">
-                                                </div>
-                                                <div class="col-12">
-                                                    <input type="email" class="form-control gray inputClass"
-                                                        placeholder="Correo Electrónico *">
-                                                </div>
-                                                <div class="col-12">
-                                                    <label class="form-label">Fecha de Nacimiento *</label>
-                                                    <input type="date" class="form-control gray inputClass"
-                                                        placeholder="Fecha de Nacimiento *">
-                                                </div>
-                                                <div class="col-6">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Puesto Actual *">
-                                                </div>
-                                                <div class="col-6">
-                                                    <input type="number" class="form-control gray inputClass"
-                                                        placeholder="Salario *" min="1">
+                                                    <select class="form-select gray inputClass">
+                                                        <option value="">Estado *</option>
+                                                        <option value="1">Activo</option>
+                                                        <option value="2">Inactivo</option>
+                                                    </select>
                                                 </div>
 
-                                                <div class="col-12 text-center">
-                                                    <button type="submit" class="btn btn-warning px-3 py-2"><i
-                                                            class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                                <div class="col-12 text-center mt-4">
+                                                    <button type="submit" class="btn btn-success px-3 py-2"><i
+                                                            class="fa-solid fa-pen me-2"></i> Guardar
                                                         Datos</button>
                                                 </div>
                                             </form>
 
-                                        </div>
-                                        <div class="modal-footer gray text-center">
-                                            <p class="text-muted mt-2 mb-2">Puedes editar toda la información que
-                                                necesites
-                                                desde este módulo
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -360,6 +364,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+    <script src="../../logic/clients/crud.js"></script>
 
     <!-- Data Table Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

@@ -49,7 +49,7 @@
 
             <div class="container-fluid">
 
-                <a class="nav-link text-muted" href="dashboard.html">
+                <a class="nav-link text-muted" href="dashboard">
                     POS | ebyte-soft
                 </a>
 
@@ -62,13 +62,13 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="profile.html"><i
+                                <a class="dropdown-item" href="profile"><i
                                         class="fa-solid fa-user green-text me-2"></i>
                                     Editar Perfil</a>
                             </li>
                             <li>
                                 <a class="dropdown-item dropdown-item bg-danger mt-2 text-white"
-                                    href="../../start.html"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                    href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -85,7 +85,7 @@
 
             <div class="col text-start mb-4">
                 <h2 class="fw-bold mb-3">Mi Perfil</h2>
-                <a href="dashboard.html" class="boton oranje text-white mb-5"><i
+                <a href="dashboard" class="boton oranje text-white mb-5"><i
                         class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
             </div>
 

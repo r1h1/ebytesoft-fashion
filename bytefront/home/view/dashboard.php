@@ -50,7 +50,7 @@
 
             <div class="container-fluid">
 
-                <a class="nav-link text-muted" href="dashboard.html">
+                <a class="nav-link text-muted" href="dashboard">
                     Dashboard | ebyte-soft
                 </a>
 
@@ -63,13 +63,13 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="profile.html"><i
+                                <a class="dropdown-item" href="profile"><i
                                         class="fa-solid fa-user green-text me-2"></i>
                                     Editar Perfil</a>
                             </li>
                             <li>
                                 <a class="dropdown-item dropdown-item bg-danger mt-2 text-white"
-                                    href="../../start.html"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                    href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -96,7 +96,7 @@
                         <p class="mt-4"><i class="fa-solid fa-phone fs-6 me-2"></i> (+502) 4502-4363</p>
                         <p><i class="fa-solid fa-cash-register fs-6 me-2"></i> Caja #2</p>
                         <p class="h6 text-muted mt-4">Fashion, tu mejor opción</p>
-                        <a href="../../start.html" class="btn btn-danger mt-4 mb-5"><i
+                        <a href="../../start" class="btn btn-danger mt-4 mb-5"><i
                                 class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                             Sesión</a>
                     </div>
@@ -112,7 +112,7 @@
                 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-2">
 
                     <div class="col">
-                        <a href="treasury.html">
+                        <a href="treasury">
                             <div class="p-2 green zoom-out rounded rounded-3">
                                 <div class="card-body">
                                     <div class="icon text-center p-4">
@@ -124,7 +124,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="employees.html">
+                        <a href="employees">
                             <div class="p-2 oranje zoom-out rounded rounded-3">
                                 <div class="card-body">
                                     <div class="icon text-center p-4">
@@ -136,7 +136,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="products.html">
+                        <a href="products">
                             <div class="p-2 gray-card zoom-out rounded rounded-3">
                                 <div class="card-body">
                                     <div class="icon text-center p-4">
@@ -148,7 +148,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="sale_start.html">
+                        <a href="sale_start">
                             <div class="p-2 purple zoom-out rounded rounded-3">
                                 <div class="card-body">
                                     <div class="icon text-center p-4">
@@ -160,7 +160,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="cash_registers.html">
+                        <a href="cash_registers">
                             <div class="p-2 blue zoom-out rounded rounded-3">
                                 <div class="card-body">
                                     <div class="icon text-center p-4">
@@ -172,7 +172,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="sale.html">
+                        <a href="sale">
                             <div class="p-2 green zoom-out rounded rounded-3">
                                 <div class="card-body">
                                     <div class="icon text-center p-4">
@@ -184,7 +184,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="return_clothes.html">
+                        <a href="return_clothes">
                             <div class="p-2 oranje zoom-out rounded rounded-3">
                                 <div class="card-body">
                                     <div class="icon text-center p-4">
@@ -196,7 +196,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="providers.html">
+                        <a href="providers">
                             <div class="p-2 gray-card zoom-out rounded rounded-3">
                                 <div class="card-body">
                                     <div class="icon text-center p-4">
@@ -208,7 +208,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="clients.html">
+                        <a href="clients">
                             <div class="p-2 purple zoom-out rounded rounded-3">
                                 <div class="card-body">
                                     <div class="icon text-center p-4">
@@ -230,7 +230,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <a href="locals.html">
+                        <a href="locals">
                             <div class="p-2 green zoom-out rounded rounded-3">
                                 <div class="card-body">
                                     <div class="icon text-center p-4">
@@ -242,7 +242,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="reports.html">
+                        <a href="reports">
                             <div class="p-2 oranje zoom-out rounded rounded-3">
                                 <div class="card-body">
                                     <div class="icon text-center p-4">
@@ -257,7 +257,7 @@
 
                 <div class="row row-cols-sm-1 row-cols-md-1 row-cols-lg-1 mt-2">
                     <div class="col">
-                        <a href="maintenance.html">
+                        <a href="maintenance">
                             <div class="p-2 gray-card zoom-out rounded rounded-3">
                                 <div class="card-body">
                                     <div class="icon text-center p-4">

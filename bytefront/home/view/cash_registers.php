@@ -51,7 +51,7 @@
 
             <div class="container-fluid">
 
-                <a class="nav-link text-muted" href="dashboard.html">
+                <a class="nav-link text-muted" href="dashboard">
                     POS | ebyte-soft
                 </a>
 
@@ -64,13 +64,13 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="profile.html"><i
+                                <a class="dropdown-item" href="profile"><i
                                         class="fa-solid fa-user green-text me-2"></i>
                                     Editar Perfil</a>
                             </li>
                             <li>
                                 <a class="dropdown-item dropdown-item bg-danger mt-2 text-white"
-                                    href="../../start.html"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                    href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -86,7 +86,7 @@
         <div class="row">
 
             <div class="col text-start mb-4">
-                <a href="dashboard.html" class="boton oranje text-white mb-5"><i
+                <a href="dashboard" class="boton oranje text-white mb-5"><i
                         class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
             </div>
 
@@ -98,53 +98,20 @@
 
                 <div class="mx-auto">
 
-                    <div class="row mt-5 px-3">
+                    <div class="row mt-5">
 
                         <div class="col-lg-6 mt-5 text-center">
                             <p class="h3"><i class="fa-solid fa-cash-register h1 me-2"></i> <span
-                                    class="fw-bold h2">Apertura de Caja</span></p>
-                            <div class="row mt-5 text-center justify-content-center">
-                                <div class="col-sm-6 col-md-4 col-lg-4 mt-2 mb-4">
-                                    <div class="body">
-                                        <p class="fw-bold h4 bg-success py-2 text-white rounded rounded-2">Abierta</p>
-                                    </div>
-                                </div>
-                            </div>
+                                    class="fw-bold h2">Cajas
+                                    Registradoras</span></p>
                         </div>
 
                         <div class="col-lg-6 mt-2">
-                            <div class="row g-2">
-
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-body p-3">
-                                            <p class="card-text text-muted">Dinero en Caja</p>
-                                            <div class="icon p-1 text-center">
-                                                <p class="fw-bold h2">Q <span>100.00</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-body p-3">
-                                            <p class="card-text text-muted">Usuario que Inicia</p>
-                                            <div class="icon p-1 text-center">
-                                                <p class="fw-bold h3">Daniel Rivas</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="card">
-                                        <div class="card-body p-3">
-                                            <p class="card-text text-muted">Fecha Actual</p>
-                                            <div class="icon p-1 text-center">
-                                                <p class="h4 fw-bold" id="fechaYHora"></p>
-                                            </div>
-                                        </div>
+                            <div class="card">
+                                <div class="card-body p-3">
+                                    <p class="card-text text-muted fw-bold">Cajas Registradas</p>
+                                    <div class="icon p-1 text-center">
+                                        <p class="fw-bold h1">1</p>
                                     </div>
                                 </div>
                             </div>
@@ -152,59 +119,52 @@
 
                     </div>
 
-                    <div class="col px-3 mt-4">
+                    <div class="col px-3 mt-5">
 
-                        <div class="header text-end">
-                            <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#nuevo"><i
-                                    class="fa-solid fa-plus me-2 py-2"></i> Nueva Apertura de Caja</button>
+                        <div class="header text-end mb-3">
+                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo"><i
+                                    class="fa-solid fa-plus me-2 py-2"></i> Nueva
+                                Caja</button>
                         </div>
 
-                        <div class="table-responsive mt-2 mb-5">
+                        <div class="table-responsive mt-5 mb-5">
                             <table id="example" class="table table-striped">
                                 <thead class=" blue text-white">
                                     <tr>
-                                        <th scope="col">Fecha y Hora Apertura</th>
-                                        <th scope="col">Fecha y Hora Cierre</th>
-                                        <th scope="col">Usuario</th>
-                                        <th scope="col">Inicia</th>
-                                        <th scope="col">Entrega</th>
-                                        <th scope="col">Turno</th>
-                                        <th scope="col">Ventas Totales</th>
-                                        <th scope="col">Ventas Efectivo</th>
-                                        <th scope="col">Ventas Tarjeta</th>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Código de Caja</th>
+                                        <th scope="col">Local Pertenece</th>
+                                        <th scope="col">Usuario Asignado</th>
                                         <th scope="col" class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>PROV000001</td>
-                                        <td>PROV000001</td>
-                                        <td>Limpieza</td>
-                                        <td>Crédito</td>
-                                        <td>45024363</td>
-                                        <td>Ciudad de Guatemala, Guatemala</td>
-                                        <td>de.rivasherrera@gmail.com</td>
-                                        <td>PROV000001</td>
-                                        <td>Limpieza</td>
+                                        <th scope="row">1</th>
+                                        <td>CAJA0012345</td>
+                                        <td>SMP-FASHION</td>
+                                        <td>Daniel Rivas</td>
                                         <td class="text-center">
-                                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#cerrar"><i class="fa-solid fa-lock"></i></button>
+                                            <button class="btn btn-warning" data-bs-toggle="modal"
+                                                data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
+                                            <button class="btn btn-danger" onclick="apiDelete()"><i
+                                                    class="fa-solid fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <!-- Modal para iniciar caja -->
+                        <!-- Modal para crear nuevos clientes -->
                         <div class="moda-new">
 
                             <div class="modal fade" id="nuevo" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
-                                        <div class="modal-header green">
+                                        <div class="modal-header blue">
                                             <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
-                                                Abrir</h1>
+                                                Agregar</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -212,24 +172,24 @@
 
                                             <form class="row g-3">
 
-                                                <div class="col-12">
-                                                    <label class="form-label">Fecha y hora de apertura *</label>
-                                                    <input type="datetime-local" class="form-control gray inputClass"
-                                                        placeholder="Fecha y Hora Apertura *">
-                                                </div>
-                                                <div class="col-12">
+                                                <div class="col-md-12">
                                                     <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Usuario" disabled>
+                                                        placeholder="Código" id="empleado-codigo" hidden>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass"
-                                                        placeholder="Dinero con el que inicia *" min="1">
+                                                    <select class="form-select gray inputClass">
+                                                        <option value="0">Local Pertenece *</option>
+                                                        <option value="1">x</option>
+                                                        <option value="2">xx</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Turno *">
+                                                    <select class="form-select gray inputClass">
+                                                        <option value="0">Usuario Asignado *</option>
+                                                        <option value="1">x</option>
+                                                        <option value="2">xx</option>
+                                                    </select>
                                                 </div>
-
                                                 <div class="col-12 text-center">
                                                     <button type="submit" class="btn btn-success px-3 py-2"><i
                                                             class="fa-solid fa-floppy-disk me-2"></i> Guardar
@@ -248,19 +208,18 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- fin modal iniciar caja -->
 
 
-                        <!-- Modal para cerrar caja -->
-                        <div class="moda-new">
+                        <!-- Modal para editar clientes -->
+                        <div class="moda-edit">
 
-                            <div class="modal fade" id="cerrar" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
-                                        <div class="modal-header bg-danger">
+                                        <div class="modal-header green">
                                             <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
-                                                Cerrar</h1>
+                                                Editar</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -268,28 +227,34 @@
 
                                             <form class="row g-3">
 
-                                                <div class="col-12">
-                                                    <label class="form-label">Fecha y hora de cierre *</label>
-                                                    <input type="datetime-local" class="form-control gray inputClass"
-                                                        placeholder="Fecha y Hora *">
+                                                <div class="col-md-12">
+                                                    <input type="text" class="form-control gray inputClass"
+                                                        placeholder="Código" hidden>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label class="form-label">Local Actual</label>
+                                                    <input type="text" class="form-control gray inputClass"
+                                                        placeholder="SMP-FASHION" disabled>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass"
-                                                        placeholder="Dinero que entrega *" min="1">
+                                                    <select class="form-select gray inputClass">
+                                                        <option value="0">Nuevo Local Pertenece *</option>
+                                                        <option value="1">x</option>
+                                                        <option value="2">xx</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label class="form-label">Usuario Actual Asignado</label>
+                                                    <input type="text" class="form-control gray inputClass"
+                                                        placeholder="Daniel Rivas" disabled>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass"
-                                                        placeholder="Venta Efectivo *" disabled>
+                                                    <select class="form-select gray inputClass">
+                                                        <option value="0">Nuevo Usuario Asignado *</option>
+                                                        <option value="1">x</option>
+                                                        <option value="2">xx</option>
+                                                    </select>
                                                 </div>
-                                                <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass"
-                                                        placeholder="Venta Tarjeta *" disabled>
-                                                </div>
-                                                <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass"
-                                                        placeholder="Ventas Totales *" disabled>
-                                                </div>
-
                                                 <div class="col-12 text-center">
                                                     <button type="submit" class="btn btn-success px-3 py-2"><i
                                                             class="fa-solid fa-floppy-disk me-2"></i> Guardar
@@ -299,16 +264,14 @@
 
                                         </div>
                                         <div class="modal-footer gray text-center">
-                                            <p class="text-muted mt-2 mb-2">Puedes agregar la información
-                                                correspondiente desde este
-                                                módulo
+                                            <p class="text-muted mt-2 mb-2">Puedes editar la información de un
+                                                cliente desde este módulo
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- fin modal cierre caja -->
 
                     </div>
                 </div>
@@ -335,7 +298,6 @@
     <script>
         $(document).ready(function () {
             $('#example').DataTable({
-                bFilter: false,
                 "language": {
                     "decimal": "",
                     "emptyTable": "-- No hay información --",
@@ -344,10 +306,10 @@
                     "infoFiltered": "(Filtrado de _MAX_ total entradas)",
                     "infoPostFix": "",
                     "thousands": ",",
-                    "lengthMenu": "",
+                    "lengthMenu": "Ver _MENU_ Registros",
                     "loadingRecords": "Cargando...",
                     "processing": "Procesando...",
-                    "search": "",
+                    "search": "Buscar:",
                     "zeroRecords": "-- Sin resultados encontrados --",
                     "paginate": {
                         "first": "Primero",
@@ -358,28 +320,6 @@
                 }
             });
         });
-
-
-        // Función para obtener fecha y hora desde una instancia de tipo fecha
-        // esta se concatena y se hace un inner a una propiedad HTML
-        // la funcion se inicia al iniciar la página y se repite cada segundo para la fecha
-
-        function fechaYHora() {
-
-            var hoy = new Date();
-            var opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            var fecha = hoy.toLocaleString('es-GT', opciones);
-            var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
-
-            // Se imprime en pantalla con el ID fechaYHora
-            document.getElementById("fechaYHora").innerHTML = fecha + ', ' + hora;
-
-        }
-
-        // Se inicia la función y se repite cada segundo
-        fechaYHora();
-        setInterval(fechaYHora, 1000);
-
 
         // Loading spinner
         const preloaderWrapper = document.querySelector('.preloader-wrapper');
