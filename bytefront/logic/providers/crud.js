@@ -1,6 +1,6 @@
 function get() {
 
-    var url = 'http://localhost/mbyte/bytebend/api/v1/providers';
+    var url = 'http://localhost/mbyte/bytebend/api/v1/providers/crud';
     fetch(url)
         .then(response => response.json())
         .then(data => mostrarData(data))
@@ -46,7 +46,7 @@ setInterval(get, 10000);
 
 function getIdEditForm(id) {
 
-    var url = 'http://localhost/mbyte/bytebend/api/v1/providers?id=' + id;
+    var url = 'http://localhost/mbyte/bytebend/api/v1/providers/crud?id=' + id;
 
     fetch(url)
         .then(response => response.json())
@@ -74,7 +74,7 @@ function getIdEditForm(id) {
 
 function post() {
 
-    var url = "http://localhost/mbyte/bytebend/api/v1/providers";
+    var url = "http://localhost/mbyte/bytebend/api/v1/providers/crud";
 
     var codigoProv = document.getElementById('codigo_provn').value;
     var tipoProv = document.getElementById('tipo_provn').value;
@@ -83,47 +83,58 @@ function post() {
     var direccionProv = document.getElementById('direccion_provn').value;
     var correoProv = document.getElementById('email_provn').value;
 
-    var formdata = new FormData();
-
-    formdata.append("codigo", codigoProv);
-    formdata.append("tipoProveedor", tipoProv);
-    formdata.append("tipoPago", tipoPagoProv);
-    formdata.append("telefono", numeroProv);
-    formdata.append("direccion", direccionProv);
-    formdata.append("correoElectronico", correoProv);
-
-    var requestOptions = {
-        method: 'POST',
-        body: formdata,
-        redirect: 'follow'
-    };
-
-    fetch(url, requestOptions)
-        .then(response => response.json())
-        .then(data => mostrarData(data))
-        .catch(error => Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Error en la operación, reporte al administrador del sistema',
-            footer: error,
-            confirmButtonText: 'Entendido',
-        }));
-
-    const mostrarData = (data) => {
+    if (tipoProv == "" || tipoPagoProv == "" || numeroProv == "" || direccionProv == "" || correoProv == "") {
         Swal.fire({
-            icon: 'success',
-            title: 'Correcto',
-            text: 'La operación se completó.',
+            icon: 'error',
+            title: 'Error en la Operación',
+            text: 'Debe llenar todos los campos que tengan un *',
             confirmButtonText: 'Entendido',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                get();
-                $('#nuevo').modal('toggle');
-            } else if (result.isDenied) {
-                get();
-                $('#nuevo').modal('toggle');
-            }
         });
+    }
+    else if (tipoProv != "" || tipoPagoProv != "" || numeroProv != "" || direccionProv != "" || correoProv != "") {
+
+        var formdata = new FormData();
+
+        formdata.append("codigo", codigoProv);
+        formdata.append("tipoProveedor", tipoProv);
+        formdata.append("tipoPago", tipoPagoProv);
+        formdata.append("telefono", numeroProv);
+        formdata.append("direccion", direccionProv);
+        formdata.append("correoElectronico", correoProv);
+
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+
+        fetch(url, requestOptions)
+            .then(response => response.json())
+            .then(data => mostrarData(data))
+            .catch(error => Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Error en la operación, reporte al administrador del sistema',
+                footer: error,
+                confirmButtonText: 'Entendido',
+            }));
+
+        const mostrarData = (data) => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Correcto',
+                text: 'La operación se completó.',
+                confirmButtonText: 'Entendido',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    get();
+                    $('#nuevo').modal('toggle');
+                } else if (result.isDenied) {
+                    get();
+                    $('#nuevo').modal('toggle');
+                }
+            });
+        }
     }
 }
 
@@ -138,7 +149,7 @@ function put() {
     var direccionProv = document.getElementById('direccion_prove').value;
     var correoProv = document.getElementById('email_prove').value;
 
-    var url = "http://localhost/mbyte/bytebend/api/v1/providers?id=" + id + "&codigo=" + codigoProv + "&tipoProveedor=" + tipoProv +
+    var url = "http://localhost/mbyte/bytebend/api/v1/providers/crud?id=" + id + "&codigo=" + codigoProv + "&tipoProveedor=" + tipoProv +
         "&tipoPago=" + tipoPagoProv + "&telefono=" + numeroProv + "&direccion=" + direccionProv + "&correoElectronico=" + correoProv;
 
     var requestOptions = {
@@ -196,7 +207,7 @@ function delete_method(id) {
             };
 
 
-            var url = 'http://localhost/mbyte/bytebend/api/v1/providers?id=' + id;
+            var url = 'http://localhost/mbyte/bytebend/api/v1/providers/crud?id=' + id;
 
             fetch(url, requestOptions)
                 .then(response => response.text())

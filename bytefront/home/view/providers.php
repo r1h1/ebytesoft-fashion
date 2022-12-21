@@ -115,7 +115,7 @@
                     <div class="col px-3 mt-5">
 
                         <div class="header text-end mb-3">
-                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo"><i class="fa-solid fa-plus me-2 py-2"></i> Nuevo Proveedor</button>
+                            <a class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo"><i class="fa-solid fa-plus me-2 py-2"></i> Nuevo Proveedor</a>
                         </div>
 
                         <div class="table-responsive mt-5 mb-5">
@@ -175,8 +175,8 @@
                                                     <input type="email" class="form-control gray inputClass" placeholder="Correo Electrónico *" id="email_provn">
                                                 </div>
                                                 <div class="col-12 text-center">
-                                                    <button class="btn btn-success px-3 py-2" onclick="post()"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
-                                                        Datos</button>
+                                                    <a class="btn btn-success px-3 py-2" onclick="post()"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                                        Datos</a>
                                                 </div>
                                             </form>
 

@@ -10,8 +10,7 @@
     <meta name="author" content="Daniel Rivas">
 
     <!-- Bootstrap 5.2 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../../assets/css/clients.css">
@@ -59,18 +58,15 @@
 
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle ms-2 text-muted" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i>
+                        <a class="nav-link dropdown-toggle ms-2 text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="profile"><i
-                                        class="fa-solid fa-user green-text me-2"></i>
+                                <a class="dropdown-item" href="profile"><i class="fa-solid fa-user green-text me-2"></i>
                                     Editar Perfil</a>
                             </li>
                             <li>
-                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white"
-                                    href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white" href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -86,8 +82,7 @@
         <div class="row">
 
             <div class="col text-start mb-4">
-                <a href="dashboard" class="boton oranje text-white mb-5"><i
-                        class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
+                <a href="dashboard" class="boton oranje text-white mb-5"><i class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
             </div>
 
         </div>
@@ -101,8 +96,7 @@
                     <div class="row mt-5">
 
                         <div class="col-lg-12 mt-5 text-center">
-                            <p class="h3 px-3"><i class="fa-solid fa-gear h1 me-2"></i> <span
-                                    class="fw-bold h2">Mantenimiento</span></p>
+                            <p class="h3 px-3"><i class="fa-solid fa-gear h1 me-2"></i> <span class="fw-bold h2">Mantenimiento</span></p>
                             <p class="text-center mt-5 fw-bold bg-danger py-3 text-white">Cuidado, cualquier acción en
                                 este módulo puede ser perjudicial e
                                 irrevertible, proceda con precaución</p>
@@ -112,17 +106,15 @@
 
                     <div class="col px-3 mt-5 mb-5">
                         <div class="col-lg-12 mt-2">
-                            <div class="row g-2">
+                            <div class="row g-3">
 
                                 <div class="col-lg-4">
-                                    <div class="card gray">
+                                    <div class="card">
                                         <div class="card-body p-3 py-5">
                                             <p class="card-text text-muted text-center h5">Registros por Día</p>
                                             <div class="icon p-1 text-center mt-4">
-                                                <button class="btn btn-danger mt-2"><i
-                                                        class="fa-solid fa-trash ms-2"></i> Eliminar</button>
-                                                <button class="btn btn-success mt-2"><i
-                                                        class="fa-solid fa-file-excel ms-2"></i>Exportar</button>
+                                                <button class="btn btn-danger mt-2"><i class="fa-solid fa-trash ms-2"></i> Eliminar</button>
+                                                <button class="btn btn-success mt-2"><i class="fa-solid fa-file-excel ms-2"></i>Exportar</button>
                                             </div>
                                         </div>
                                         <div class="card-footer gray">
@@ -133,14 +125,12 @@
                                 </div>
 
                                 <div class="col-lg-4">
-                                    <div class="card gray">
+                                    <div class="card">
                                         <div class="card-body p-3 py-5">
                                             <p class="card-text text-muted text-center h5">Registros por Mes</p>
                                             <div class="icon p-1 text-center mt-4">
-                                                <button class="btn btn-danger mt-2"><i
-                                                        class="fa-solid fa-trash ms-2"></i> Eliminar</button>
-                                                <button class="btn btn-success mt-2"><i
-                                                        class="fa-solid fa-file-excel ms-2"></i>Exportar</button>
+                                                <button class="btn btn-danger mt-2"><i class="fa-solid fa-trash ms-2"></i> Eliminar</button>
+                                                <button class="btn btn-success mt-2"><i class="fa-solid fa-file-excel ms-2"></i>Exportar</button>
                                             </div>
                                         </div>
                                         <div class="card-footer gray">
@@ -151,19 +141,32 @@
                                 </div>
 
                                 <div class="col-lg-4">
-                                    <div class="card gray">
+                                    <div class="card">
                                         <div class="card-body p-3 py-5">
                                             <p class="card-text text-muted text-center h5">Registros por Año</p>
                                             <div class="icon p-1 text-center mt-4">
-                                                <button class="btn btn-danger mt-2"><i
-                                                        class="fa-solid fa-trash ms-2"></i> Eliminar</button>
-                                                <button class="btn btn-success mt-2"><i
-                                                        class="fa-solid fa-file-excel ms-2"></i>Exportar</button>
+                                                <button class="btn btn-danger mt-2"><i class="fa-solid fa-trash ms-2"></i> Eliminar</button>
+                                                <button class="btn btn-success mt-2"><i class="fa-solid fa-file-excel ms-2"></i>Exportar</button>
                                             </div>
                                         </div>
                                         <div class="card-footer gray">
                                             <p class="text-center mt-4 text-muted fw-bold">* Permite eliminar TODOS los
                                                 registros guardados en el año *</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body p-3 py-5">
+                                            <p class="card-text text-muted text-center h5">Registros Operativos</p>
+                                            <div class="icon p-1 text-center mt-4">
+                                                <button class="btn btn-danger mt-2"><i class="fa-solid fa-trash ms-2"></i> Eliminar</button>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer gray">
+                                            <p class="text-center mt-4 text-muted fw-bold">* Permite eliminar TODOS los
+                                                registros de movimientos operativos *</p>
                                         </div>
                                     </div>
                                 </div>
@@ -184,16 +187,14 @@
     </footer>
 
     <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- Data Table Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#example').DataTable({
                 bFilter: false,
                 "language": {
@@ -222,7 +223,7 @@
         // Loading spinner
         const preloaderWrapper = document.querySelector('.preloader-wrapper');
 
-        window.addEventListener('load', function () {
+        window.addEventListener('load', function() {
             preloaderWrapper.classList.add('fade-out-animation');
         });
     </script>

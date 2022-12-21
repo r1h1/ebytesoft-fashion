@@ -10,8 +10,7 @@
     <meta name="author" content="Daniel Rivas">
 
     <!-- Bootstrap 5.2 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../../assets/css/dashboard.css">
@@ -58,18 +57,15 @@
 
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-center text-muted" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i>
+                        <a class="nav-link dropdown-toggle text-center text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="profile"><i
-                                        class="fa-solid fa-user green-text me-2"></i>
+                                <a class="dropdown-item" href="profile"><i class="fa-solid fa-user green-text me-2"></i>
                                     Editar Perfil</a>
                             </li>
                             <li>
-                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white"
-                                    href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white" href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -85,9 +81,8 @@
 
         <div class="row">
 
-            <div class="col-md-12 col-lg-3 rounded rounded-5 border border-1 perfil shadow mb-5">
-                <p class="p-3 h5 text-muted mt-2">Bienvenido</p>
-                <div class="perfil-bienvenida mt-5">
+            <div class="col-md-12 col-lg-3 rounded rounded-5 border border-1 stretch-card perfil shadow">
+                <div class="mt-5 mb-4">
                     <div class="imagen text-center d-block">
                         <img src="../../../assets/img/logo.png" alt="logo" width="100">
                     </div>
@@ -96,14 +91,13 @@
                         <p class="mt-4"><i class="fa-solid fa-phone fs-6 me-2"></i> (+502) 4502-4363</p>
                         <p><i class="fa-solid fa-cash-register fs-6 me-2"></i> Caja #2</p>
                         <p class="h6 text-muted mt-4">Fashion, tu mejor opción</p>
-                        <a href="../../start" class="btn btn-danger mt-4 mb-5"><i
-                                class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                        <a href="../../start" class="btn btn-danger mt-4 mb-5"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                             Sesión</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-12 col-lg-9 px-4">
+            <div class="col-md-12 col-lg-9 px-4 mt-4">
 
                 <div class="bienvenida mb-4 text-end">
                     <p id="fechaYHora" class="h5 text-muted"></p>
@@ -118,7 +112,7 @@
                                     <div class="icon text-center p-4">
                                         <i class="fa-solid fa-money-bill h1 text-white"></i>
                                     </div>
-                                    <p class="card-text text-white text-center">Depósitos</p>
+                                    <p class="card-text text-white text-center">Tesorería</p>
                                 </div>
                             </div>
                         </a>
@@ -143,18 +137,6 @@
                                         <i class="fa-solid fa-list h1 text-white"></i>
                                     </div>
                                     <p class="card-text text-white text-center">Inventario</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="sale_start">
-                            <div class="p-2 purple zoom-out rounded rounded-3">
-                                <div class="card-body">
-                                    <div class="icon text-center p-4">
-                                        <i class="fa-solid fa-sack-dollar h1 text-white"></i>
-                                    </div>
-                                    <p class="card-text text-white text-center">Aperturar Caja</p>
                                 </div>
                             </div>
                         </a>
@@ -253,9 +235,6 @@
                             </div>
                         </a>
                     </div>
-                </div>
-
-                <div class="row row-cols-sm-1 row-cols-md-1 row-cols-lg-1 mt-2">
                     <div class="col">
                         <a href="maintenance">
                             <div class="p-2 gray-card zoom-out rounded rounded-3">
@@ -283,19 +262,21 @@
     </footer>
 
     <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script>
-
         // Función para obtener fecha y hora desde una instancia de tipo fecha
         // esta se concatena y se hace un inner a una propiedad HTML
         // la funcion se inicia al iniciar la página y se repite cada segundo para la fecha
         function fechaYHora() {
 
             var hoy = new Date();
-            var opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            var opciones = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
             var fecha = hoy.toLocaleString('es-GT', opciones);
             var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
 
@@ -312,10 +293,9 @@
         // Loading spinner
         const preloaderWrapper = document.querySelector('.preloader-wrapper');
 
-        window.addEventListener('load', function () {
+        window.addEventListener('load', function() {
             preloaderWrapper.classList.add('fade-out-animation');
         });
-
     </script>
 </body>
 

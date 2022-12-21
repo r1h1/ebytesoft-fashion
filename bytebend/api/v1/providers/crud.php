@@ -12,7 +12,7 @@
 
 
 	//conexión a base de datos php
-	include 'data/db.php';
+	include '../data/db.php';
 
 
 	//inicio de la funcion PDO
@@ -26,15 +26,17 @@
 			$sql->bindValue(':id', $_GET['id']);
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
-			header("HTTP/1.1 200 Exist ID");
+			header('HTTP/1.1 200');
+			header("Content-Type: application/json");
 			echo json_encode($sql->fetchAll());
 			exit;
-		} else {
-
+		}
+		else {
 			$sql = $pdo->prepare("SELECT * FROM providers");
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
-			header("HTTP/1.1 200 All Data");
+			header('HTTP/1.1 200');
+			header("Content-Type: application/json");
 			echo json_encode($sql->fetchAll());
 			exit;
 		}
@@ -54,7 +56,8 @@
 		$stmt->execute();
 		$idPost = $pdo->lastInsertId();
 		if ($idPost) {
-			header("HTTP/1.1 200 OK");
+			header('HTTP/1.1 200');
+			header("Content-Type: application/json");
 			echo json_encode($idPost);
 			exit;
 		}
@@ -73,7 +76,8 @@
 		$stmt->bindValue(':id', $_GET['id']);
 		$stmt->execute();
 		echo json_encode(1);
-		header("HTTP/1.1 200 OK");
+		header('HTTP/1.1 200');
+		header("Content-Type: application/json");
 		exit;
 	}
 
@@ -84,11 +88,12 @@
 		$stmt->bindValue(':id', $_GET['id']);
 		$stmt->execute();
 		echo json_encode(1);
-		header("HTTP/1.1 200 OK");
+		header('HTTP/1.1 200');
+		header("Content-Type: application/json");
 		exit;
 	}
 
 	//Si no corresponde a ninguna opción anterior
 	header("HTTP/1.1 400 Bad Request");
-
+	header("Content-Type: application/json");
 ?>
