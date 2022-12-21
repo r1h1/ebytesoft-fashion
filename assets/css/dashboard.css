@@ -74,7 +74,8 @@ footer {
 
 .perfil {
     margin-top: 18px;
-    height: 600px;
+    margin-bottom: 25px;
+    height: auto;
 }
 
 .perfil:hover {

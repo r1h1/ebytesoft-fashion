@@ -95,12 +95,12 @@
 
             <div class="col border border-1 shadow mt-3">
 
-                <div class="p-5 mx-auto">
+                <div class="p-4 mx-auto">
                     <div class="row">
                         <div class="col text-muted text-center">
                             <img src="../../../assets/img/logo.png" alt="logo" width="90">
-                            <h3 class="fw-bold mt-4">Daniel Rivas</h3>
-                            <p class="mt-4"><i class="fa-solid fa-phone fs-6 me-2"></i> (+502) 4502-4363</p>
+                            <h3 class="fw-bold mt-3">Daniel Rivas</h3>
+                            <p class="mt-3"><i class="fa-solid fa-phone fs-6 me-2"></i> (+502) 4502-4363</p>
                             <p><i class="fa-solid fa-envelope fs-6 me-2"></i> de.rivasherrera@gmail.com</p>
                             <p><i class="fa-solid fa-cash-register fs-6 me-2"></i> Caja #2</p>
                             <button class="btn btn-warning mt-3" data-bs-toggle="modal"

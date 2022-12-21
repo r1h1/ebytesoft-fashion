@@ -99,7 +99,7 @@
                             <p class="h3"><i class="fa-solid fa-money-bill h1 me-2"></i> <span class="fw-bold h2">Tesorería</span></p>
                         </div>
 
-                        <div class="col-lg-6 mt-2">
+                        <div class="col-lg-6">
                             <div class="row g-2">
                                 <div class="col">
                                     <div class="card">
@@ -143,15 +143,15 @@
                         <div class="header text-end">
                             <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#nuevodeposito"><i class="fa-solid fa-plus me-2 py-2"></i> Registrar
                                 Depósito</button>
-                            <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#nuevobanco"><i class="fa-solid fa-plus me-2 py-2"></i> Nuevo Banco / Entidad</button>
-                            <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#abrircaja"><i class="fa-solid fa-plus me-2 py-2"></i> Nueva Apertura de Caja</button>
-                            <button class="btn btn-warning mt-2" data-bs-toggle="modal" data-bs-target="#verbancos"><i class="fa-solid fa-eye me-2 py-2"></i> Ver Bancos Registrados</button>
+                            <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#nuevobanco"><i class="fa-solid fa-plus me-2 py-2"></i> Crear Banco</button>
+                            <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#abrircaja"><i class="fa-solid fa-plus me-2 py-2"></i> Aperturar Caja</button>
+                            <button class="btn btn-warning mt-2" data-bs-toggle="modal" data-bs-target="#verbancos"><i class="fa-solid fa-eye me-2 py-2"></i> Ver Bancos</button>
                         </div>
 
                         <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-6 mt-5">
+                            <div class="col-sm-12 col-md-12 col-lg-6 mt-4">
                                 <div class="table-responsive mt-5 mb-5">
-                                    <p class="fw-bold">Depósitos</p>
+                                    <p class="fw-bold text-center blue p-3 text-white">Depósitos</p>
                                     <table id="example" class="table table-striped">
                                         <thead class=" blue text-white">
                                             <tr>
@@ -176,9 +176,9 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-12 col-lg-6 mt-5">
+                            <div class="col-sm-12 col-md-12 col-lg-6 mt-4">
                                 <div class="table-responsive mt-5 mb-5">
-                                    <p class="fw-bold">Caja</p>
+                                    <p class="fw-bold text-center blue p-3 text-white">Caja</p>
                                     <table id="example2" class="table table-striped">
                                         <thead class=" blue text-white">
                                             <tr>

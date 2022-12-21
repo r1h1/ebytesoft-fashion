@@ -82,6 +82,7 @@
         <div class="row">
 
             <div class="col-md-12 col-lg-3 rounded rounded-5 border border-1 stretch-card perfil shadow">
+                <p class="h5 p-4 fw-bold text-muted">Bienvenido</p>
                 <div class="mt-5 mb-4">
                     <div class="imagen text-center d-block">
                         <img src="../../../assets/img/logo.png" alt="logo" width="100">
