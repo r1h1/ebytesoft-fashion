@@ -11,6 +11,7 @@
 		die();
 	}
 
+
 	//conexión a base de datos php
 	include '../data/db.php';
 
@@ -21,7 +22,7 @@
 
 	//Listar registros y consultar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-		$sql = $pdo->prepare("SELECT COUNT(*) FROM providers");
+		$sql = $pdo->prepare("SELECT COUNT(*) AS totalProviders FROM providers");
 		$sql->execute();
 		$sql->setFetchMode(PDO::FETCH_ASSOC);
 		header('HTTP/1.1 200');

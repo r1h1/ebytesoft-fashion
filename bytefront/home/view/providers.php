@@ -104,7 +104,7 @@
                                 <div class="card-body p-3">
                                     <p class="card-text text-muted fw-bold">Proveedores Registrados</p>
                                     <div class="icon p-1 text-center">
-                                        <p class="fw-bold h1">5</p>
+                                        <p class="fw-bold h1" id="total-providers"></p>
                                     </div>
                                 </div>
                             </div>

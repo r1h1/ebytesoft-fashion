@@ -38,9 +38,29 @@ function get() {
     }
 
 }
-
 get();
-setInterval(get, 10000);
+
+
+function getTotals() {
+
+    var url = 'http://localhost/mbyte/bytebend/api/v1/providers/count';
+    fetch(url)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Error en la operación, reporte al administrador del sistema',
+            footer: error,
+            confirmButtonText: 'Entendido',
+        }));
+
+    const mostrarData = (data) => {
+        document.getElementById('total-providers').innerHTML = data[0].totalProviders;
+    }
+
+}
+getTotals();
 
 
 
@@ -70,6 +90,7 @@ function getIdEditForm(id) {
     }
 
 }
+
 
 
 function post() {
@@ -127,16 +148,33 @@ function post() {
                 confirmButtonText: 'Entendido',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    get();
                     $('#nuevo').modal('toggle');
+                    get();
+                    getTotals();
+                    document.getElementById('id_provn').value = '';
+                    document.getElementById('codigo_provn').value = '';
+                    document.getElementById('tipo_provn').value = '';
+                    document.getElementById('tpago_provn').value = '';
+                    document.getElementById('numero_provn').value = '';
+                    document.getElementById('direccion_provn').value = '';
+                    document.getElementById('email_provn').value = '';
                 } else if (result.isDenied) {
-                    get();
                     $('#nuevo').modal('toggle');
+                    get();
+                    getTotals();
+                    document.getElementById('id_provn').value = '';
+                    document.getElementById('codigo_provn').value = '';
+                    document.getElementById('tipo_provn').value = '';
+                    document.getElementById('tpago_provn').value = '';
+                    document.getElementById('numero_provn').value = '';
+                    document.getElementById('direccion_provn').value = '';
+                    document.getElementById('email_provn').value = '';
                 }
             });
         }
     }
 }
+
 
 
 function put() {
@@ -177,9 +215,11 @@ function put() {
         }).then((result) => {
             if (result.isConfirmed) {
                 get();
+                getTotals();
                 $('#editar').modal('toggle');
             } else if (result.isDenied) {
                 get();
+                getTotals();
                 $('#editar').modal('toggle');
             }
         });
@@ -230,14 +270,17 @@ function delete_method(id) {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         get();
+                        getTotals();
                     } else if (result.isDenied) {
                         get();
+                        getTotals();
                     }
                 });
             }
 
         } else if (result.isDenied) {
             get();
+            getTotals();
         }
     });
 
