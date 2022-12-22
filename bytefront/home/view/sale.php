@@ -10,8 +10,7 @@
     <meta name="author" content="Daniel Rivas">
 
     <!-- Bootstrap 5.2 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../../assets/css/clients.css">
@@ -59,18 +58,15 @@
 
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle ms-2 text-muted" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i>
+                        <a class="nav-link dropdown-toggle ms-2 text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="profile"><i
-                                        class="fa-solid fa-user green-text me-2"></i>
+                                <a class="dropdown-item" href="profile"><i class="fa-solid fa-user green-text me-2"></i>
                                     Editar Perfil</a>
                             </li>
                             <li>
-                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white"
-                                    href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white" href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -86,8 +82,7 @@
 
         <div class="col text-start mb-2 contenedor-96 px-5">
             <h2 class="fw-bold mb-3">Venta</h2>
-            <a href="dashboard" class="boton oranje text-white mb-5"><i
-                    class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
+            <a href="dashboard" class="boton oranje text-white mb-5"><i class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
         </div>
 
         <div class="row contenedor-96 mx-auto px-3">
@@ -100,16 +95,14 @@
                         <div class="col-lg-6 mt-3 mb-5">
 
                             <div class="busquedas input-group">
-                                <input type="number" placeholder="Busca el cliente aquí"
-                                    class="form-control gray inputClass">
+                                <input type="number" placeholder="Busca el cliente aquí" class="form-control gray inputClass">
                                 <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
                             </div>
 
                         </div>
                         <div class="col-lg-6 mt-3">
                             <div class="añadir-cliente">
-                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuevo"
-                                    onclick="codigoCliente()"><i class="fa-solid fa-plus me-2"></i> Nuevo
+                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#nuevo" onclick="codigoCliente()"><i class="fa-solid fa-plus me-2"></i> Nuevo
                                     Cliente</button>
                                 <button class="btn btn-danger"><i class="fa-solid fa-user me-2"></i> Facturar
                                     CF</button>
@@ -196,15 +189,13 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="busquedas input-group">
-                                    <input type="text" placeholder="Escanea el producto aquí"
-                                        class="form-control gray inputClass">
+                                    <input type="text" placeholder="Escanea el producto aquí" class="form-control gray inputClass">
                                     <span class="input-group-text"><i class="fa-solid fa-barcode"></i></span>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="busquedas input-group">
-                                    <input type="text" placeholder="Ingresa el producto manualmente aquí"
-                                        class="form-control gray inputClass">
+                                    <input type="text" placeholder="Ingresa el producto manualmente aquí" class="form-control gray inputClass">
                                     <span class="input-group-text"><i class="fa-solid fa-hand"></i></span>
                                 </div>
                             </div>
@@ -232,56 +223,8 @@
                                         <td>@mdo</td>
                                         <td>@mdo</td>
                                         <td class="text-center">
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                    class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                    class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                    class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                    class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                    class="fa-solid fa-trash"></i></button>
+                                            <button class="btn btn-danger" onclick="apiDelete()"><i class="fa-solid fa-trash"></i></button>
+                                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#descuento-adicional"><i class="fa-solid fa-gift"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -294,10 +237,8 @@
                                     <!-- Vacio -->
                                 </div>
                                 <div class="col-lg-12 text-end mt-4 mb-4">
-                                    <button class="btn btn-success px-5 py-3 fw-bold" data-bs-toggle="modal"
-                                        data-bs-target="#pago-efectivo">Pago Efectivo</button>
-                                    <button class="btn btn-warning px-5 py-3 fw-bold" data-bs-toggle="modal"
-                                        data-bs-target="#pago-tarjeta">Pago Tarjeta</button>
+                                    <button class="btn btn-success px-5 py-3 fw-bold" data-bs-toggle="modal" data-bs-target="#pago-efectivo">Pago Efectivo</button>
+                                    <button class="btn btn-warning px-5 py-3 fw-bold" data-bs-toggle="modal" data-bs-target="#pago-tarjeta">Pago Tarjeta</button>
                                     <a href="dashboard" class="btn btn-danger px-5 py-3 fw-bold">Cancelar</a>
                                 </div>
                             </div>
@@ -310,15 +251,13 @@
             <!-- Modal pago efectivo -->
             <div class="moda-new">
 
-                <div class="modal fade" id="pago-efectivo" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="pago-efectivo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header green">
                                 <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
                                     Efectivo</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form class="row g-3">
@@ -342,19 +281,16 @@
 
                                     <div class="col-12">
                                         <label class="form-label">Efectivo Recibido *</label>
-                                        <input type="number" id="efectivo-recibido" class="form-control gray inputClass"
-                                            step="any" placeholder="0.00" min="1" onchange="calcularCambioEfectivo()">
+                                        <input type="number" id="efectivo-recibido" class="form-control gray inputClass" step="any" placeholder="0.00" min="1" onchange="calcularCambioEfectivo()">
                                     </div>
 
                                     <div class="col-12">
                                         <label class="form-label">Cambio</label>
-                                        <input type="number" id="cambio" class="form-control gray inputClass" step="any"
-                                            placeholder="0.00" disabled>
+                                        <input type="number" id="cambio" class="form-control gray inputClass" step="any" placeholder="0.00" disabled>
                                     </div>
 
                                     <div class="col-12 text-center mt-4">
-                                        <button type="submit" class="btn btn-success px-3 py-2"><i
-                                                class="fa-solid fa-print me-2"></i> Facturar</button>
+                                        <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-print me-2"></i> Facturar</button>
                                     </div>
                                 </form>
                             </div>
@@ -369,15 +305,13 @@
             <!-- Modal pago tarjeta -->
             <div class="moda-new">
 
-                <div class="modal fade" id="pago-tarjeta" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="pago-tarjeta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header oranje">
                                 <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
                                     Tarjeta</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form class="row g-3">
@@ -410,11 +344,9 @@
                                     </div>
 
                                     <div class="col-12 text-center mt-4">
-                                        <button type="submit" class="btn btn-primary px-3 py-2"><i
-                                                class="fa-regular fa-credit-card me-2"></i></i> Software
+                                        <button type="submit" class="btn btn-primary px-3 py-2"><i class="fa-regular fa-credit-card me-2"></i></i> Software
                                             POS</button>
-                                        <button type="submit" class="btn btn-success px-3 py-2"><i
-                                                class="fa-solid fa-print me-2"></i> Facturar</button>
+                                        <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-print me-2"></i> Facturar</button>
                                     </div>
                                 </form>
                             </div>
@@ -425,6 +357,7 @@
             </div>
             <!-- Fin modal pago tarjeta -->
 
+
             <!-- Modal para crear nuevos clientes -->
             <div class="moda-new">
 
@@ -434,39 +367,31 @@
                             <div class="modal-header blue">
                                 <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
                                     Agregar</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form class="row g-3">
 
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control gray inputClass" placeholder="Código"
-                                            id="empleado-codigo" hidden>
+                                        <input type="text" class="form-control gray inputClass" placeholder="Código" id="empleado-codigo" hidden>
                                     </div>
                                     <div class="col-md-12">
-                                        <input type="number" class="form-control gray inputClass" id="inputPassword4"
-                                            placeholder="NIT *" min="1">
+                                        <input type="number" class="form-control gray inputClass" id="inputPassword4" placeholder="NIT *" min="1">
                                     </div>
                                     <div class="col-12">
-                                        <input type="text" class="form-control gray inputClass"
-                                            placeholder="Nombre Completo *">
+                                        <input type="text" class="form-control gray inputClass" placeholder="Nombre Completo *">
                                     </div>
                                     <div class="col-12">
-                                        <input type="text" class="form-control gray inputClass"
-                                            placeholder="Dirección *">
+                                        <input type="text" class="form-control gray inputClass" placeholder="Dirección *">
                                     </div>
                                     <div class="col-6">
-                                        <input type="number" class="form-control gray inputClass"
-                                            placeholder="Teléfono *">
+                                        <input type="number" class="form-control gray inputClass" placeholder="Teléfono *">
                                     </div>
                                     <div class="col-6">
-                                        <input type="email" class="form-control gray inputClass"
-                                            placeholder="Correo Electrónico *">
+                                        <input type="email" class="form-control gray inputClass" placeholder="Correo Electrónico *">
                                     </div>
                                     <div class="col-12">
-                                        <select class="form-select gray inputClass" id="tipo-membresia"
-                                            onchange="membresiaCliente()">
+                                        <select class="form-select gray inputClass" id="tipo-membresia" onchange="membresiaCliente()">
                                             <option value="0">Tipo de Membresía</option>
                                             <option value="0">Ninguna</option>
                                             <option value="1">Fashion Oro</option>
@@ -474,14 +399,12 @@
                                         </select>
                                     </div>
                                     <div class="col-12" id="div-membresia">
-                                        <input type="email" class="form-control gray inputClass" placeholder=""
-                                            id="membresia-codigo" readonly>
+                                        <input type="email" class="form-control gray inputClass" placeholder="" id="membresia-codigo" readonly>
                                         <p class="text-muted text-center">Este es el código de su
                                             membresía, guárdelo.</p>
                                     </div>
                                     <div class="col-12 text-center">
-                                        <button type="submit" class="btn btn-success px-3 py-2"><i
-                                                class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                        <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
                                             Datos</button>
                                     </div>
                                 </form>
@@ -497,6 +420,45 @@
             </div>
             <!-- Fin modal nuevo cliente -->
 
+
+            <!-- Modal descuento adicional -->
+            <div class="moda-new">
+
+                <div class="modal fade" id="descuento-adicional" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header green">
+                                <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
+                                    Descuento Adicional</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="row g-3">
+
+                                    <div class="col-12">
+                                        <input type="number" id="efectivo-recibido" class="form-control gray inputClass" 
+                                        step="1" placeholder="Porcentaje de Descuento *" min="1">
+                                    </div>
+
+                                    <div class="col-12">
+                                        <input type="text" class="form-control gray inputClass" placeholder="Usuario (Autoriza) *" min="1">
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="number" pattern="[0-9]*" inputmode="numeric" min="1111" max="9999" style="-webkit-text-security: disc;" class="form-control gray inputClass" placeholder="Clave de Acceso (Autoriza) *" min="1">
+                                    </div>
+
+                                    <div class="col-12 text-center mt-4">
+                                        <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-hand-holding-heart me-2"></i> Aplicar</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin modal descuento adicional -->
+
         </div>
         </div>
 
@@ -510,9 +472,7 @@
     </footer>
 
     <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script src="../../logic/sale/crud.js"></script>
 
@@ -523,7 +483,7 @@
 
     <script>
         // Documento de traducción para plugin DataTable
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#example").DataTable({
                 bFilter: false,
                 language: {
@@ -555,7 +515,7 @@
         // Loading spinner
         const preloaderWrapper = document.querySelector('.preloader-wrapper');
 
-        window.addEventListener('load', function () {
+        window.addEventListener('load', function() {
             preloaderWrapper.classList.add('fade-out-animation');
         });
     </script>
