@@ -115,8 +115,7 @@
                         <div class="row mt-5 mb-5 px-3">
 
                             <div class="col-lg-4 mt-5 text-center">
-                                <p class="h3"><i class="fa-solid fa-user h1 me-2"></i> <span class="fw-bold h2">Daniel
-                                        Rivas</span></p>
+                                <p class="h2 fw-bold">Daniel Rivas</p>
                                 <div class="row mt-5">
                                     <div class="col-12 text-center mt-2 mb-4">
                                         <div class="header">
@@ -140,7 +139,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-5 mt-4">
+                            <div class="col mt-4">
 
                                 <div class="row g-2">
 
@@ -193,7 +192,7 @@
                                     <span class="input-group-text"><i class="fa-solid fa-barcode"></i></span>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-5">
                                 <div class="busquedas input-group">
                                     <input type="text" placeholder="Ingresa el producto manualmente aquí" class="form-control gray inputClass">
                                     <span class="input-group-text"><i class="fa-solid fa-hand"></i></span>
@@ -205,7 +204,7 @@
                             <table id="example" class="table table-striped">
                                 <thead class="blue text-white">
                                     <tr>
-                                        <th scope="col">#</th>
+                                        <th scope="col">Código</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Cant</th>
                                         <th scope="col">Precio</th>
@@ -216,12 +215,14 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
+                                        <th scope="row">7594758475</th>
+                                        <td>Blusa Mujer</td>
+                                        <td>
+                                            <input type="number" class="form-control text-center inputClass" value="1" min="1">
+                                        </td>
+                                        <td>50</td>
+                                        <td>50%</td>
+                                        <td>25</td>
                                         <td class="text-center">
                                             <button class="btn btn-danger" onclick="apiDelete()"><i class="fa-solid fa-trash"></i></button>
                                             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#descuento-adicional"><i class="fa-solid fa-gift"></i></button>
@@ -436,15 +437,14 @@
                                 <form class="row g-3">
 
                                     <div class="col-12">
-                                        <input type="number" id="efectivo-recibido" class="form-control gray inputClass" 
-                                        step="1" placeholder="Porcentaje de Descuento *" min="1">
+                                        <input type="number" id="efectivo-recibido" class="form-control gray inputClass" step="1" placeholder="Porcentaje de Descuento *" min="1">
                                     </div>
 
                                     <div class="col-12">
                                         <input type="text" class="form-control gray inputClass" placeholder="Usuario (Autoriza) *" min="1">
                                     </div>
                                     <div class="col-12">
-                                        <input type="number" pattern="[0-9]*" inputmode="numeric" min="1111" max="9999" style="-webkit-text-security: disc;" class="form-control gray inputClass" placeholder="Clave de Acceso (Autoriza) *" min="1">
+                                        <input type="number" pattern="[0-9]*" inputmode="numeric" min="1111" max="99999999" style="-webkit-text-security: disc;" class="form-control gray inputClass" placeholder="Clave de Acceso (Autoriza) *" min="1">
                                     </div>
 
                                     <div class="col-12 text-center mt-4">
