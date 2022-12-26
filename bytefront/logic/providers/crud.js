@@ -4,13 +4,7 @@ function get() {
     fetch(url)
         .then(response => response.json())
         .then(data => mostrarData(data))
-        .catch(error => Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Error en la operación, reporte al administrador del sistema',
-            footer: error,
-            confirmButtonText: 'Entendido',
-        }));
+        .catch(error => console.log('Posible conexión con BackEnd incorrecta'))
 
     const mostrarData = (data) => {
 
@@ -47,13 +41,7 @@ function getTotals() {
     fetch(url)
         .then(response => response.json())
         .then(data => mostrarData(data))
-        .catch(error => Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Error en la operación, reporte al administrador del sistema',
-            footer: error,
-            confirmButtonText: 'Entendido',
-        }));
+        .catch(error => document.getElementById('total-providers').innerHTML = '0');
 
     const mostrarData = (data) => {
         document.getElementById('total-providers').innerHTML = data[0].totalProviders;
@@ -75,7 +63,6 @@ function getIdEditForm(id) {
             icon: 'error',
             title: 'Oops...',
             text: 'Error en la operación, reporte al administrador del sistema',
-            footer: error,
             confirmButtonText: 'Entendido',
         }));
 
@@ -136,9 +123,8 @@ function post() {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Error en la operación, reporte al administrador del sistema',
-                footer: error,
                 confirmButtonText: 'Entendido',
-            }));
+            }, console.log('Posible conexión con BackEnd incorrecta')));
 
         const mostrarData = (data) => {
             Swal.fire({
@@ -202,9 +188,8 @@ function put() {
             icon: 'error',
             title: 'Oops...',
             text: 'Error en la operación, reporte al administrador del sistema',
-            footer: error,
             confirmButtonText: 'Entendido',
-        }));
+        }, console.log('Posible conexión con BackEnd incorrecta')));
 
     const mostrarData = (data) => {
         Swal.fire({
@@ -235,7 +220,7 @@ function delete_method(id) {
         title: '¿Está seguro?',
         text: 'Los datos no se podrán recuperar',
         showDenyButton: true,
-        confirmButtonText: 'Si, Eliminar',
+        confirmButtonText: 'Eliminar',
         denyButtonText: `Cancelar`,
     }).then((result) => {
 
@@ -256,9 +241,8 @@ function delete_method(id) {
                     icon: 'error',
                     title: 'Oops...',
                     text: 'Error en la operación, reporte al administrador del sistema',
-                    footer: error,
                     confirmButtonText: 'Entendido',
-                }));
+                }, console.log('Posible conexión con BackEnd incorrecta')));
 
             const exitoso = (result) => {
 
