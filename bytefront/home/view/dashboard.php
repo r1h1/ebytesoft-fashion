@@ -203,12 +203,22 @@
                         </a>
                     </div>
                     <div class="col">
-                        <div class="p-2 blue zoom-out rounded rounded-3">
+                        <div class="p-2 purple zoom-out rounded rounded-3">
                             <div class="card-body">
                                 <div class="icon text-center p-4">
                                     <i class="fa-solid fa-tag h1 text-white"></i>
                                 </div>
-                                <p class="card-text text-white text-center">Descuentos</p>
+                                <p class="card-text text-white text-center">Lista Descuentos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-2 blue zoom-out rounded rounded-3">
+                            <div class="card-body">
+                                <div class="icon text-center p-4">
+                                    <i class="fa-solid fa-hand-holding-dollar h1 text-white"></i>
+                                </div>
+                                <p class="card-text text-white text-center">Listas Precios</p>
                             </div>
                         </div>
                     </div>
@@ -237,7 +247,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="maintenance">
+                        <a href="">
                             <div class="p-2 gray-card zoom-out rounded rounded-3">
                                 <div class="card-body">
                                     <div class="icon text-center p-4">
@@ -256,7 +266,7 @@
     </main>
 
     <!-- Footer or pie de página -->
-    <footer class="footer py-2 bg-light text-center">
+    <footer class="py-2 bg-light text-center">
         <div class="container">
             <span class="text-muted">&copy; MiniByte Studios, 2022</span>
         </div>
