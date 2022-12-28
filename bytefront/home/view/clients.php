@@ -110,7 +110,7 @@
                                 <div class="card-body p-3">
                                     <p class="card-text text-muted fw-bold">Clientes Registrados</p>
                                     <div class="icon p-1 text-center">
-                                        <p class="fw-bold h1">3</p>
+                                        <p class="fw-bold h1" id="total-clients"></p>
                                     </div>
                                 </div>
                             </div>
@@ -139,61 +139,12 @@
                                         <th scope="col">Dirección</th>
                                         <th scope="col">Teléfono</th>
                                         <th scope="col">Email</th>
+                                        <th scope="col">Puntos Disponibles</th>
                                         <th scope="col" class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-warning" data-bs-toggle="modal"
-                                                data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                    class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-warning" data-bs-toggle="modal"
-                                                data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                    class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-warning" data-bs-toggle="modal"
-                                                data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i
-                                                    class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
+                                <tbody id="tabla-de-datos-body">
+                                    
                                 </tbody>
                             </table>
                         </div>
