@@ -37,14 +37,14 @@ get();
 
 function getTotals() {
 
-    var url = 'http://localhost/mbyte/bytebend/api/v1/providers/count';
+    var url = 'http://localhost/mbyte/bytebend/api/v1/providers/crud';
     fetch(url)
         .then(response => response.json())
         .then(data => mostrarData(data))
         .catch(error => document.getElementById('total-providers').innerHTML = '0');
 
     const mostrarData = (data) => {
-        document.getElementById('total-providers').innerHTML = data[0].totalProviders;
+        document.getElementById('total-providers').innerHTML = data.length;
     }
 
 }

@@ -1,3 +1,4 @@
+
 // Función para generar números random
 function randomNumberGenerator() {
 
@@ -5,7 +6,7 @@ function randomNumberGenerator() {
     const charactersLength = characters.length;
     let result = "";
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 6; i++) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
 
@@ -13,31 +14,17 @@ function randomNumberGenerator() {
 
 }
 
-// Función para setear los valores en los inputs de membresía
-function membresiaCliente() {
 
-    var membresia = document.getElementById("tipo-membresia").value;
-
-    if (membresia != 0) {
-        document.getElementById("div-membresia").style.display = "block";
-        document.getElementById("membresia-codigo").value = 'FS' + '-' + randomNumberGenerator();
-    }
-    else {
-        document.getElementById("div-membresia").style.display = "none";
-        document.getElementById("membresia-codigo").value = '';
-    }
+// Función para setear el codigo generado
+function codigo() {
+    document.getElementById("codigo_n").value = 'LOCAL' + randomNumberGenerator();
 }
 
-
-// Función para setear los valores en los inputs de empleado
-function codigoCliente() {
-    document.getElementById("codigo").value = 'CL' + randomNumberGenerator();
-}
 
 
 function get() {
 
-    var url = 'http://localhost/mbyte/bytebend/api/v1/clients/crud';
+    var url = 'http://localhost/mbyte/bytebend/api/v1/locals/crud';
     fetch(url)
         .then(response => response.json())
         .then(data => mostrarData(data))
@@ -53,14 +40,11 @@ function get() {
             <td hidden>${data[i].id}</td>
             <td>${j = i + 1}</td>
             <td class="text-uppercase">${data[i].codigo}</td>
-            <td>${data[i].membresia}</td>
-            <td>${data[i].codigoMembresia}</td>
-            <td>${data[i].nit}</td>
-            <td>${data[i].nombreCompleto}</td>
-            <td>${data[i].direccion}</td>
+            <td>${data[i].nombreLocal}</td>
+            <td>${data[i].nombreEmpresa}</td>
             <td>${data[i].telefono}</td>
+            <td>${data[i].direccion}</td>
             <td>${data[i].correoElectronico}</td>
-            <td>${data[i].puntosDisponibles}</td>
             <td class="text-center">
                 <a class="btn btn-warning text-dark fw-bold" onclick="getIdEditForm(${data[i].id})" data-bs-toggle="modal" data-bs-target="#editar"><i class="fa-solid fa-pen-to-square"></i></a>
                 <a class="btn btn-danger text-white fw-bold" onclick="delete_method(${data[i].id})"><i class="fa-solid fa-trash"></i></a>
@@ -77,14 +61,14 @@ get();
 
 function getTotals() {
 
-    var url = 'http://localhost/mbyte/bytebend/api/v1/clients/crud';
+    var url = 'http://localhost/mbyte/bytebend/api/v1/locals/crud';
     fetch(url)
         .then(response => response.json())
         .then(data => mostrarData(data))
-        .catch(error => document.getElementById('total-clients').innerHTML = '0');
+        .catch(error => document.getElementById('total-locals').innerHTML = '0');
 
     const mostrarData = (data) => {
-        document.getElementById('total-clients').innerHTML = data.length;
+        document.getElementById('total-locals').innerHTML = data.length;
     }
 
 }
@@ -92,9 +76,36 @@ getTotals();
 
 
 
+function getEnterprices() {
+
+    var url = 'http://localhost/mbyte/bytebend/api/v1/locals/enterprices';
+    fetch(url)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => console.log(error));
+
+    const mostrarData = (data) => {
+
+        let body = '';
+
+        for (var i = 0; i < data.length; i++) {
+            var j = 0;
+            body += `<option value="${data[i].id}">${data[i].nombreEmpresa}</option>`
+        }
+
+        document.getElementById('empresaPertenece').innerHTML = body;
+        document.getElementById('empresaEdicion').innerHTML = body;
+
+    }
+
+}
+getEnterprices();
+
+
+
 function getIdEditForm(id) {
 
-    var url = 'http://localhost/mbyte/bytebend/api/v1/clients/crud?id=' + id;
+    var url = 'http://localhost/mbyte/bytebend/api/v1/locals/crud?id=' + id;
 
     fetch(url)
         .then(response => response.json())
@@ -104,16 +115,15 @@ function getIdEditForm(id) {
             title: 'Oops...',
             text: 'Error en la operación, reporte al administrador del sistema',
             confirmButtonText: 'Entendido',
-        }));
+        }, console.log(error)));
 
     const mostrarData = (data) => {
-        document.getElementById('id_c').value = data[0].id;
-        document.getElementById('nit_e').value = data[0].nit;
-        document.getElementById('nombre_e').value = data[0].nombreCompleto;
-        document.getElementById('direccion_e').value = data[0].direccion;
+        document.getElementById('idl').value = data[0].id;
+        document.getElementById('nombre_e').value = data[0].nombreLocal;
+        document.getElementById('empresaActual').value = data[0].nombreEmpresa;
         document.getElementById('telefono_e').value = data[0].telefono;
+        document.getElementById('direccion_e').value = data[0].direccion;
         document.getElementById('correo_e').value = data[0].correoElectronico;
-        document.getElementById('membresia-actual').value = data[0].membresia;
     }
 
 }
@@ -122,20 +132,17 @@ function getIdEditForm(id) {
 
 function post() {
 
-    var url = "http://localhost/mbyte/bytebend/api/v1/clients/crud";
+    var url = "http://localhost/mbyte/bytebend/api/v1/locals/crud";
 
-    var codigo = document.getElementById('codigo').value;
-    var nit = document.getElementById('nit_n').value;
+    var codigo = document.getElementById('codigo_n').value;
     var nombre = document.getElementById('nombre_n').value;
-    var direccion = document.getElementById('direccion_n').value;
+    var empresa = document.getElementById('empresaPertenece').value;
     var telefono = document.getElementById('telefono_n').value;
+    var direccion = document.getElementById('direccion_n').value;
     var correo = document.getElementById('correo_n').value;
-    var tipoMembresia = document.getElementById('tipo-membresia').value;
-    var membresiaCodigo = document.getElementById('membresia-codigo').value;
-    var puntosDisponibles = '0';
 
 
-    if (nit == "" || nombre == "" || direccion == "" || telefono == "" || correo == "") {
+    if (nombre == "" || empresa == "" || telefono == "" || direccion == "" || codigo == "" || correo == "") {
         Swal.fire({
             icon: 'error',
             title: 'Error en la Operación',
@@ -143,19 +150,16 @@ function post() {
             confirmButtonText: 'Entendido',
         });
     }
-    else if (nit != "" || nombre != "" || direccion != "" || telefono != "" || correo != "") {
+    else if (nombre != "" || empresa != "" || telefono != "" || direccion != "" || codigo != "" || correo != "") {
 
         var formdata = new FormData();
 
         formdata.append("codigo", codigo);
-        formdata.append("membresia", tipoMembresia);
-        formdata.append("codigoMembresia", membresiaCodigo);
-        formdata.append("nit", nit);
-        formdata.append("nombreCompleto", nombre);
-        formdata.append("direccion", direccion);
+        formdata.append("nombreLocal", nombre);
         formdata.append("telefono", telefono);
+        formdata.append("direccion", direccion);
         formdata.append("correoElectronico", correo);
-        formdata.append("puntosDisponibles", puntosDisponibles);
+        formdata.append("empresaPertenece", empresa);
 
         var requestOptions = {
             method: 'POST',
@@ -169,9 +173,9 @@ function post() {
             .catch(error => Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Error en la operación, reporte al administrador',
+                text: 'Error en la operación, reporte al administrador del sistema',
                 confirmButtonText: 'Entendido',
-            }, console.log('Posible conexión con BackEnd incorrecta')));
+            }, console.log('Posible conexión con BackEnd incorrecta' + error)));
 
         const mostrarData = (data) => {
             Swal.fire({
@@ -184,27 +188,18 @@ function post() {
                     $('#nuevo').modal('toggle');
                     get();
                     getTotals();
-                    document.getElementById('codigo').value = '';
-                    document.getElementById('nit_n').value = '';
                     document.getElementById('nombre_n').value = '';
-                    document.getElementById('direccion_n').value = '';
                     document.getElementById('telefono_n').value = '';
+                    document.getElementById('direccion_n').value = '';
                     document.getElementById('correo_n').value = '';
-                    document.getElementById('tipo-membresia').value = 0;
-                    document.getElementById('membresia-codigo').value = '';
-                    document.getElementById("div-membresia").style.display = "none";
                 } else if (result.isDenied) {
                     $('#nuevo').modal('toggle');
                     get();
                     getTotals();
-                    document.getElementById('id_provn').value = '';
-                    document.getElementById('codigo_provn').value = '';
-                    document.getElementById('tipo_provn').value = '';
-                    document.getElementById('tpago_provn').value = '';
-                    document.getElementById('numero_provn').value = '';
-                    document.getElementById('direccion_provn').value = '';
-                    document.getElementById('email_provn').value = '';
-                    document.getElementById("div-membresia").style.display = "none";
+                    document.getElementById('nombre_n').value = '';
+                    document.getElementById('telefono_n').value = '';
+                    document.getElementById('direccion_n').value = '';
+                    document.getElementById('correo_n').value = '';
                 }
             });
         }
@@ -215,17 +210,16 @@ function post() {
 
 function put() {
 
-    var idc = document.getElementById('id_c').value;
-    var nitc = document.getElementById('nit_e').value;
-    var nombrec = document.getElementById('nombre_e').value;
-    var direccionc = document.getElementById('direccion_e').value;
-    var telefonoc = document.getElementById('telefono_e').value;
-    var correoc = document.getElementById('correo_e').value;
-    var tipoMembresiac = document.getElementById('membresia_nueva').value;
+    var idl = document.getElementById('idl').value;
+    var nombrel = document.getElementById('nombre_e').value;
+    var empresal = document.getElementById('empresaEdicion').value;
+    var telefonol = document.getElementById('telefono_e').value;
+    var direccionl = document.getElementById('direccion_e').value;
+    var correol = document.getElementById('correo_e').value;
 
+    var url = "http://localhost/mbyte/bytebend/api/v1/locals/crud?nombreLocal=" + nombrel + "&telefono=" + telefonol +
+        "&direccion=" + direccionl + "&correoElectronico=" + correol + "&empresaPertenece=" + empresal + "&id=" + idl;
 
-    var url = "http://localhost/mbyte/bytebend/api/v1/clients/crud?membresia=" + tipoMembresiac + "&nit=" + nitc +
-    "&nombreCompleto=" + nombrec + "&direccion=" + direccionc + "&telefono=" + telefonoc + "&correoElectronico=" + correoc + "&id=" + idc;
 
     var requestOptions = {
         method: 'PUT',
@@ -240,7 +234,7 @@ function put() {
             title: 'Oops...',
             text: 'Error en la operación, reporte al administrador',
             confirmButtonText: 'Entendido',
-        }, console.log(error)));
+        }, console.log('Posible conexión con BackEnd incorrecta' + error)));
 
     const mostrarData = (data) => {
         Swal.fire({
@@ -283,7 +277,7 @@ function delete_method(id) {
             };
 
 
-            var url = 'http://localhost/mbyte/bytebend/api/v1/clients/crud?id=' + id;
+            var url = 'http://localhost/mbyte/bytebend/api/v1/locals/crud?id=' + id;
 
             fetch(url, requestOptions)
                 .then(response => response.text())

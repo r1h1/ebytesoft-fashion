@@ -98,10 +98,11 @@
                 </div>
             </div>
 
-            <div class="col-md-12 col-lg-9 px-4 mt-4">
+            <div class="col-md-12 col-lg-9 px-4">
 
-                <div class="bienvenida mb-4 text-end">
+                <div class="bienvenida mb-4 text-end mt-3">
                     <p id="fechaYHora" class="h5 text-muted"></p>
+                    <span class="text-muted">&copy; MiniByte Studios</span>
                 </div>
 
                 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-2">
@@ -246,18 +247,6 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col">
-                        <a href="">
-                            <div class="p-2 gray-card zoom-out rounded rounded-3">
-                                <div class="card-body">
-                                    <div class="icon text-center p-4">
-                                        <i class="fa-solid fa-gear h1 text-white"></i>
-                                    </div>
-                                    <p class="card-text text-white text-center">Mantenimiento</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
                 </div>
             </div>
 
@@ -266,10 +255,8 @@
     </main>
 
     <!-- Footer or pie de página -->
-    <footer class="py-2 bg-light text-center">
-        <div class="container">
-            <span class="text-muted">&copy; MiniByte Studios, 2022</span>
-        </div>
+    <footer class="mt-5">
+        
     </footer>
 
     <!-- Bootstrap Bundle with Popper -->

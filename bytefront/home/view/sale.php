@@ -193,10 +193,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-5">
-                                <div class="busquedas input-group">
-                                    <input type="text" placeholder="Ingresa el producto manualmente aquí" class="form-control gray inputClass">
-                                    <span class="input-group-text"><i class="fa-solid fa-hand"></i></span>
-                                </div>
+                                <a class="btn btn-success py-2" data-bs-toggle="modal" data-bs-target="#nuevo"><i class="fa-solid fa-hand me-2"></i> Ingreso Manual</a>
                             </div>
                         </div>
 
@@ -374,33 +371,33 @@
                                 <form class="row g-3">
 
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control gray inputClass" placeholder="Código" id="empleado-codigo" hidden>
+                                        <input type="text" class="form-control gray inputClass" placeholder="Código" id="codigo" hidden>
                                     </div>
                                     <div class="col-md-12">
-                                        <input type="number" class="form-control gray inputClass" id="inputPassword4" placeholder="NIT *" min="1">
+                                        <input type="number" class="form-control gray inputClass" id="nit_n" placeholder="NIT *" min="1">
                                     </div>
                                     <div class="col-12">
-                                        <input type="text" class="form-control gray inputClass" placeholder="Nombre Completo *">
+                                        <input type="text" class="form-control gray inputClass" placeholder="Nombre Completo *" id="nombre_n">
                                     </div>
                                     <div class="col-12">
-                                        <input type="text" class="form-control gray inputClass" placeholder="Dirección *">
+                                        <input type="text" class="form-control gray inputClass" placeholder="Dirección *" id="direccion_n">
                                     </div>
                                     <div class="col-6">
-                                        <input type="number" class="form-control gray inputClass" placeholder="Teléfono *">
+                                        <input type="number" class="form-control gray inputClass" placeholder="Teléfono *" id="telefono_n">
                                     </div>
                                     <div class="col-6">
-                                        <input type="email" class="form-control gray inputClass" placeholder="Correo Electrónico *">
+                                        <input type="email" class="form-control gray inputClass" placeholder="Correo Electrónico *" id="correo_n">
                                     </div>
                                     <div class="col-12">
                                         <select class="form-select gray inputClass" id="tipo-membresia" onchange="membresiaCliente()">
                                             <option value="0">Tipo de Membresía</option>
                                             <option value="0">Ninguna</option>
-                                            <option value="1">Fashion Oro</option>
-                                            <option value="2">Fashion Platinum</option>
+                                            <option value="Oro">Fashionista Oro</option>
+                                            <option value="Platinum">Fashionista Platinum</option>
                                         </select>
                                     </div>
                                     <div class="col-12" id="div-membresia">
-                                        <input type="email" class="form-control gray inputClass" placeholder="" id="membresia-codigo" readonly>
+                                        <input type="text" class="form-control gray inputClass" placeholder="" id="membresia-codigo" readonly>
                                         <p class="text-muted text-center">Este es el código de su
                                             membresía, guárdelo.</p>
                                     </div>

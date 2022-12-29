@@ -22,13 +22,25 @@
 
 	//Listar registros y consultar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-		$sql = $pdo->prepare("SELECT COUNT(*) AS totalProviders FROM providers");
-		$sql->execute();
-		$sql->setFetchMode(PDO::FETCH_ASSOC);
-		header('HTTP/1.1 200');
-		header("Content-Type: application/json");
-		echo json_encode($sql->fetchAll());
-		exit;
+		if (isset($_GET['id'])) {
+			$sql = $pdo->prepare("SELECT * FROM enterprice WHERE id=:id");
+			$sql->bindValue(':id', $_GET['id']);
+			$sql->execute();
+			$sql->setFetchMode(PDO::FETCH_ASSOC);
+			header('HTTP/1.1 200');
+			header("Content-Type: application/json");
+			echo json_encode($sql->fetchAll());
+			exit;
+		}
+		else {
+			$sql = $pdo->prepare("SELECT * FROM enterprice");
+			$sql->execute();
+			$sql->setFetchMode(PDO::FETCH_ASSOC);
+			header('HTTP/1.1 200');
+			header("Content-Type: application/json");
+			echo json_encode($sql->fetchAll());
+			exit;
+		}
 	}
 
 	//Si no corresponde a ninguna opción anterior
