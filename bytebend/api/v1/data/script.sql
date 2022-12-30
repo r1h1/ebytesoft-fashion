@@ -27,6 +27,7 @@ create table locals(
 create table cash_registers(
     id int primary key not null auto_increment,
     codigo varchar(50),
+    nombreCaja varchar(80),
     localPertenece int,
     FOREIGN KEY (localPertenece) REFERENCES locals(id)
 );

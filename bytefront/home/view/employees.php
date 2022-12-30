@@ -104,7 +104,7 @@
                                 <div class="card-body p-3">
                                     <p class="card-text text-muted fw-bold">Empleados Registrados</p>
                                     <div class="icon p-1 text-center">
-                                        <p class="fw-bold h1">1</p>
+                                        <p class="fw-bold h1" id="total-empleados"></p>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +115,8 @@
                     <div class="col px-3 mt-5">
 
                         <div class="header text-end mb-3">
-                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo"><i class="fa-solid fa-plus me-2 py-2"></i> Nuevo Empleado</button>
+                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo" 
+                            onclick="codigo()"><i class="fa-solid fa-plus me-2 py-2"></i> Nuevo Empleado</button>
                         </div>
 
                         <div class="table-responsive mt-5 mb-5">
@@ -125,6 +126,7 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Código</th>
                                         <th scope="col">Local Pertenece</th>
+                                        <th scope="col">Caja Asignada</th>
                                         <th scope="col">Departamento</th>
                                         <th scope="col">Nombre Completo</th>
                                         <th scope="col">DPI / NIT</th>
@@ -138,26 +140,8 @@
                                         <th scope="col" class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>PROV000001</td>
-                                        <td>PROV000001</td>
-                                        <td>Limpieza</td>
-                                        <td>Crédito</td>
-                                        <td>45024363</td>
-                                        <td>Ciudad de Guatemala, Guatemala</td>
-                                        <td>de.rivasherrera@gmail.com</td>
-                                        <td>PROV000001</td>
-                                        <td>Limpieza</td>
-                                        <td>Crédito</td>
-                                        <td>45024363</td>
-                                        <td>drivas</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
+                                <tbody id="tabla-de-datos-body">
+
                                 </tbody>
                             </table>
                         </div>
@@ -181,11 +165,16 @@
                                                     <input type="text" class="form-control gray inputClass" placeholder="Código" id="empleado-codigo" hidden>
                                                 </div>
 
-                                                <div class="col-12">
-                                                    <select class="form-select gray inputClass" aria-label="Default select example">
-                                                        <option value="">Local Pertenece</option>
-                                                        <option value="1">Crédito</option>
-                                                        <option value="2">Débito</option>
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Local Pertenece *</label>
+                                                    <select class="form-select gray inputClass" id="localPertenece">
+                                                        
+                                                    </select>
+                                                </div>
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Caja Asignada *</label>
+                                                    <select class="form-select gray inputClass" id="cajaPertenece">
+                                                        
                                                     </select>
                                                 </div>
                                                 <div class="col-12">
@@ -207,7 +196,7 @@
                                                     <input type="email" class="form-control gray inputClass" placeholder="Correo Electrónico *">
                                                 </div>
                                                 <div class="col-12">
-                                                    <label class="form-label">Fecha de Nacimiento *</label>
+                                                    <label class="form-label text-muted">Fecha de Nacimiento *</label>
                                                     <input type="date" class="form-control gray inputClass" placeholder="Fecha de Nacimiento *">
                                                 </div>
                                                 <div class="col-6">
@@ -257,17 +246,24 @@
 
                                             <form class="row g-3">
 
-                                                <div class="col-md-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Código" id="empleado-codigo" hidden>
-                                                </div>
                                                 <div class="col-12">
+                                                    <input type="text" class="form-control inputClass" id="ide" hidden>
+                                                </div>
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Local Pertenece *</label>
                                                     <select class="form-select gray inputClass" aria-label="Default select example">
-                                                        <option value="">Local Pertenece</option>
                                                         <option value="1">Crédito</option>
                                                         <option value="2">Débito</option>
                                                     </select>
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Caja Asignada *</label>
+                                                    <select class="form-select gray inputClass" aria-label="Default select example">
+                                                        <option value="1">Crédito</option>
+                                                        <option value="2">Débito</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12">
                                                     <input type="text" class="form-control gray inputClass" placeholder="Departamento *" min="1">
                                                 </div>
                                                 <div class="col-12">
@@ -286,7 +282,7 @@
                                                     <input type="email" class="form-control gray inputClass" placeholder="Correo Electrónico *">
                                                 </div>
                                                 <div class="col-12">
-                                                    <label class="form-label">Fecha de Nacimiento *</label>
+                                                    <label class="form-label text-muted">Fecha de Nacimiento *</label>
                                                     <input type="date" class="form-control gray inputClass" placeholder="Fecha de Nacimiento *">
                                                 </div>
                                                 <div class="col-6">
@@ -340,6 +336,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../logic/employees/crud.js"></script>
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
