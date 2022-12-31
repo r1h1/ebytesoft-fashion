@@ -223,7 +223,7 @@ function post() {
                 title: 'Oops...',
                 text: 'Error en la operación, reporte al administrador del sistema',
                 confirmButtonText: 'Entendido',
-            }, console.log('Posible conexión con BackEnd incorrecta: ' + error)));
+            }, console.log('Posible conexión con BackEnd incorrecta, codigo: ' + error)));
 
         const mostrarData = (data) => {
             Swal.fire({
