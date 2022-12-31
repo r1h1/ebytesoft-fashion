@@ -115,8 +115,7 @@
                     <div class="col px-3 mt-5">
 
                         <div class="header text-end mb-3">
-                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo" 
-                            onclick="codigo()"><i class="fa-solid fa-plus me-2 py-2"></i> Nuevo Empleado</button>
+                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo" onclick="codigo()"><i class="fa-solid fa-plus me-2 py-2"></i> Nuevo Empleado</button>
                         </div>
 
                         <div class="table-responsive mt-5 mb-5">
@@ -168,48 +167,48 @@
                                                 <div class="col-6">
                                                     <label class="form-label text-muted">Local Pertenece *</label>
                                                     <select class="form-select gray inputClass" id="localPertenece">
-                                                        
+
                                                     </select>
                                                 </div>
                                                 <div class="col-6">
                                                     <label class="form-label text-muted">Caja Asignada *</label>
                                                     <select class="form-select gray inputClass" id="cajaPertenece">
-                                                        
+
                                                     </select>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Departamento *" min="1">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Departamento *" id="departamentoN">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre Completo *">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre Completo *" id="nombreN">
                                                 </div>
                                                 <div class="col-6">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="DPI / NIT *" min="1" min="1">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="DPI / NIT *" min="1" id="dpiNitN">
                                                 </div>
                                                 <div class="col-6">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Teléfono *" min="1">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="Teléfono *" min="1" id="telefonoN">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Dirección *">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Dirección *" id="direccionN">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="email" class="form-control gray inputClass" placeholder="Correo Electrónico *">
+                                                    <input type="email" class="form-control gray inputClass" placeholder="Correo Electrónico *" id="correoN">
                                                 </div>
                                                 <div class="col-12">
                                                     <label class="form-label text-muted">Fecha de Nacimiento *</label>
-                                                    <input type="date" class="form-control gray inputClass" placeholder="Fecha de Nacimiento *">
+                                                    <input type="date" class="form-control gray inputClass" placeholder="Fecha de Nacimiento *" id="fechaNacimientoN">
                                                 </div>
                                                 <div class="col-6">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Puesto Actual *">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Puesto Actual *" id="puestoN">
                                                 </div>
                                                 <div class="col-6">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Salario *" min="1">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="Salario *" min="1" id="salarioN">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario *" min="1">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario *" min="1" id="usuarioN">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Clave de acceso *" min="1">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="Clave de acceso *" min="1" id="claveN">
                                                 </div>
 
                                                 <div class="col-12 text-center">
@@ -246,56 +245,63 @@
 
                                             <form class="row g-3">
 
-                                                <div class="col-12">
-                                                    <input type="text" class="form-control inputClass" id="ide" hidden>
+                                                <div class="col-md-12">
+                                                    <input type="text" class="form-control gray inputClass" id="ide" hidden>
                                                 </div>
+                                                
                                                 <div class="col-6">
-                                                    <label class="form-label text-muted">Local Pertenece *</label>
-                                                    <select class="form-select gray inputClass" aria-label="Default select example">
-                                                        <option value="1">Crédito</option>
-                                                        <option value="2">Débito</option>
+                                                    <label class="form-label text-muted">Local Actual *</label>
+                                                    <input type="text" class="form-control gray inputClass" id="localActual" disabled>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Asignar Local *</label>
+                                                    <select class="form-select gray inputClass" id="locales">
+
                                                     </select>
                                                 </div>
+
                                                 <div class="col-6">
-                                                    <label class="form-label text-muted">Caja Asignada *</label>
-                                                    <select class="form-select gray inputClass" aria-label="Default select example">
-                                                        <option value="1">Crédito</option>
-                                                        <option value="2">Débito</option>
+                                                    <label class="form-label text-muted">Caja Actual *</label>
+                                                    <input type="text" class="form-control gray inputClass" id="cajaActual" disabled>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Asignar Caja *</label>
+                                                    <select class="form-select gray inputClass" id="cajas">
+
                                                     </select>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Departamento *" min="1">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Departamento *" id="departamentoE" min="1">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre Completo *">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre Completo *" id="nombreE">
                                                 </div>
                                                 <div class="col-6">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="DPI / NIT *" min="1" min="1">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="DPI / NIT *" id="dpiNitE" min="1">
                                                 </div>
                                                 <div class="col-6">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Teléfono *" min="1">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="Teléfono *" id="telefonoE" min="1">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Dirección *">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Dirección *" id="direccionE">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="email" class="form-control gray inputClass" placeholder="Correo Electrónico *">
+                                                    <input type="email" class="form-control gray inputClass" placeholder="Correo Electrónico *" id="correoE">
                                                 </div>
                                                 <div class="col-12">
                                                     <label class="form-label text-muted">Fecha de Nacimiento *</label>
-                                                    <input type="date" class="form-control gray inputClass" placeholder="Fecha de Nacimiento *">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Fecha de Nacimiento *" id="fechaNacimientoE">
                                                 </div>
                                                 <div class="col-6">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Puesto Actual *">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Puesto Actual *" id="puestoE">
                                                 </div>
                                                 <div class="col-6">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Salario *" min="1">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="Salario *" min="1" id="salarioE">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario *" min="1">
-                                                </div>
-                                                <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Clave de acceso *" min="1">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario *" min="1" id="usuarioE">
                                                 </div>
 
                                                 <div class="col-12 text-center">
