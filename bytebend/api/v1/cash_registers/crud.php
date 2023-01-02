@@ -32,6 +32,16 @@
 			echo json_encode($sql->fetchAll());
 			exit;
 		}
+		else if (isset($_GET['localPertenece'])) {
+			$sql = $pdo->prepare("SELECT * FROM cash_registers WHERE localPertenece=:localPertenece");
+			$sql->bindValue(':localPertenece', $_GET['localPertenece']);
+			$sql->execute();
+			$sql->setFetchMode(PDO::FETCH_ASSOC);
+			header('HTTP/1.1 200');
+			header("Content-Type: application/json");
+			echo json_encode($sql->fetchAll());
+			exit;
+		}
 		else {
 			$sql = $pdo->prepare("SELECT * FROM cash_registers");
 			$sql->execute();

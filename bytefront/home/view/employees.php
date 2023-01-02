@@ -166,7 +166,7 @@
 
                                                 <div class="col-6">
                                                     <label class="form-label text-muted">Local Pertenece *</label>
-                                                    <select class="form-select gray inputClass" id="localPertenece">
+                                                    <select class="form-select gray inputClass" id="localPertenece" onclick="getCashRegisters()">
 
                                                     </select>
                                                 </div>
@@ -212,8 +212,8 @@
                                                 </div>
 
                                                 <div class="col-12 text-center">
-                                                    <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
-                                                        Datos</button>
+                                                    <a class="btn btn-success px-3 py-2" onclick="post()"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                                        Datos</a>
                                                 </div>
                                             </form>
 
@@ -248,7 +248,7 @@
                                                 <div class="col-md-12">
                                                     <input type="text" class="form-control gray inputClass" id="ide" hidden>
                                                 </div>
-                                                
+
                                                 <div class="col-6">
                                                     <label class="form-label text-muted">Local Actual *</label>
                                                     <input type="text" class="form-control gray inputClass" id="localActual" disabled>

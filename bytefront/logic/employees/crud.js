@@ -53,6 +53,7 @@ function get() {
         }
 
         document.getElementById('tabla-de-datos-body').innerHTML = body;
+        document.getElementById('cajaPertenece').disabled = true;
     }
 }
 get();
@@ -103,7 +104,9 @@ getLocals();
 
 function getCashRegisters() {
 
-    var url = 'http://localhost/mbyte/bytebend/api/v1/cash_registers/crud';
+    var id = document.getElementById("localPertenece").value;
+    var url = 'http://localhost/mbyte/bytebend/api/v1/cash_registers/crud?localPertenece=' + id;
+
     fetch(url)
         .then(response => response.json())
         .then(data => mostrarData(data))
@@ -115,7 +118,14 @@ function getCashRegisters() {
 
         for (var i = 0; i < data.length; i++) {
             var j = 0;
-            body += `<option value="${data[i].id}">${data[i].nombreCaja}</option>`
+            body += `<option value="${data[i].id}">${data[i].nombreCaja}</option>`;
+        }
+
+        if (data.length > 0) {
+            document.getElementById('cajaPertenece').disabled = false;
+        }
+        else {
+            document.getElementById('cajaPertenece').disabled = true;
         }
 
         document.getElementById('cajaPertenece').innerHTML = body;
@@ -124,7 +134,6 @@ function getCashRegisters() {
     }
 
 }
-getCashRegisters();
 
 
 
@@ -195,19 +204,19 @@ function post() {
         var formdata = new FormData();
 
         formdata.append("codigo", codigo);
-        formdata.append("nombreLocal", nombre);
-        formdata.append("telefono", telefono);
-        formdata.append("direccion", direccion);
-        formdata.append("correoElectronico", correo);
-        formdata.append("empresaPertenece", empresa);
-        formdata.append("codigo", codigo);
-        formdata.append("nombreLocal", nombre);
-        formdata.append("telefono", telefono);
-        formdata.append("direccion", direccion);
-        formdata.append("correoElectronico", correo);
-        formdata.append("empresaPertenece", empresa);
-        formdata.append("correoElectronico", correo);
-        formdata.append("empresaPertenece", empresa);
+        formdata.append("departamento", departamentoN);
+        formdata.append("nombreCompleto", nombreN);
+        formdata.append("dpiNit", dpiNitN);
+        formdata.append("telefono", telefonoN);
+        formdata.append("direccion", direccionN);
+        formdata.append("correoElectronico", correoN);
+        formdata.append("fechaNacimiento", fechaNacimientoN);
+        formdata.append("puesto", puestoN);
+        formdata.append("salario", salarioN);
+        formdata.append("usuario", usuarioN);
+        formdata.append("clave", claveN);
+        formdata.append("localPertenece", localN);
+        formdata.append("cajaPertenece", cajaN);
 
         var requestOptions = {
             method: 'POST',
@@ -223,7 +232,7 @@ function post() {
                 title: 'Oops...',
                 text: 'Error en la operación, reporte al administrador del sistema',
                 confirmButtonText: 'Entendido',
-            }, console.log('Posible conexión con BackEnd incorrecta, codigo: ' + error)));
+            }, console.log('Posible conexión con BackEnd incorrecta, código error: ' + error)));
 
         const mostrarData = (data) => {
             Swal.fire({
@@ -236,18 +245,42 @@ function post() {
                     $('#nuevo').modal('toggle');
                     get();
                     getTotals();
-                    document.getElementById('nombre_n').value = '';
-                    document.getElementById('telefono_n').value = '';
-                    document.getElementById('direccion_n').value = '';
-                    document.getElementById('correo_n').value = '';
+                    getCashRegisters();
+                    getLocals();
+                    document.getElementById('localPertenece').value = '';
+                    document.getElementById('cajaPertenece').value = '';
+                    document.getElementById('empleado-codigo').value = '';
+                    document.getElementById('departamentoN').value = '';
+                    document.getElementById('nombreN').value = '';
+                    document.getElementById('dpiNitN').value = '';
+                    document.getElementById('telefonoN').value = '';
+                    document.getElementById('direccionN').value = '';
+                    document.getElementById('correoN').value = '';
+                    document.getElementById('fechaNacimientoN').value = '';
+                    document.getElementById('puestoN').value = '';
+                    document.getElementById('salarioN').value = '';
+                    document.getElementById('usuarioN').value = '';
+                    document.getElementById('claveN').value = '';
                 } else if (result.isDenied) {
                     $('#nuevo').modal('toggle');
                     get();
                     getTotals();
-                    document.getElementById('nombre_n').value = '';
-                    document.getElementById('telefono_n').value = '';
-                    document.getElementById('direccion_n').value = '';
-                    document.getElementById('correo_n').value = '';
+                    getCashRegisters();
+                    getLocals();
+                    document.getElementById('localPertenece').value = '';
+                    document.getElementById('cajaPertenece').value = '';
+                    document.getElementById('empleado-codigo').value = '';
+                    document.getElementById('departamentoN').value = '';
+                    document.getElementById('nombreN').value = '';
+                    document.getElementById('dpiNitN').value = '';
+                    document.getElementById('telefonoN').value = '';
+                    document.getElementById('direccionN').value = '';
+                    document.getElementById('correoN').value = '';
+                    document.getElementById('fechaNacimientoN').value = '';
+                    document.getElementById('puestoN').value = '';
+                    document.getElementById('salarioN').value = '';
+                    document.getElementById('usuarioN').value = '';
+                    document.getElementById('claveN').value = '';
                 }
             });
         }
