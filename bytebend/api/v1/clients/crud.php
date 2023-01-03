@@ -69,7 +69,7 @@
 
 	//Actualizar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
-		$sql = "UPDATE clients SET nit=:nit,nombreCompleto=:nombreCompleto,direccion=:direccion,telefono=:telefono,correoElectronico=:correoElectronico,membresia=:membresia WHERE id=:id";
+		$sql = "UPDATE clients SET nit=:nit,nombreCompleto=:nombreCompleto,direccion=:direccion,telefono=:telefono,correoElectronico=:correoElectronico,membresia=:membresia,codigoMembresia=:codigoMembresia WHERE id=:id";
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(':nit', $_GET['nit']);
 		$stmt->bindValue(':nombreCompleto', $_GET['nombreCompleto']);
@@ -77,6 +77,7 @@
 		$stmt->bindValue(':telefono', $_GET['telefono']);
 		$stmt->bindValue(':correoElectronico', $_GET['correoElectronico']);
 		$stmt->bindValue(':membresia', $_GET['membresia']);
+		$stmt->bindValue(':codigoMembresia', $_GET['codigoMembresia']);
 		$stmt->bindValue(':id', $_GET['id']);
 		$stmt->execute();
 		echo json_encode(1);

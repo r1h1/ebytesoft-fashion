@@ -165,15 +165,15 @@
                                                 </div>
 
                                                 <div class="col-6">
-                                                    <label class="form-label text-muted">Local Pertenece *</label>
+                                                    <label class="form-label text-muted">Asignar Local *</label>
                                                     <select class="form-select gray inputClass" id="localPertenece" onclick="getCashRegisters()">
 
                                                     </select>
                                                 </div>
                                                 <div class="col-6">
-                                                    <label class="form-label text-muted">Caja Asignada *</label>
+                                                    <label class="form-label text-muted">Asignar Caja del Local*</label>
                                                     <select class="form-select gray inputClass" id="cajaPertenece">
-
+                                                        <option value="">Seleccione un Local</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-12">
@@ -256,7 +256,7 @@
 
                                                 <div class="col-6">
                                                     <label class="form-label text-muted">Asignar Local *</label>
-                                                    <select class="form-select gray inputClass" id="locales">
+                                                    <select class="form-select gray inputClass" id="locales" onclick="getCashRegistersEdit()">
 
                                                     </select>
                                                 </div>
@@ -269,11 +269,11 @@
                                                 <div class="col-6">
                                                     <label class="form-label text-muted">Asignar Caja *</label>
                                                     <select class="form-select gray inputClass" id="cajas">
-
+                                                        <option value="">Seleccione un Local</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Departamento *" id="departamentoE" min="1">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Departamento *" id="departamentoE">
                                                 </div>
                                                 <div class="col-12">
                                                     <input type="text" class="form-control gray inputClass" placeholder="Nombre Completo *" id="nombreE">
@@ -288,7 +288,7 @@
                                                     <input type="text" class="form-control gray inputClass" placeholder="Dirección *" id="direccionE">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="email" class="form-control gray inputClass" placeholder="Correo Electrónico *" id="correoE">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Correo Electrónico *" id="correoE">
                                                 </div>
                                                 <div class="col-12">
                                                     <label class="form-label text-muted">Fecha de Nacimiento *</label>
@@ -301,12 +301,12 @@
                                                     <input type="number" class="form-control gray inputClass" placeholder="Salario *" min="1" id="salarioE">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario *" min="1" id="usuarioE">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario *" id="usuarioE">
                                                 </div>
 
                                                 <div class="col-12 text-center">
-                                                    <button type="submit" class="btn btn-warning px-3 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
-                                                        Datos</button>
+                                                    <a class="btn btn-warning px-3 py-2" onclick="put()"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                                        Datos</a>
                                                 </div>
                                             </form>
 

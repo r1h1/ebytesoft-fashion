@@ -97,7 +97,7 @@
 
 	//Eliminar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
-		$sql = "DELETE FROM clients WHERE id=:id";
+		$sql = "DELETE FROM cash_registers WHERE id=:id";
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(':id', $_GET['id']);
 		$stmt->execute();

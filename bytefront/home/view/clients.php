@@ -241,12 +241,17 @@
                                                     <input type="text" class="form-control gray inputClass" id="membresia-actual" disabled>
                                                 </div>
                                                 <div class="col-12">
-                                                    <label class="form-label">Cambiar Tipo de Membresia *</label>
-                                                    <select class="form-select gray inputClass" id="membresia_nueva">
+                                                    <select class="form-select gray inputClass" id="tipoMembresiaE" onchange="membresiaEdicionCliente()">
+                                                        <option value="0">Cambiar Tipo de Membresía</option>
+                                                        <option value="0">Ninguna</option>
                                                         <option value="Oro">Fashionista Oro</option>
                                                         <option value="Platinum">Fashionista Platinum</option>
-                                                        <option value="0">Ninguna</option>
                                                     </select>
+                                                </div>
+                                                <div class="col-12" id="div-membresia2">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="" id="membresia-codigoE" readonly>
+                                                    <p class="text-muted text-center">Este es el código de su
+                                                        membresía, guárdelo.</p>
                                                 </div>
                                                 <div class="col-12 text-center">
                                                     <a class="btn btn-warning px-3 py-2" onclick="put()"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar

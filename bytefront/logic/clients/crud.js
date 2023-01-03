@@ -29,10 +29,29 @@ function membresiaCliente() {
 }
 
 
+
+// Función para setear los valores en los inputs de membresía
+function membresiaEdicionCliente() {
+
+    var membresiaE = document.getElementById("tipoMembresiaE").value;
+
+    if (membresiaE != 0) {
+        document.getElementById("div-membresia2").style.display = "block";
+        document.getElementById("membresia-codigoE").value = 'FS' + '-' + randomNumberGenerator();
+    }
+    else {
+        document.getElementById("div-membresia2").style.display = "none";
+        document.getElementById("membresia-codigoE").value = '';
+    }
+}
+
+
+
 // Función para setear los valores en los inputs de empleado
 function codigoCliente() {
     document.getElementById("codigo").value = 'CL' + randomNumberGenerator();
 }
+
 
 
 function get() {
@@ -114,6 +133,7 @@ function getIdEditForm(id) {
         document.getElementById('telefono_e').value = data[0].telefono;
         document.getElementById('correo_e').value = data[0].correoElectronico;
         document.getElementById('membresia-actual').value = data[0].membresia;
+        document.getElementById("tipoMembresiaE").value = 0;
     }
 
 }
@@ -221,10 +241,11 @@ function put() {
     var direccionc = document.getElementById('direccion_e').value;
     var telefonoc = document.getElementById('telefono_e').value;
     var correoc = document.getElementById('correo_e').value;
-    var tipoMembresiac = document.getElementById('membresia_nueva').value;
+    var tipoMembresiac = document.getElementById('tipoMembresiaE').value;
+    var codigoMembresiaE = document.getElementById("membresia-codigoE").value
 
 
-    var url = "http://localhost/mbyte/bytebend/api/v1/clients/crud?membresia=" + tipoMembresiac + "&nit=" + nitc +
+    var url = "http://localhost/mbyte/bytebend/api/v1/clients/crud?membresia=" + tipoMembresiac + "&codigoMembresia=" + codigoMembresiaE + "&nit=" + nitc +
     "&nombreCompleto=" + nombrec + "&direccion=" + direccionc + "&telefono=" + telefonoc + "&correoElectronico=" + correoc + "&id=" + idc;
 
     var requestOptions = {

@@ -113,24 +113,50 @@ function getCashRegisters() {
         .catch(error => console.log(error));
 
     const mostrarData = (data) => {
-
         let body = '';
 
         for (var i = 0; i < data.length; i++) {
             var j = 0;
             body += `<option value="${data[i].id}">${data[i].nombreCaja}</option>`;
         }
-
         if (data.length > 0) {
             document.getElementById('cajaPertenece').disabled = false;
         }
         else {
             document.getElementById('cajaPertenece').disabled = true;
         }
-
         document.getElementById('cajaPertenece').innerHTML = body;
         document.getElementById('cajas').innerHTML = body;
+    }
 
+}
+
+
+
+function getCashRegistersEdit() {
+
+    var id2 = document.getElementById("locales").value;
+    var url2 = 'http://localhost/mbyte/bytebend/api/v1/cash_registers/crud?localPertenece=' + id2;
+
+    fetch(url2)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => console.log(error));
+
+    const mostrarData = (data) => {
+        let body2 = '';
+
+        for (var i = 0; i < data.length; i++) {
+            var j = 0;
+            body2 += `<option value="${data[i].id}">${data[i].nombreCaja}</option>`;
+        }
+        if (data.length > 0) {
+            document.getElementById('cajas').disabled = false;
+        }
+        else {
+            document.getElementById('cajas').disabled = true;
+        }
+        document.getElementById('cajas').innerHTML = body2;
     }
 
 }
@@ -191,11 +217,19 @@ function post() {
     var claveN = document.getElementById('claveN').value;
 
 
-    if (localN == "" || cajaN == "" || nombreN == "" || dpiNitN == "" || direccionN == "" || telefonoN == "" || usuarioN == "" || claveN == "") {
+    if (localN == "" || nombreN == "" || dpiNitN == "" || direccionN == "" || telefonoN == "" || usuarioN == "" || claveN == "") {
         Swal.fire({
             icon: 'error',
             title: 'Error en la Operación',
             text: 'Debe llenar todos los campos que tengan un *',
+            confirmButtonText: 'Entendido',
+        });
+    }
+    else if (cajaN == "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error en la Operación',
+            text: 'Debe seleccionar una caja de un local, si esta no existe, por favor cree una en la sección Cajas',
             confirmButtonText: 'Entendido',
         });
     }
@@ -247,6 +281,7 @@ function post() {
                     getTotals();
                     getCashRegisters();
                     getLocals();
+                    getCashRegistersEdit();
                     document.getElementById('localPertenece').value = '';
                     document.getElementById('cajaPertenece').value = '';
                     document.getElementById('empleado-codigo').value = '';
@@ -267,6 +302,7 @@ function post() {
                     getTotals();
                     getCashRegisters();
                     getLocals();
+                    getCashRegistersEdit();
                     document.getElementById('localPertenece').value = '';
                     document.getElementById('cajaPertenece').value = '';
                     document.getElementById('empleado-codigo').value = '';
@@ -285,4 +321,155 @@ function post() {
             });
         }
     }
+    else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error en la Operación',
+            text: 'Error no manejado, contacte al administrador',
+            confirmButtonText: 'Entendido',
+        });
+    }
+}
+
+
+function put() {
+
+    var ide = document.getElementById('ide').value;
+    var localE = document.getElementById('locales').value;
+    var cajaE = document.getElementById('cajas').value;
+    var departamentoE = document.getElementById('departamentoE').value;
+    var nombreE = document.getElementById('nombreE').value;
+    var dpiNitE = document.getElementById('dpiNitE').value;
+    var telefonoE = document.getElementById('telefonoE').value;
+    var direccionE = document.getElementById('direccionE').value;
+    var correoE = document.getElementById('correoE').value;
+    var fechaNacimientoE = document.getElementById('fechaNacimientoE').value;
+    var puestoE = document.getElementById('puestoE').value;
+    var salarioE = document.getElementById('salarioE').value;
+    var usuarioE = document.getElementById('usuarioE').value;
+
+
+    var url = "http://localhost/mbyte/bytebend/api/v1/employees/crud?departamento=" + departamentoE + "&nombreCompleto=" + nombreE +
+        "&dpiNit=" + dpiNitE + "&telefono=" + telefonoE + "&direccion=" + direccionE + "&correoElectronico=" + correoE + "&fechaNacimiento=" + fechaNacimientoE +
+        "&puesto=" + puestoE + "&salario=" + salarioE + "&usuario=" + usuarioE + "&localPertenece=" + localE + "&cajaPertenece=" + cajaE + "&id=" + ide;
+
+
+    if (cajaE == "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error en la Operación',
+            text: 'Debe seleccionar una caja de un local, si esta no existe, por favor cree una en la sección Cajas',
+            confirmButtonText: 'Entendido',
+        });
+    }
+
+    else {
+        var requestOptions = {
+            method: 'PUT',
+            redirect: 'follow'
+        };
+
+        fetch(url, requestOptions)
+            .then(response => response.json())
+            .then(data => mostrarData(data))
+            .catch(error => Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Error en la operación, reporte al administrador',
+                confirmButtonText: 'Entendido',
+            }, console.log('Posible conexión con BackEnd incorrecta' + error)));
+
+        const mostrarData = (data) => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Correcto',
+                text: 'La operación se completó.',
+                confirmButtonText: 'Entendido',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    get();
+                    getTotals();
+                    getCashRegisters();
+                    getLocals();
+                    getCashRegistersEdit();
+                    $('#editar').modal('toggle');
+                } else if (result.isDenied) {
+                    get();
+                    getTotals();
+                    getCashRegisters();
+                    getLocals();
+                    getCashRegistersEdit();
+                    $('#editar').modal('toggle');
+                }
+            });
+        }
+    }
+}
+
+
+
+function delete_method(id) {
+
+    Swal.fire({
+        icon: 'warning',
+        title: '¿Está seguro?',
+        text: 'Los datos no se podrán recuperar',
+        showDenyButton: true,
+        confirmButtonText: 'Eliminar',
+        denyButtonText: `Cancelar`,
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+
+            var requestOptions = {
+                method: 'DELETE',
+                redirect: 'follow'
+            };
+
+
+            var url = 'http://localhost/mbyte/bytebend/api/v1/employees/crud?id=' + id;
+
+            fetch(url, requestOptions)
+                .then(response => response.text())
+                .then(result => exitoso(result))
+                .catch(error => Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error en la operación, reporte al administrador del sistema',
+                    confirmButtonText: 'Entendido',
+                }, console.log('Posible conexión con BackEnd incorrecta: ' + error)));
+
+            const exitoso = (result) => {
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Correcto',
+                    text: 'La operación se completó.',
+                    confirmButtonText: 'Entendido',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        get();
+                        getTotals();
+                        getCashRegisters();
+                        getLocals();
+                        getCashRegistersEdit();
+                    } else if (result.isDenied) {
+                        get();
+                        getTotals();
+                        getCashRegisters();
+                        getLocals();
+                        getCashRegistersEdit();
+                    }
+                });
+            }
+
+        } else if (result.isDenied) {
+            gget();
+            getTotals();
+            getCashRegisters();
+            getLocals();
+            getCashRegistersEdit();
+        }
+    });
+
 }
