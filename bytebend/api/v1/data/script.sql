@@ -20,7 +20,7 @@ create table locals(
     direccion varchar(250),
     correoElectronico varchar(150),
     empresaPertenece int,
-    FOREIGN KEY (empresaPertenece) REFERENCES enterprice(empresaPertenece)
+    FOREIGN KEY (empresaPertenece) REFERENCES enterprice(id)
 );
 
 
@@ -46,6 +46,29 @@ create table clients(
     puntosDisponibles varchar(50)
 );
 
+create table modules(
+    id int primary key not null auto_increment,
+    nombreModulo varchar(80),
+    descripcionModulo varchar(80),
+    rutaModulo varchar(500)
+);
+
+create table permissions(
+    id int primary key not null auto_increment,
+    nombrePermiso varchar(80),
+    accionPermiso varchar(80),
+    botonesHabilitados varchar(100)
+);
+
+create table rol(
+    id int primary key not null auto_increment,
+    nombreRol varchar(100),
+    descripcion varchar(250),
+    moduloPertenece int,
+    permisosPertenece int,
+    FOREIGN KEY (moduloPertenece) REFERENCES modules(id),
+    FOREIGN KEY (permisosPertenece) REFERENCES permissions(id)
+);
 
 create table employees(
     id int primary key not null auto_increment,
@@ -63,8 +86,10 @@ create table employees(
     clave varchar(50),
     localPertenece int,
     cajaPertenece int,
+    rol int,
     FOREIGN KEY (localPertenece) REFERENCES locals(id),
-    FOREIGN KEY (cajaPertenece) REFERENCES cash_registers(id)
+    FOREIGN KEY (cajaPertenece) REFERENCES cash_registers(id),
+    FOREIGN KEY (rol) REFERENCES rol(id)
 );
 
 create table banks(
