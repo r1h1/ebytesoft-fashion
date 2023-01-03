@@ -145,7 +145,7 @@
                                 Depósito</button>
                             <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#nuevobanco"><i class="fa-solid fa-plus me-2 py-2"></i> Crear Banco</button>
                             <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#abrircaja"><i class="fa-solid fa-plus me-2 py-2"></i> Aperturar Caja</button>
-                            <button class="btn btn-warning mt-2" data-bs-toggle="modal" data-bs-target="#verbancos"><i class="fa-solid fa-eye me-2 py-2"></i> Ver Bancos</button>
+                            <button class="btn btn-warning mt-2" data-bs-toggle="modal" data-bs-target="#verbancos" onclick="getBanks()"><i class="fa-solid fa-eye me-2 py-2"></i> Ver Bancos</button>
                         </div>
 
                         <div class="row">
@@ -343,77 +343,9 @@
 
                                             <form class="row g-3">
 
-                                                <div class="col-12">
-                                                    <div class="card gray mt-3">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <div class="card-body p-3">
-                                                                    <p class="card-text text-muted fw-bold h5">Banco
-                                                                        Industrial</p>
-                                                                    <div class="icon p-1">
-                                                                        <p class="text-muted">Mis XVs SA</p>
-                                                                        <p class="text-muted">Cuenta
-                                                                            <span>Monetaria</span>
-                                                                        </p>
-                                                                        <p class="text-muted">No.
-                                                                            <span>1277564335</span>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col">
-                                                                <button class="btn btn-danger mt-5"><i class="fa-solid fa-trash me-2"></i>
-                                                                    Eliminar
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card gray mt-3">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <div class="card-body p-3">
-                                                                    <p class="card-text text-muted fw-bold h5">Banco
-                                                                        G&T Continental</p>
-                                                                    <div class="icon p-1">
-                                                                        <p class="text-muted">Hola Mundo SA</p>
-                                                                        <p class="text-muted">Cuenta
-                                                                            <span>Ahorro</span>
-                                                                        </p>
-                                                                        <p class="text-muted">No. <span>134344335</span>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col">
-                                                                <button class="btn btn-danger mt-5"><i class="fa-solid fa-trash me-2"></i>
-                                                                    Eliminar
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card gray mt-3">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <div class="card-body p-3">
-                                                                    <p class="card-text text-muted fw-bold h5">Banco
-                                                                        G&T Continental</p>
-                                                                    <div class="icon p-1">
-                                                                        <p class="text-muted">Hola Mundo SA</p>
-                                                                        <p class="text-muted">Cuenta
-                                                                            <span>Ahorro</span>
-                                                                        </p>
-                                                                        <p class="text-muted">No. <span>134344335</span>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col">
-                                                                <button class="btn btn-danger mt-5"><i class="fa-solid fa-trash me-2"></i>
-                                                                    Eliminar
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <div class="col-12" id="listar-bancos">
+                                                    
+                                                    
                                                 </div>
                                             </form>
 
@@ -544,6 +476,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../logic/treasury/crud.js"></script>
     <script>
         $(document).ready(function() {
             $('#example').DataTable({

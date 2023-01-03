@@ -23,7 +23,8 @@
 	//Listar registros y consultar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		if (isset($_GET['id'])) {
-			$sql = $pdo->prepare("SELECT * FROM cash_registers WHERE id=:id");
+			$sql = $pdo->prepare("SELECT c.id,c.codigo,c.nombreCaja,c.localPertenece,l.nombreLocal FROM `cash_registers` c
+			INNER JOIN locals l on c.localPertenece = l.id WHERE c.id=:id");
 			$sql->bindValue(':id', $_GET['id']);
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
@@ -43,7 +44,8 @@
 			exit;
 		}
 		else {
-			$sql = $pdo->prepare("SELECT * FROM cash_registers");
+			$sql = $pdo->prepare("SELECT c.id,c.codigo,c.nombreCaja,c.localPertenece,l.nombreLocal FROM `cash_registers` c
+			INNER JOIN locals l on c.localPertenece = l.id");
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			header('HTTP/1.1 200');
@@ -55,18 +57,11 @@
 
 	//Insertar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-		$sql = "INSERT INTO clients(codigo, membresia, codigoMembresia, nit, nombreCompleto, direccion, telefono, correoElectronico, puntosDisponibles) 
-			VALUES (:codigo, :membresia, :codigoMembresia, :nit, :nombreCompleto, :direccion, :telefono, :correoElectronico, :puntosDisponibles)";
+		$sql = "INSERT INTO cash_registers(codigo, nombreCaja, localPertenece) VALUES (:codigo, :nombreCaja, :localPertenece)";
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(':codigo', $_POST['codigo']);
-		$stmt->bindValue(':membresia', $_POST['membresia']);
-		$stmt->bindValue(':codigoMembresia', $_POST['codigoMembresia']);
-		$stmt->bindValue(':nit', $_POST['nit']);
-		$stmt->bindValue(':nombreCompleto', $_POST['nombreCompleto']);
-		$stmt->bindValue(':direccion', $_POST['direccion']);
-		$stmt->bindValue(':telefono', $_POST['telefono']);
-		$stmt->bindValue(':correoElectronico', $_POST['correoElectronico']);
-		$stmt->bindValue(':puntosDisponibles', $_POST['puntosDisponibles']);
+		$stmt->bindValue(':nombreCaja', $_POST['nombreCaja']);
+		$stmt->bindValue(':localPertenece', $_POST['localPertenece']);
 		$stmt->execute();
 		$idPost = $pdo->lastInsertId();
 		if ($idPost) {
@@ -79,14 +74,10 @@
 
 	//Actualizar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
-		$sql = "UPDATE clients SET nit=:nit,nombreCompleto=:nombreCompleto,direccion=:direccion,telefono=:telefono,correoElectronico=:correoElectronico,membresia=:membresia WHERE id=:id";
+		$sql = "UPDATE cash_registers SET nombreCaja=:nombreCaja,localPertenece=:localPertenece WHERE id=:id";
 		$stmt = $pdo->prepare($sql);
-		$stmt->bindValue(':nit', $_GET['nit']);
-		$stmt->bindValue(':nombreCompleto', $_GET['nombreCompleto']);
-		$stmt->bindValue(':direccion', $_GET['direccion']);
-		$stmt->bindValue(':telefono', $_GET['telefono']);
-		$stmt->bindValue(':correoElectronico', $_GET['correoElectronico']);
-		$stmt->bindValue(':membresia', $_GET['membresia']);
+		$stmt->bindValue(':nombreCaja', $_GET['nombreCaja']);
+		$stmt->bindValue(':localPertenece', $_GET['localPertenece']);
 		$stmt->bindValue(':id', $_GET['id']);
 		$stmt->execute();
 		echo json_encode(1);

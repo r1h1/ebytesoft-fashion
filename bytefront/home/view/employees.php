@@ -171,7 +171,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-6">
-                                                    <label class="form-label text-muted">Asignar Caja del Local*</label>
+                                                    <label class="form-label text-muted">Asignar Caja del Local *</label>
                                                     <select class="form-select gray inputClass" id="cajaPertenece">
                                                         <option value="">Seleccione un Local</option>
                                                     </select>
@@ -204,11 +204,17 @@
                                                 <div class="col-6">
                                                     <input type="number" class="form-control gray inputClass" placeholder="Salario *" min="1" id="salarioN">
                                                 </div>
-                                                <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario *" min="1" id="usuarioN">
+                                                <div class="col-6">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario *" min="1" id="usuarioN" maxlength="7">
+                                                </div>
+                                                <div class="col-6">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="Clave de acceso *" min="1" max="99999" id="claveN">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Clave de acceso *" min="1" id="claveN">
+                                                    <label class="form-label text-muted">Rol *</label>
+                                                    <select class="form-select gray inputClass" id="rolN">
+                                                        <option value="">Seleccione un Rol</option>
+                                                    </select>
                                                 </div>
 
                                                 <div class="col-12 text-center">

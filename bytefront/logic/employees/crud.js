@@ -464,7 +464,7 @@ function delete_method(id) {
             }
 
         } else if (result.isDenied) {
-            gget();
+            get();
             getTotals();
             getCashRegisters();
             getLocals();
