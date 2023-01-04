@@ -1,3 +1,21 @@
+// Función para generar números random
+function randomNumberGenerator() {
+    const characters = "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    const charactersLength = characters.length;
+    let result = "";
+    for (let i = 0; i < 6; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+
+// Función para setear el codigo generado
+function codigo() {
+    document.getElementById("codigo_provn").value = 'PROV' + randomNumberGenerator();
+}
+
+
 function get() {
 
     var url = 'http://localhost/mbyte/bytebend/api/v1/providers/crud';

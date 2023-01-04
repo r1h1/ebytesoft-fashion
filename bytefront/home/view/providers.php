@@ -115,7 +115,8 @@
                     <div class="col px-3 mt-5">
 
                         <div class="header text-end mb-3">
-                            <a class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo"><i class="fa-solid fa-plus me-2 py-2"></i> Nuevo Proveedor</a>
+                            <a class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo" onclick="codigo()">
+                            <i class="fa-solid fa-plus me-2 py-2"></i> Nuevo Proveedor</a>
                         </div>
 
                         <div class="table-responsive mt-5 mb-5">
@@ -157,7 +158,7 @@
                                                     <input type="text" class="form-control gray inputClass" id="id_provn" hidden>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Código" id="codigo_provn">
+                                                    <input type="text" class="form-control gray inputClass" id="codigo_provn" hidden>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <input type="text" class="form-control gray inputClass" placeholder="Tipo de Proveedor *" id="tipo_provn" min="1">
