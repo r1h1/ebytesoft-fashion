@@ -136,6 +136,10 @@
                                     <div class="card-body">
                                         <p class="fw-bold h1 text-center">14</p>
                                     </div>
+                                    <div class="boton-gitftcard text-center">
+                                        <a class="btn btn-warning text-black px-4 py-2 fw-bold" data-bs-toggle="modal" data-bs-target="#pago-efectivo">
+                                            <i class="fa-solid fa-gift me-2"></i>Aplicar Puntos</a>
+                                    </div>
                                 </div>
                             </div>
 

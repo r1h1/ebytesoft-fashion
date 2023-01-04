@@ -136,6 +136,7 @@
                                         <th scope="col">Puesto Actual</th>
                                         <th scope="col">Salario</th>
                                         <th scope="col">Usuario</th>
+                                        <th scope="col">Rol</th>
                                         <th scope="col" class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
@@ -213,7 +214,7 @@
                                                 <div class="col-12">
                                                     <label class="form-label text-muted">Rol *</label>
                                                     <select class="form-select gray inputClass" id="rolN">
-                                                        <option value="">Seleccione un Rol</option>
+
                                                     </select>
                                                 </div>
 

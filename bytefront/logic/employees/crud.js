@@ -45,6 +45,7 @@ function get() {
             <td>${data[i].puesto}</td>
             <td>${data[i].salario}</td>
             <td>${data[i].usuario}</td>
+            <td>${data[i].descripcion}</td>
             <td class="text-center">
                 <a class="btn btn-warning text-dark fw-bold" onclick="getIdEditForm(${data[i].id})" data-bs-toggle="modal" data-bs-target="#editar"><i class="fa-solid fa-pen-to-square"></i></a>
                 <a class="btn btn-danger text-white fw-bold" onclick="delete_method(${data[i].id})"><i class="fa-solid fa-trash"></i></a>
@@ -158,8 +159,31 @@ function getCashRegistersEdit() {
         }
         document.getElementById('cajas').innerHTML = body2;
     }
+}
+
+
+function getRols() {
+
+    var url = 'http://localhost/mbyte/bytebend/api/v1/dashboard/rols';
+    fetch(url)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => console.log(error));
+
+    const mostrarData = (data) => {
+
+        let body = '';
+
+        for (var i = 0; i < data.length; i++) {
+            body += `<option value="${data[i].id}">${data[i].descripcion}</option>`
+        }
+
+        document.getElementById('rolN').innerHTML = body;
+
+    }
 
 }
+getRols();
 
 
 
@@ -215,9 +239,10 @@ function post() {
     var salarioN = document.getElementById('salarioN').value;
     var usuarioN = document.getElementById('usuarioN').value;
     var claveN = document.getElementById('claveN').value;
+    var rolN = document.getElementById('rolN').value;
 
 
-    if (localN == "" || nombreN == "" || dpiNitN == "" || direccionN == "" || telefonoN == "" || usuarioN == "" || claveN == "") {
+    if (localN == "" || nombreN == "" || dpiNitN == "" || direccionN == "" || telefonoN == "" || usuarioN == "" || claveN == "" || rolN == "") {
         Swal.fire({
             icon: 'error',
             title: 'Error en la Operación',
@@ -233,7 +258,7 @@ function post() {
             confirmButtonText: 'Entendido',
         });
     }
-    else if (localN != "" || cajaN != "" || nombreN != "" || dpiNitN != "" || direccionN != "" || telefonoN != "" || usuarioN != "" || claveN != "") {
+    else if (localN != "" || cajaN != "" || nombreN != "" || dpiNitN != "" || direccionN != "" || telefonoN != "" || usuarioN != "" || claveN != "" || rolN != "") {
 
         var formdata = new FormData();
 
@@ -251,6 +276,7 @@ function post() {
         formdata.append("clave", claveN);
         formdata.append("localPertenece", localN);
         formdata.append("cajaPertenece", cajaN);
+        formdata.append("rol", rolN);
 
         var requestOptions = {
             method: 'POST',
@@ -282,6 +308,7 @@ function post() {
                     getCashRegisters();
                     getLocals();
                     getCashRegistersEdit();
+                    getRols();
                     document.getElementById('localPertenece').value = '';
                     document.getElementById('cajaPertenece').value = '';
                     document.getElementById('empleado-codigo').value = '';
@@ -303,6 +330,7 @@ function post() {
                     getCashRegisters();
                     getLocals();
                     getCashRegistersEdit();
+                    getRols();
                     document.getElementById('localPertenece').value = '';
                     document.getElementById('cajaPertenece').value = '';
                     document.getElementById('empleado-codigo').value = '';
@@ -392,6 +420,7 @@ function put() {
                     getCashRegisters();
                     getLocals();
                     getCashRegistersEdit();
+                    getRols();
                     $('#editar').modal('toggle');
                 } else if (result.isDenied) {
                     get();
@@ -399,6 +428,7 @@ function put() {
                     getCashRegisters();
                     getLocals();
                     getCashRegistersEdit();
+                    getRols();
                     $('#editar').modal('toggle');
                 }
             });
@@ -453,12 +483,14 @@ function delete_method(id) {
                         getCashRegisters();
                         getLocals();
                         getCashRegistersEdit();
+                        getRols();
                     } else if (result.isDenied) {
                         get();
                         getTotals();
                         getCashRegisters();
                         getLocals();
                         getCashRegistersEdit();
+                        getRols();
                     }
                 });
             }
@@ -469,6 +501,7 @@ function delete_method(id) {
             getCashRegisters();
             getLocals();
             getCashRegistersEdit();
+            getRols();
         }
     });
 

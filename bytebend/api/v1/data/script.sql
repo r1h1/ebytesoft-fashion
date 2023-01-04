@@ -46,27 +46,6 @@ create table clients(
     puntosDisponibles varchar(50)
 );
 
-create table modules(
-    id int primary key not null auto_increment,
-    nombreModulo varchar(80),
-    descripcionModulo varchar(80),
-    rutaModulo varchar(500)
-);
-
-INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`) VALUES ('treasury','Financiero','<a href="treasury"> <div class="p-2 green zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-money-bill h1 text-white"></i> </div><p class="card-text text-white text-center">Tesorería</p></div></div></a>');
-INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`) VALUES ('employees','Empleados','<a href="employees"> <div class="p-2 oranje zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-users h1 text-white"></i> </div><p class="card-text text-white text-center">Empleados</p></div></div></a>');
-INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`) VALUES ('products','Productos','<a href="products"> <div class="p-2 gray-card zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-list h1 text-white"></i> </div><p class="card-text text-white text-center">Inventario</p></div></div></a>');
-INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`) VALUES ('cash_registers','Cajas Registradoras','<a href="cash_registers"> <div class="p-2 blue zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-cash-register h1 text-white"></i> </div><p class="card-text text-white text-center">Cajas</p></div></div></a>');
-INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`) VALUES ('sale','Venta','<a href="sale"> <div class="p-2 green zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-cart-arrow-down h1 text-white"></i> </div><p class="card-text text-white text-center">Venta</p></div></div></a>');
-INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`) VALUES ('return_clothes','Devolución de Prendas','<a href="return_clothes"> <div class="p-2 oranje zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-shirt h1 text-white"></i> </div><p class="card-text text-white text-center">Devolución</p></div></div></a>');
-INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`) VALUES ('providers','Proveedores','<a href="providers"> <div class="p-2 gray-card zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-people-carry-box h1 text-white"></i> </div><p class="card-text text-white text-center">Proveedores</p></div></div></a>');
-INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`) VALUES ('clients','Clientes','<a href="clients"> <div class="p-2 purple zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-user-tie h1 text-white"></i> </div><p class="card-text text-white text-center">Clientes</p></div></div></a>');
-INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`) VALUES ('discount_list','Lista de Descuentos','<a href="discount_list"> <div class="p-2 purple zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-tag h1 text-white"></i> </div><p class="card-text text-white text-center">Lista Descuentos</p></div></div></a>');
-INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`) VALUES ('price_list','Lista de Precios','<a href="price_list"> <div class="p-2 blue zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-hand-holding-dollar h1 text-white"></i> </div><p class="card-text text-white text-center">Listas Precios</p></div></div></a>');
-INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`) VALUES ('locals','Locales','<a href="locals"> <div class="p-2 green zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-store h1 text-white"></i> </div><p class="card-text text-white text-center">Locales</p></div></div></a>');
-INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`) VALUES ('reports','Reportes','<a href="reports"> <div class="p-2 oranje zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-chart-pie h1 text-white"></i> </div><p class="card-text text-white text-center">Reportes</p></div></div></a>');
-
-
 create table permissions(
     id int primary key not null auto_increment,
     nombrePermiso varchar(80),
@@ -82,31 +61,82 @@ create table rol(
     id int primary key not null auto_increment,
     nombreRol varchar(100),
     descripcion varchar(250),
-    moduloPertenece int,
     permisosPertenece int,
-    FOREIGN KEY (moduloPertenece) REFERENCES modules(id),
     FOREIGN KEY (permisosPertenece) REFERENCES permissions(id)
 );
 
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('superAdmin','Super Administrador',1,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('superAdmin','Super Administrador',2,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('superAdmin','Super Administrador',3,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('superAdmin','Super Administrador',4,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('superAdmin','Super Administrador',5,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('superAdmin','Super Administrador',6,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('superAdmin','Super Administrador',7,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('superAdmin','Super Administrador',8,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('superAdmin','Super Administrador',9,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('superAdmin','Super Administrador',10,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('superAdmin','Super Administrador',11,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('superAdmin','Super Administrador',12,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('bodega','Bodega',3,2);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('recursosHumanos','RRHH',2,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('finanzas','Contadores',1,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('finanzas','Contadores',12,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('ventas','Vendedores',5,1);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('ventas','Vendedores',6,2);
-INSERT INTO `rol`(`nombreRol`, `descripcion`, `moduloPertenece`, `permisosPertenece`) VALUES ('ventas','Vendedores',8,2);
+INSERT INTO `rol`(`nombreRol`, `descripcion`, `permisosPertenece`) VALUES ('superadmin','Super Administrador',1);
+INSERT INTO `rol`(`nombreRol`, `descripcion`, `permisosPertenece`) VALUES ('admin','Administrador',1);
+INSERT INTO `rol`(`nombreRol`, `descripcion`, `permisosPertenece`) VALUES ('bodega','Bodega',2);
+INSERT INTO `rol`(`nombreRol`, `descripcion`, `permisosPertenece`) VALUES ('vendedor','Cajero',2);
+INSERT INTO `rol`(`nombreRol`, `descripcion`, `permisosPertenece`) VALUES ('recursoshumanos','Recursos Humanos',2);
+INSERT INTO `rol`(`nombreRol`, `descripcion`, `permisosPertenece`) VALUES ('financiero','Financiero',2);
+
+
+create table modules(
+    id int primary key not null auto_increment,
+    nombreModulo varchar(80),
+    descripcionModulo varchar(80),
+    rutaModulo varchar(500),
+    rolPertenece int,
+    FOREIGN KEY (rolPertenece) REFERENCES rol(id)
+);
+
+
+-- SUPER ADMIN OPCIONES DE MENU
+
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('treasury','Financiero','<a href="treasury"> <div class="p-2 green zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-money-bill h1 text-white"></i> </div><p class="card-text text-white text-center">Tesorería</p></div></div></a>',1);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('employees','Empleados','<a href="employees"> <div class="p-2 oranje zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-users h1 text-white"></i> </div><p class="card-text text-white text-center">Empleados</p></div></div></a>',1);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('products','Productos','<a href="products"> <div class="p-2 gray-card zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-list h1 text-white"></i> </div><p class="card-text text-white text-center">Inventario</p></div></div></a>',1);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('cash_registers','Cajas Registradoras','<a href="cash_registers"> <div class="p-2 blue zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-cash-register h1 text-white"></i> </div><p class="card-text text-white text-center">Cajas</p></div></div></a>',1);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('sale','Venta','<a href="sale"> <div class="p-2 green zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-cart-arrow-down h1 text-white"></i> </div><p class="card-text text-white text-center">Venta</p></div></div></a>',1);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('return_clothes','Devolución de Prendas','<a href="return_clothes"> <div class="p-2 oranje zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-shirt h1 text-white"></i> </div><p class="card-text text-white text-center">Devolución</p></div></div></a>',1);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('providers','Proveedores','<a href="providers"> <div class="p-2 gray-card zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-people-carry-box h1 text-white"></i> </div><p class="card-text text-white text-center">Proveedores</p></div></div></a>',1);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('clients','Clientes','<a href="clients"> <div class="p-2 purple zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-user-tie h1 text-white"></i> </div><p class="card-text text-white text-center">Clientes</p></div></div></a>',1);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('discount_list','Lista de Descuentos','<a href="discount_list"> <div class="p-2 purple zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-tag h1 text-white"></i> </div><p class="card-text text-white text-center">Lista Descuentos</p></div></div></a>',1);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('price_list','Lista de Precios','<a href="price_list"> <div class="p-2 blue zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-hand-holding-dollar h1 text-white"></i> </div><p class="card-text text-white text-center">Listas Precios</p></div></div></a>',1);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('locals','Locales','<a href="locals"> <div class="p-2 green zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-store h1 text-white"></i> </div><p class="card-text text-white text-center">Locales</p></div></div></a>',1);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('reports','Reportes','<a href="reports"> <div class="p-2 oranje zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-chart-pie h1 text-white"></i> </div><p class="card-text text-white text-center">Reportes</p></div></div></a>',1);
+
+-- ADMIN OPCIONES DE MENU
+
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('treasury','Financiero','<a href="treasury"> <div class="p-2 green zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-money-bill h1 text-white"></i> </div><p class="card-text text-white text-center">Tesorería</p></div></div></a>',2);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('employees','Empleados','<a href="employees"> <div class="p-2 oranje zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-users h1 text-white"></i> </div><p class="card-text text-white text-center">Empleados</p></div></div></a>',2);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('products','Productos','<a href="products"> <div class="p-2 gray-card zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-list h1 text-white"></i> </div><p class="card-text text-white text-center">Inventario</p></div></div></a>',2);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('cash_registers','Cajas Registradoras','<a href="cash_registers"> <div class="p-2 blue zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-cash-register h1 text-white"></i> </div><p class="card-text text-white text-center">Cajas</p></div></div></a>',2);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('sale','Venta','<a href="sale"> <div class="p-2 green zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-cart-arrow-down h1 text-white"></i> </div><p class="card-text text-white text-center">Venta</p></div></div></a>',2);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('return_clothes','Devolución de Prendas','<a href="return_clothes"> <div class="p-2 oranje zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-shirt h1 text-white"></i> </div><p class="card-text text-white text-center">Devolución</p></div></div></a>',2);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('providers','Proveedores','<a href="providers"> <div class="p-2 gray-card zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-people-carry-box h1 text-white"></i> </div><p class="card-text text-white text-center">Proveedores</p></div></div></a>',2);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('clients','Clientes','<a href="clients"> <div class="p-2 purple zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-user-tie h1 text-white"></i> </div><p class="card-text text-white text-center">Clientes</p></div></div></a>',2);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('locals','Locales','<a href="locals"> <div class="p-2 green zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-store h1 text-white"></i> </div><p class="card-text text-white text-center">Locales</p></div></div></a>',2);
+
+-- BODEGA OPCIONES DE MENU
+
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('products','Productos','<a href="products"> <div class="p-2 gray-card zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-list h1 text-white"></i> </div><p class="card-text text-white text-center">Inventario</p></div></div></a>',3);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('return_clothes','Devolución de Prendas','<a href="return_clothes"> <div class="p-2 oranje zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-shirt h1 text-white"></i> </div><p class="card-text text-white text-center">Devolución</p></div></div></a>',3);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('providers','Proveedores','<a href="providers"> <div class="p-2 gray-card zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-people-carry-box h1 text-white"></i> </div><p class="card-text text-white text-center">Proveedores</p></div></div></a>',3);
+
+-- VENDEDORES OPCIONES DE MENU
+
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('treasury','Financiero','<a href="treasury"> <div class="p-2 green zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-money-bill h1 text-white"></i> </div><p class="card-text text-white text-center">Tesorería</p></div></div></a>',4);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('sale','Venta','<a href="sale"> <div class="p-2 green zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-cart-arrow-down h1 text-white"></i> </div><p class="card-text text-white text-center">Venta</p></div></div></a>',4);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('return_clothes','Devolución de Prendas','<a href="return_clothes"> <div class="p-2 oranje zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-shirt h1 text-white"></i> </div><p class="card-text text-white text-center">Devolución</p></div></div></a>',4);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('clients','Clientes','<a href="clients"> <div class="p-2 purple zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-user-tie h1 text-white"></i> </div><p class="card-text text-white text-center">Clientes</p></div></div></a>',4);
+
+-- RRHH OPCIONES DE MENU
+
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('employees','Empleados','<a href="employees"> <div class="p-2 oranje zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-users h1 text-white"></i> </div><p class="card-text text-white text-center">Empleados</p></div></div></a>',5);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('clients','Clientes','<a href="clients"> <div class="p-2 purple zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-user-tie h1 text-white"></i> </div><p class="card-text text-white text-center">Clientes</p></div></div></a>',5);
+
+-- CONTADORES OPCIONES DE MENU
+
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('treasury','Financiero','<a href="treasury"> <div class="p-2 green zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-money-bill h1 text-white"></i> </div><p class="card-text text-white text-center">Tesorería</p></div></div></a>',6);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('return_clothes','Devolución de Prendas','<a href="return_clothes"> <div class="p-2 oranje zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-shirt h1 text-white"></i> </div><p class="card-text text-white text-center">Devolución</p></div></div></a>',6);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('price_list','Lista de Precios','<a href="price_list"> <div class="p-2 blue zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-hand-holding-dollar h1 text-white"></i> </div><p class="card-text text-white text-center">Listas Precios</p></div></div></a>',6);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('discount_list','Lista de Descuentos','<a href="discount_list"> <div class="p-2 purple zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-tag h1 text-white"></i> </div><p class="card-text text-white text-center">Lista Descuentos</p></div></div></a>',6);
+INSERT INTO `modules`(`nombreModulo`, `descripcionModulo`, `rutaModulo`, `rolPertenece`) VALUES ('reports','Reportes','<a href="reports"> <div class="p-2 oranje zoom-out rounded rounded-3"> <div class="card-body"> <div class="icon text-center p-4"> <i class="fa-solid fa-chart-pie h1 text-white"></i> </div><p class="card-text text-white text-center">Reportes</p></div></div></a>',6);
+
+
 
 
 create table employees(

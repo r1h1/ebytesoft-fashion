@@ -25,7 +25,7 @@ setInterval(fechaYHora, 1000);
 
 function getMenu() {
 
-    var url = 'http://localhost/mbyte/bytebend/api/v1/dashboard/options';
+    var url = 'http://localhost/mbyte/bytebend/api/v1/dashboard/options?rol=' + 1;
 
     fetch(url)
         .then(response => response.json())

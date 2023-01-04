@@ -183,7 +183,7 @@
                                                 <div class="col-12">
                                                     <input type="text" class="form-control gray inputClass" placeholder="Descripcion *" maxlength="70">
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-6">
                                                     <select class="form-select gray inputClass">
                                                         <option value="">Categoría *</option>
                                                         <option value="0">Ninguna</option>
@@ -191,7 +191,7 @@
                                                         <option value="2">Fashion Platinum</option>
                                                     </select>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-6">
                                                     <select class="form-select gray inputClass">
                                                         <option value="">Local Asignado *</option>
                                                         <option value="0">Ninguna</option>
@@ -199,12 +199,18 @@
                                                         <option value="2">Villa Nueva</option>
                                                     </select>
                                                 </div>
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     <input type="number" class="form-control gray inputClass" placeholder="Cantidad *" min="1">
                                                 </div>
-                                                <div class="col-6">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Precio Unitario *" min="1">
+                                                <div class="col-12">
+                                                    <select class="form-select gray inputClass">
+                                                        <option value="">Lista de Precio *</option>
+                                                        <option value="0">Ninguna</option>
+                                                        <option value="1">San Miguel Petapa</option>
+                                                        <option value="2">Villa Nueva</option>
+                                                    </select>
                                                 </div>
+                                                
                                                 <div class="col-12 text-center mt-4">
                                                     <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
                                                         Datos</button>
@@ -226,7 +232,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header green">
                                             <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
-                                                Agregar</h1>
+                                                Agregar Categoria</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -241,6 +247,7 @@
                                                 <div class="col-12">
                                                     <select class="form-select gray inputClass">
                                                         <option value="">Lista de Descuento *</option>
+                                                        <option value="0">Ninguna</option>
                                                         <option value="1">San Miguel Petapa</option>
                                                         <option value="2">Villa Nueva</option>
                                                     </select>

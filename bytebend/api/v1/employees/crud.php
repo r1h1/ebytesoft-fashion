@@ -25,8 +25,10 @@
 		if (isset($_GET['id'])) {
 
 			$sql = $pdo->prepare("SELECT e.id,e.codigo,e.departamento,e.nombreCompleto,e.dpiNit,e.telefono,e.direccion,e.correoElectronico,e.fechaNacimiento,
-			e.puesto,e.salario,e.usuario,l.nombreLocal,cr.nombreCaja FROM employees e INNER JOIN locals l ON e.localPertenece = l.id
-			INNER JOIN cash_registers cr ON e.cajaPertenece = cr.id; WHERE e.id=:id");
+			e.puesto,e.salario,e.usuario,rl.descripcion,l.nombreLocal,cr.nombreCaja FROM employees e INNER JOIN locals l ON e.localPertenece = l.id
+			INNER JOIN cash_registers cr ON e.cajaPertenece = cr.id 
+			INNER JOIN rol rl ON e.rol = rl.id 
+			WHERE e.id=:id");
 
 			$sql->bindValue(':id', $_GET['id']);
 			$sql->execute();
@@ -39,8 +41,9 @@
 		else {
 
 			$sql = $pdo->prepare("SELECT e.id,e.codigo,e.departamento,e.nombreCompleto,e.dpiNit,e.telefono,e.direccion,e.correoElectronico,e.fechaNacimiento,
-			e.puesto,e.salario,e.usuario,l.nombreLocal,cr.nombreCaja FROM employees e INNER JOIN locals l ON e.localPertenece = l.id
-			INNER JOIN cash_registers cr ON e.cajaPertenece = cr.id");
+			e.puesto,e.salario,e.usuario,rl.descripcion,l.nombreLocal,cr.nombreCaja FROM employees e INNER JOIN locals l ON e.localPertenece = l.id
+			INNER JOIN cash_registers cr ON e.cajaPertenece = cr.id
+            INNER JOIN rol rl ON e.rol = rl.id;");
 
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
@@ -56,10 +59,10 @@
 
 		$sql = "INSERT INTO employees(codigo, departamento, nombreCompleto, dpiNit, telefono, direccion, correoElectronico, 
 		fechaNacimiento, puesto, salario, 
-		usuario, clave, localPertenece, cajaPertenece) 
+		usuario, clave, localPertenece, cajaPertenece, rol) 
 		VALUES (:codigo, :departamento, :nombreCompleto, :dpiNit, :telefono, :direccion, :correoElectronico, :fechaNacimiento, 
 		:puesto, :salario, 
-		:usuario, :clave, :localPertenece, :cajaPertenece)";
+		:usuario, :clave, :localPertenece, :cajaPertenece, :rol)";
 
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(':codigo', $_POST['codigo']);
@@ -76,6 +79,7 @@
 		$stmt->bindValue(':clave', $_POST['clave']);
 		$stmt->bindValue(':localPertenece', $_POST['localPertenece']);
 		$stmt->bindValue(':cajaPertenece', $_POST['cajaPertenece']);
+		$stmt->bindValue(':rol', $_POST['rol']);
 		$stmt->execute();
 		$idPost = $pdo->lastInsertId();
 		if ($idPost) {

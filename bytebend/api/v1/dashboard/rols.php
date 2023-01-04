@@ -23,17 +23,7 @@
 	//Listar registros y consultar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		if (isset($_GET['id'])) {
-			$sql = $pdo->prepare("SELECT * FROM modules WHERE id = :id");
-			$sql->execute();
-			$sql->setFetchMode(PDO::FETCH_ASSOC);
-			header('HTTP/1.1 200');
-			header("Content-Type: application/json");
-			echo json_encode($sql->fetchAll());
-			exit;
-		}
-		else if (isset($_GET['rol'])) {
-			$sql = $pdo->prepare("SELECT * FROM modules WHERE rolPertenece=:rol");
-			$sql->bindValue(':rol', $_GET['rol']);
+			$sql = $pdo->prepare("SELECT * FROM rol WHERE id = :id");
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			header('HTTP/1.1 200');
@@ -42,9 +32,12 @@
 			exit;
 		}
 		else {
-			header('HTTP/1.1 400 Bad Request');
+			$sql = $pdo->prepare("SELECT * FROM rol");
+			$sql->execute();
+			$sql->setFetchMode(PDO::FETCH_ASSOC);
+			header('HTTP/1.1 200');
 			header("Content-Type: application/json");
-			echo json_encode('SIN PERMISOS PARA MOSTRAR MENU, NO CUENTA CON ROL');
+			echo json_encode($sql->fetchAll());
 			exit;
 		}
 	}
