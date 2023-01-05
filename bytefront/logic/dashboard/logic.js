@@ -50,6 +50,20 @@ function closeSession() {
     window.location.href = '../../start';
 }
 
+function alertSessionExpired() {
+    Swal.fire({
+        icon: 'warning',
+        title: 'Advertencia',
+        text: 'Su sesión expirará por seguridad en 1 minuto',
+        confirmButtonText: 'Entendido'
+    });
+}
+
+//Ejecuta la función closeSession cada 9 horas
+setInterval(alertSessionExpired, 30924000);
+setInterval(closeSession, 32400000);
+
+
 
 function getMenu() {
 

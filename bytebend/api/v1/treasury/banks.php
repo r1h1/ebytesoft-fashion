@@ -23,7 +23,7 @@
 	//Listar registros y consultar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		if (isset($_GET['id'])) {
-			$sql = $pdo->prepare("SELECT * FROM banks WHERE id=:id");
+			$sql = $pdo->prepare("SELECT * FROM banks WHERE id=:id ORDER BY nombreBancoEntidad ASC");
 			$sql->bindValue(':id', $_GET['id']);
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
@@ -33,7 +33,7 @@
 			exit;
 		}
 		else {
-			$sql = $pdo->prepare("SELECT * FROM banks");
+			$sql = $pdo->prepare("SELECT * FROM banks ORDER BY nombreBancoEntidad ASC");
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			header('HTTP/1.1 200');

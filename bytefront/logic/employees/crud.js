@@ -247,7 +247,7 @@ function post() {
             icon: 'error',
             title: 'Error en la Operación',
             text: 'Debe llenar todos los campos que tengan un *',
-            confirmButtonText: 'Entendido',
+            confirmButtonText: 'Entendido'
         });
     }
     else if (cajaN == "") {
@@ -255,7 +255,7 @@ function post() {
             icon: 'error',
             title: 'Error en la Operación',
             text: 'Debe seleccionar una caja de un local, si esta no existe, por favor cree una en la sección Cajas',
-            confirmButtonText: 'Entendido',
+            confirmButtonText: 'Entendido'
         });
     }
     else if (localN != "" || cajaN != "" || nombreN != "" || dpiNitN != "" || direccionN != "" || telefonoN != "" || usuarioN != "" || claveN != "" || rolN != "") {

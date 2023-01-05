@@ -22,7 +22,7 @@
 	//Listar registros y consultar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		if (isset($_GET['id'])) {
-			$sql = $pdo->prepare("SELECT * FROM providers WHERE id=:id");
+			$sql = $pdo->prepare("SELECT * FROM providers WHERE id=:id ORDER BY tipoProveedor ASC");
 			$sql->bindValue(':id', $_GET['id']);
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
@@ -32,7 +32,7 @@
 			exit;
 		}
 		else {
-			$sql = $pdo->prepare("SELECT * FROM providers");
+			$sql = $pdo->prepare("SELECT * FROM providers ORDER BY tipoProveedor ASC");
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			header('HTTP/1.1 200');

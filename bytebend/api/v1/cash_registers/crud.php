@@ -24,7 +24,7 @@
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		if (isset($_GET['id'])) {
 			$sql = $pdo->prepare("SELECT c.id,c.codigo,c.nombreCaja,c.localPertenece,l.nombreLocal FROM `cash_registers` c
-			INNER JOIN locals l on c.localPertenece = l.id WHERE c.id=:id");
+			INNER JOIN locals l on c.localPertenece = l.id WHERE c.id=:id ORDER BY l.nombreLocal ASC, c.nombreCaja ASC");
 			$sql->bindValue(':id', $_GET['id']);
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
@@ -45,7 +45,7 @@
 		}
 		else {
 			$sql = $pdo->prepare("SELECT c.id,c.codigo,c.nombreCaja,c.localPertenece,l.nombreLocal FROM `cash_registers` c
-			INNER JOIN locals l on c.localPertenece = l.id");
+			INNER JOIN locals l on c.localPertenece = l.id ORDER BY l.nombreLocal ASC, c.nombreCaja ASC");
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			header('HTTP/1.1 200');

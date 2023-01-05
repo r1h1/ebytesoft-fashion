@@ -28,7 +28,7 @@
 			e.puesto,e.salario,e.usuario,rl.descripcion,l.nombreLocal,cr.nombreCaja FROM employees e INNER JOIN locals l ON e.localPertenece = l.id
 			INNER JOIN cash_registers cr ON e.cajaPertenece = cr.id 
 			INNER JOIN rol rl ON e.rol = rl.id 
-			WHERE e.id=:id");
+			WHERE e.id=:id ORDER BY e.nombreCompleto ASC");
 
 			$sql->bindValue(':id', $_GET['id']);
 			$sql->execute();
@@ -43,7 +43,7 @@
 			$sql = $pdo->prepare("SELECT e.id,e.codigo,e.departamento,e.nombreCompleto,e.dpiNit,e.telefono,e.direccion,e.correoElectronico,e.fechaNacimiento,
 			e.puesto,e.salario,e.usuario,rl.descripcion,l.nombreLocal,cr.nombreCaja FROM employees e INNER JOIN locals l ON e.localPertenece = l.id
 			INNER JOIN cash_registers cr ON e.cajaPertenece = cr.id
-            INNER JOIN rol rl ON e.rol = rl.id;");
+            INNER JOIN rol rl ON e.rol = rl.id ORDER BY e.nombreCompleto ASC");
 
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);

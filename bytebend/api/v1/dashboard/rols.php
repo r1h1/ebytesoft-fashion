@@ -23,7 +23,7 @@
 	//Listar registros y consultar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		if (isset($_GET['id'])) {
-			$sql = $pdo->prepare("SELECT * FROM rol WHERE id = :id");
+			$sql = $pdo->prepare("SELECT * FROM rol WHERE id = :id ORDER BY id ASC");
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			header('HTTP/1.1 200');
@@ -32,7 +32,7 @@
 			exit;
 		}
 		else {
-			$sql = $pdo->prepare("SELECT * FROM rol");
+			$sql = $pdo->prepare("SELECT * FROM rol ORDER BY id ASC");
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			header('HTTP/1.1 200');

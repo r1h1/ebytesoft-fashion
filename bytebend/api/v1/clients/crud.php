@@ -23,7 +23,7 @@
 	//Listar registros y consultar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		if (isset($_GET['id'])) {
-			$sql = $pdo->prepare("SELECT * FROM clients WHERE id=:id");
+			$sql = $pdo->prepare("SELECT * FROM clients WHERE id=:id ORDER BY nombreCompleto ASC");
 			$sql->bindValue(':id', $_GET['id']);
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
@@ -33,7 +33,7 @@
 			exit;
 		}
 		else {
-			$sql = $pdo->prepare("SELECT * FROM clients");
+			$sql = $pdo->prepare("SELECT * FROM clients ORDER BY nombreCompleto ASC");
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			header('HTTP/1.1 200');
