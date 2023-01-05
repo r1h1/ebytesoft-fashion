@@ -16,6 +16,41 @@ function codigo() {
 }
 
 
+function authToken() {
+
+    var auth = localStorage.getItem('auth');
+
+    if (auth == null || auth.length == 0 || auth == '') {
+        localStorage.removeItem('auth');
+        window.location.href = '../../start';
+    }
+    else {
+        console.log('Acceso Correcto');
+    }
+}
+authToken();
+
+
+function closeSession() {
+    var auth = localStorage.getItem('auth');
+    localStorage.removeItem('auth');
+    window.location.href = '../../start';
+}
+
+function alertSessionExpired() {
+    Swal.fire({
+        icon: 'warning',
+        title: 'Advertencia',
+        text: 'Su sesión expirará por seguridad en 10 minutos',
+        confirmButtonText: 'Entendido'
+    });
+}
+
+//Ejecuta la función closeSession cada 1 hora
+setInterval(alertSessionExpired, 1764000);
+setInterval(closeSession, 3600000);
+
+
 function get() {
     var url = 'http://localhost/mbyte/bytebend/api/v1/employees/crud';
     fetch(url)

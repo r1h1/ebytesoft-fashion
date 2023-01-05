@@ -1,5 +1,5 @@
 create database fashion;
-
+use fashion;
 
 create table enterprice(
     id int primary key not null auto_increment,
@@ -196,27 +196,15 @@ create table providers(
 );
 
 
-create table price_list(
+create table product_types(
     id int primary key not null auto_increment,
-    nombreListaPrecio varchar(150),
-    precio varchar(150)
-);
-
-
-create table discount_list(
-    id int primary key not null auto_increment,
-    nombreListaDescuento varchar(150),
-    opcionDescuento varchar(10),
-    porcentajeDescuento varchar(50),
-    descuentoEspecifico varchar(50)
+    nombreTipo varchar(80)
 );
 
 
 create table categories(
     id int primary key not null auto_increment,
-    nombreCategoria varchar(80),
-    listaDescuento int,
-    FOREIGN KEY (listaDescuento) REFERENCES discount_list(id)
+    nombreCategoria varchar(80)
 );
 
 
@@ -230,12 +218,35 @@ create table products(
     localPertenece int,
     categoria int,
     proveedor int,
-    precio int,
+    tipoProducto int,
     FOREIGN KEY (localPertenece) REFERENCES locals(id),
     FOREIGN KEY (categoria) REFERENCES categories(id),
     FOREIGN KEY (proveedor) REFERENCES providers(id),
-    FOREIGN KEY (precio) REFERENCES price_list(id)
+    FOREIGN KEY (tipoProducto) REFERENCES product_types(id)
 );
+
+
+create table discount_list(
+    id int primary key not null auto_increment,
+    nombreListaDescuento varchar(150),
+    opcionDescuentoAplica int,
+    porcentajeDescuento varchar(50),
+    descuentoEspecifico varchar(50),
+    categoriaPertenece int,
+    FOREIGN KEY (categoriaPertenece) REFERENCES categories(id)
+);
+
+
+create table price_list(
+    id int primary key not null auto_increment,
+    nombreListaPrecio varchar(150),
+    precio numeric(10,2),
+    descuentoPertenece int,
+    productoPertenece int,
+    FOREIGN KEY (descuentoPertenece) REFERENCES discount_list(id),
+    FOREIGN KEY (productoPertenece) REFERENCES products(id)
+);
+
 
 create table return_clothes(
     id int primary key not null auto_increment,
@@ -275,10 +286,3 @@ create table sale(
     FOREIGN KEY (usuarioAutorizaDescuento) REFERENCES employees(id),
     FOREIGN KEY (empresa) REFERENCES enterprice(id)
 );
-
-
-
-
-
-
-

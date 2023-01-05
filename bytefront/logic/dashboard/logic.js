@@ -54,14 +54,14 @@ function alertSessionExpired() {
     Swal.fire({
         icon: 'warning',
         title: 'Advertencia',
-        text: 'Su sesión expirará por seguridad en 1 minuto',
+        text: 'Su sesión expirará por seguridad en 10 minutos',
         confirmButtonText: 'Entendido'
     });
 }
 
-//Ejecuta la función closeSession cada 9 horas
-setInterval(alertSessionExpired, 30924000);
-setInterval(closeSession, 32400000);
+//Ejecuta la función closeSession cada 1 hora
+setInterval(alertSessionExpired, 1764000);
+setInterval(closeSession, 3600000);
 
 
 
