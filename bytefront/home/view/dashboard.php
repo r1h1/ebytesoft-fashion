@@ -65,7 +65,7 @@
                                     Editar Perfil</a>
                             </li>
                             <li>
-                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white" href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white" onclick="closeSession()"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -88,11 +88,11 @@
                         <img src="../../../assets/img/logo.png" alt="logo" width="100">
                     </div>
                     <div class="text-center">
-                        <h4 class="fw-bold mt-4">Daniel Rivas</h4>
-                        <p class="mt-4"><i class="fa-solid fa-phone fs-6 me-2"></i> (+502) 4502-4363</p>
-                        <p><i class="fa-solid fa-cash-register fs-6 me-2"></i> Caja #2</p>
+                        <h4 class="fw-bold mt-4" id="nombre"></h4>
+                        <p class="mt-4"><i class="fa-solid fa-phone fs-6 me-2"></i> <span id="numeroTelefono"></span></p>
+                        <p><i class="fa-solid fa-cash-register fs-6 me-2"></i> <span id="caja"></span></p>
                         <p class="h6 text-muted mt-4">Fashion, tu mejor opción</p>
-                        <a href="../../start" class="btn btn-danger mt-4 mb-5"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                        <a class="btn btn-danger mt-4 mb-5" onclick="closeSession()"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                             Sesión</a>
                     </div>
                 </div>

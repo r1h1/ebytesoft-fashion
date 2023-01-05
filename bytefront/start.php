@@ -63,14 +63,13 @@
                             <form>
 
                                 <input type="text" class="form-control mb-2 gray inputClass" placeholder="Usuario *"
-                                    name="usuario" required />
-                                <input type="number" pattern="[0-9]*" inputmode="numeric" min="1111" max="9999"
+                                    id="usuario" required maxlength="10"/>
+                                <input type="number" pattern="[0-9]*" inputmode="numeric" min="1111" max="9999999999"
                                     style="-webkit-text-security: disc;" class="form-control gray inputClass"
-                                    placeholder="Código de acceso *" name="clave" required />
+                                    placeholder="Código de acceso *" id="clave" required />
 
                                 <div class="action-buttons text-center mt-4">
-                                    <a href="home/view/dashboard"
-                                        class="btn blue text-white w-100 boton-ingresar">Ingresar</a>
+                                    <a class="btn blue text-white w-100 boton-ingresar" onclick="authDB()">Ingresar</a>
                                 </div>
                             </form>
 
@@ -99,6 +98,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="logic/auth/auth.js"></script>
 </body>
 
 </html>

@@ -20,17 +20,34 @@
 	$pdo = new Conexion();
 
 
-    //Insertar registro
-	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-		$sql = $pdo->prepare("SELECT * FROM `employees` WHERE usuario = 'denorte' AND clave = '12345';");
-		$stmt->bindValue(':codigo', $_POST['codigo']);
-		$stmt->bindValue(':departamento', $_POST['departamento']);
-		$stmt->execute();
-		header('HTTP/1.1 200 OK');
-		header("Content-Type: application/json");
-		echo json_encode($sql->fetchAll());
-        exit;
+    //validar datos para ingresar login
+	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+		
+		if (isset($_GET['usuario']) && isset($_GET['clave'])) {
+			$sql = $pdo->prepare("SELECT e.id,e.codigo,e.departamento,
+			e.nombreCompleto,e.dpiNit,e.telefono,e.direccion,e.correoElectronico,
+			e.fechaNacimiento, e.puesto,e.salario,e.usuario,rl.descripcion,
+			l.nombreLocal,cr.nombreCaja,e.rol 
+			FROM employees e 
+			INNER JOIN locals l ON e.localPertenece = l.id 
+			INNER JOIN cash_registers cr ON e.cajaPertenece = cr.id 
+			INNER JOIN rol rl ON e.rol = rl.id 
+			WHERE e.usuario = :usuario AND e.clave = :clave");
+			$sql->bindValue(':usuario', $_GET['usuario']);
+			$sql->bindValue(':clave', $_GET['clave']);
+			$sql->execute();
+			$sql->setFetchMode(PDO::FETCH_ASSOC);
+			header('HTTP/1.1 200');
+			header("Content-Type: application/json");
+			echo json_encode($sql->fetchAll());
+			exit;
+		}
+		else {
+			header('HTTP/1.1 400 Bad Request');
+			header("Content-Type: application/json");
+			echo json_encode('SIN PERMISOS PARA ACCEDER, AUTENTIQUESE');
+			exit;
+		}
 	}
 
 	//Si no corresponde a ninguna opción anterior

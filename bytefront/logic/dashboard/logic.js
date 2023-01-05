@@ -23,9 +23,41 @@ fechaYHora();
 setInterval(fechaYHora, 1000);
 
 
+function authToken() {
+
+    var auth = localStorage.getItem('auth');
+
+    if (auth == null || auth.length == 0 || auth == '') {
+        localStorage.removeItem('auth');
+        window.location.href = '../../start';
+    }
+    else {
+        var log = JSON.parse(auth);
+
+        document.getElementById('nombre').innerHTML = log[0].nombreCompleto;
+        document.getElementById('numeroTelefono').innerHTML = log[0].telefono;
+        document.getElementById('caja').innerHTML = log[0].nombreCaja;
+
+        getMenu();
+    }
+}
+authToken();
+
+
+function closeSession() {
+    var auth = localStorage.getItem('auth');
+    localStorage.removeItem('auth');
+    window.location.href = '../../start';
+}
+
+
 function getMenu() {
 
-    var url = 'http://localhost/mbyte/bytebend/api/v1/dashboard/options?rol=' + 1;
+    var auth2 = localStorage.getItem('auth');
+    var log2 = JSON.parse(auth2);
+    var rol = log2[0].rol;
+
+    var url = 'http://localhost/mbyte/bytebend/api/v1/dashboard/options?rol=' + rol;
 
     fetch(url)
         .then(response => response.json())
@@ -44,7 +76,6 @@ function getMenu() {
         }
 
         document.getElementById('menu').innerHTML = body;
-        
+
     }
 }
-getMenu();
