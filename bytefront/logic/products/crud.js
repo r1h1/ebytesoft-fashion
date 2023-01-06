@@ -106,6 +106,7 @@ function getLocals() {
             body += `<option value="${data[i].id}">${data[i].nombreLocal}</option>`
         }
         document.getElementById('localesN').innerHTML = body;
+        document.getElementById('localesE').innerHTML = body;
     }
 }
 getLocals();
@@ -126,6 +127,7 @@ function getProviders() {
             body += `<option value="${data[i].id}">${data[i].tipoProveedor}</option>`
         }
         document.getElementById('proveedorN').innerHTML = body;
+        document.getElementById('proveedorE').innerHTML = body;
     }
 }
 getProviders();
@@ -146,6 +148,7 @@ function getCategories() {
             body += `<option value="${data[i].id}">${data[i].nombreCategoria}</option>`
         }
         document.getElementById('categoriaN').innerHTML = body;
+        document.getElementById('categoriaE').innerHTML = body;
     }
 }
 getCategories();
@@ -166,6 +169,7 @@ function getProductTypes() {
             body += `<option value="${data[i].id}">${data[i].nombreTipo}</option>`
         }
         document.getElementById('tipoProductoN').innerHTML = body;
+        document.getElementById('tipoProductoE').innerHTML = body;
     }
 }
 getProductTypes();
@@ -227,6 +231,34 @@ function getCategoriesButton() {
         </div>`
         }
         document.getElementById('listar-categorias').innerHTML = body;
+    }
+}
+
+
+function getIdEditForm(id) {
+
+    var url = 'http://localhost/mbyte/bytebend/api/v1/products/crud?id=' + id;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Error en la operación, reporte al administrador del sistema',
+            confirmButtonText: 'Entendido',
+        }, console.log(error)));
+
+    const mostrarData = (data) => {
+        document.getElementById('idp').value = data[0].id;
+        document.getElementById('codigoE').value = data[0].codigo;
+        document.getElementById('nombreE').value = data[0].nombre;
+        document.getElementById('descripcionE').value = data[0].descripcion;
+        document.getElementById('categoriaActual').value = data[0].nombreCategoria;
+        document.getElementById('localActual').value = data[0].nombreLocal;
+        document.getElementById('proveedorActual').value = data[0].tipoProveedor;
+        document.getElementById('tipoProductoActual').value = data[0].nombreTipo;
+        document.getElementById('cantidadE').value = data[0].cantidad;
     }
 }
 
@@ -459,6 +491,80 @@ function postProductTypes() {
             });
         }
     }
+}
+
+
+function put() {
+
+    var idp = document.getElementById('idp').value;
+    var codigo = document.getElementById('codigoE').value;
+    var nombre = document.getElementById('nombreE').value;
+    var descripcion = document.getElementById('descripcionE').value;
+    var local = document.getElementById('localesE').value;
+    var categoria = document.getElementById('categoriaE').value;
+    var proveedor = document.getElementById('proveedorE').value;
+    var tipoProducto = document.getElementById('tipoProductoE').value;
+    var cantidad = document.getElementById('cantidadE').value;
+    var estado = document.getElementById('estadoE').value;
+
+    var url = "http://localhost/mbyte/bytebend/api/v1/products/crud?codigo=" + codigo + "&nombre=" + nombre +
+        "&descripcion=" + descripcion + "&cantidad=" + cantidad + "&estado=" + estado + "&localPertenece=" + local + "&categoria=" + categoria +
+        "&proveedor=" + proveedor + "&tipoProducto=" + tipoProducto + "&id=" + idp;
+
+
+    if (estado == "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error en la Operación',
+            text: 'Debe llenar todos los campos y opciones',
+            confirmButtonText: 'Entendido',
+        });
+    }
+
+    else {
+        var requestOptions = {
+            method: 'PUT',
+            redirect: 'follow'
+        };
+
+        fetch(url, requestOptions)
+            .then(response => response.json())
+            .then(data => mostrarData(data))
+            .catch(error => Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Error en la operación, reporte al administrador',
+                confirmButtonText: 'Entendido',
+            }, console.log('Posible conexión con BackEnd incorrecta' + error)));
+
+        const mostrarData = (data) => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Correcto',
+                text: 'La operación se completó.',
+                confirmButtonText: 'Entendido',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#editar').modal('toggle');
+                    get();
+                    getCategories();
+                    getLocals();
+                    getProductTypes();
+                    getProviders();
+                    getTotals();
+                } else if (result.isDenied) {
+                    $('#editar').modal('toggle');
+                    get();
+                    getCategories();
+                    getLocals();
+                    getProductTypes();
+                    getProviders();
+                    getTotals();
+                }
+            });
+        }
+    }
+
 }
 
 

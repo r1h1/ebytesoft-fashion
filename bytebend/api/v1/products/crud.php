@@ -86,13 +86,18 @@
 
 	//Actualizar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
-		$sql = "UPDATE locals SET nombreLocal=:nombreLocal,telefono=:telefono,direccion=:direccion,correoElectronico=:correoElectronico,empresaPertenece=:empresaPertenece WHERE id=:id";
+		$sql = "UPDATE products SET codigo=:codigo,nombre=:nombre,descripcion=:descripcion,cantidad=:cantidad,estado=:estado,
+		localPertenece=:localPertenece,categoria=:categoria,proveedor=:proveedor,tipoProducto=:tipoProducto WHERE id=:id";
 		$stmt = $pdo->prepare($sql);
-		$stmt->bindValue(':nombreLocal', $_GET['nombreLocal']);
-		$stmt->bindValue(':telefono', $_GET['telefono']);
-		$stmt->bindValue(':direccion', $_GET['direccion']);
-		$stmt->bindValue(':correoElectronico', $_GET['correoElectronico']);
-		$stmt->bindValue(':empresaPertenece', $_GET['empresaPertenece']);
+		$stmt->bindValue(':codigo', $_GET['codigo']);
+		$stmt->bindValue(':nombre', $_GET['nombre']);
+		$stmt->bindValue(':descripcion', $_GET['descripcion']);
+		$stmt->bindValue(':cantidad', $_GET['cantidad']);
+		$stmt->bindValue(':estado', $_GET['estado']);
+		$stmt->bindValue(':localPertenece', $_GET['localPertenece']);
+		$stmt->bindValue(':categoria', $_GET['categoria']);
+		$stmt->bindValue(':proveedor', $_GET['proveedor']);
+		$stmt->bindValue(':tipoProducto', $_GET['tipoProducto']);
 		$stmt->bindValue(':id', $_GET['id']);
 		$stmt->execute();
 		echo json_encode(1);

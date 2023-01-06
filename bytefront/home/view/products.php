@@ -175,12 +175,15 @@
                                                 <div class="col-md-12">
                                                     <input type="text" class="form-control gray inputClass" placeholder="Código Producto *" id="codigoN">
                                                 </div>
+
                                                 <div class="col-12">
                                                     <input type="text" class="form-control gray inputClass" placeholder="Nombre *" id="nombreN">
                                                 </div>
+
                                                 <div class="col-12">
                                                     <input type="text" class="form-control gray inputClass" placeholder="Descripcion *" maxlength="70" id="descripcionN">
                                                 </div>
+
                                                 <div class="col-6">
                                                     <label class="form-label text-muted">Categoria *</label>
                                                     <select class="form-select gray inputClass" id="categoriaN">
@@ -374,47 +377,85 @@
                                             <form class="row g-3">
 
                                                 <div class="col-md-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Código Producto *">
+                                                    <input type="text" class="form-control gray inputClass" id="idp" hidden>
                                                 </div>
-                                                <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre *">
+
+                                                <div class="col-md-12">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Código Producto *" id="codigoE">
                                                 </div>
+
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Descripcion *" maxlength="70">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre *" id="nombreE">
                                                 </div>
+
                                                 <div class="col-12">
-                                                    <select class="form-select gray inputClass">
-                                                        <option value="">Categoría *</option>
-                                                        <option value="0">Ninguna</option>
-                                                        <option value="1">Fashion Oro</option>
-                                                        <option value="2">Fashion Platinum</option>
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Descripcion *" maxlength="70" id="descripcionE">
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Categoria Actual*</label>
+                                                    <input type="text" class="form-control gray inputClass" id="categoriaActual" disabled>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Nueva Categoria *</label>
+                                                    <select class="form-select gray inputClass" id="categoriaE">
+
                                                     </select>
                                                 </div>
-                                                <div class="col-12">
-                                                    <select class="form-select gray inputClass">
-                                                        <option value="">Local Asignado *</option>
-                                                        <option value="0">Ninguna</option>
-                                                        <option value="1">San Miguel Petapa</option>
-                                                        <option value="2">Villa Nueva</option>
+
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Local Actual*</label>
+                                                    <input type="text" class="form-control gray inputClass" id="localActual" disabled>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Nuevo Local Asignado *</label>
+                                                    <select class="form-select gray inputClass" id="localesE">
+
                                                     </select>
                                                 </div>
+
                                                 <div class="col-6">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Cantidad *" min="1">
+                                                    <label class="form-label text-muted">Proveedor Actual*</label>
+                                                    <input type="text" class="form-control gray inputClass" id="proveedorActual" disabled>
                                                 </div>
+
                                                 <div class="col-6">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Precio Unitario *" min="1">
+                                                    <label class="form-label text-muted">Nuevo Proveedor *</label>
+                                                    <select class="form-select gray inputClass" id="proveedorE">
+
+                                                    </select>
                                                 </div>
-                                                <div class="col-12">
-                                                    <select class="form-select gray inputClass">
+
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Tipo Producto Actual*</label>
+                                                    <input type="text" class="form-control gray inputClass" id="tipoProductoActual" disabled>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Nuevo Tipo de Producto *</label>
+                                                    <select class="form-select gray inputClass" id="tipoProductoE">
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="Cantidad *" min="1" max="99999" id="cantidadE">
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <select class="form-select gray inputClass" id="estadoE">
                                                         <option value="">Estado *</option>
-                                                        <option value="1">Activo</option>
-                                                        <option value="2">Inactivo</option>
+                                                        <option value="Excelentes Condiciones">Excelentes Condiciones</option>
+                                                        <option value="En Buen Estado">En Buen Estado</option>
+                                                        <option value="Dañado">Dañado</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="col-12 text-center mt-4">
-                                                    <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-pen me-2"></i> Guardar
-                                                        Datos</button>
+                                                    <a class="btn btn-success px-3 py-2" onclick="put()"><i class="fa-solid fa-pen me-2"></i> Guardar
+                                                        Datos</a>
                                                 </div>
                                             </form>
 
