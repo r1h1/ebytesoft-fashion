@@ -124,7 +124,7 @@
                                 <thead class="blue text-white">
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Código de Empleado</th>
+                                        <th scope="col">Código</th>
                                         <th scope="col">Membresía</th>
                                         <th scope="col">Código de Membresía</th>
                                         <th scope="col">NIT</th>

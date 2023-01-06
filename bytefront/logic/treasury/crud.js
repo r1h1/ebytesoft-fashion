@@ -63,7 +63,7 @@ function getBanks() {
                     </div>
                 </div>
                 <div class="col mt-5">
-                    <a class="btn btn-danger text-white fw-bold" onclick="delete_method(${data[i].id})"><i class="fa-solid fa-trash"></i> Eliminar</a>
+                    <a class="btn btn-danger text-white fw-bold" onclick="delete_methodBanks(${data[i].id})"><i class="fa-solid fa-trash"></i> Eliminar</a>
                 </div>
             </div>
         </div>`
@@ -76,7 +76,7 @@ getBanks();
 
 
 
-function delete_method(id) {
+function delete_methodBanks(id) {
 
     Swal.fire({
         icon: 'warning',

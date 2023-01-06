@@ -214,7 +214,7 @@ create table products(
     nombre varchar(150),
     descripcion varchar(250),
     cantidad varchar(150),
-    estado int,
+    estado varchar(50),
     localPertenece int,
     categoria int,
     proveedor int,

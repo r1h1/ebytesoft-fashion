@@ -104,7 +104,7 @@
                                 <div class="card-body p-3">
                                     <p class="card-text text-muted fw-bold">Productos Registrados</p>
                                     <div class="icon p-1 text-center">
-                                        <p class="fw-bold h1">1</p>
+                                        <p class="fw-bold h1" id="total-products"></p>
                                     </div>
                                 </div>
                             </div>
@@ -114,11 +114,24 @@
 
                     <div class="col px-3 mt-5">
 
-                        <div class="header text-end mb-3">
-                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo"><i class="fa-solid fa-plus me-2 py-2"></i> Nuevo
+                        <div class="header text-end mb-5">
+
+                            <button class="btn btn-success mt-2 mb-5" data-bs-toggle="modal" data-bs-target="#nuevo">
+                                <i class="fa-solid fa-plus me-2 py-2"></i> Nuevo
                                 Producto</button>
-                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#categoria"><i class="fa-solid fa-plus me-2 py-2"></i> Nueva
+
+                            <button class="btn btn-success mt-2 mb-5" data-bs-toggle="modal" data-bs-target="#categoria">
+                                <i class="fa-solid fa-plus me-2 py-2"></i> Nueva
                                 Categoría</button>
+
+                            <button class="btn btn-success mt-2 mb-5" data-bs-toggle="modal" data-bs-target="#tipoProducto">
+                                <i class="fa-solid fa-plus me-2 py-2"></i> Nuevo Tipo de Productos</button>
+
+                            <button class="btn btn-warning mt-2 mb-5" data-bs-toggle="modal" data-bs-target="#verCategorias" onclick="getCategoriesButton()">
+                                <i class="fa-solid fa-eye me-2 py-2"></i> Ver Categorías</button>
+
+                            <button class="btn btn-warning mt-2 mb-5" data-bs-toggle="modal" data-bs-target="#verTipoProductos" onclick="getProductTypesButton()">
+                                <i class="fa-solid fa-eye me-2 py-2"></i> Ver Tipo de Productos</button>
                         </div>
 
                         <div class="table-responsive mt-5 mb-5">
@@ -126,35 +139,20 @@
                                 <thead class=" blue text-white">
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Local Pertenece</th>
                                         <th scope="col">Código Producto</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Descripcion</th>
-                                        <th scope="col">Categoría</th>
                                         <th scope="col">Cantidad</th>
-                                        <th scope="col">Precio Unitario</th>
-                                        <th scope="col">Stock en Inventario</th>
                                         <th scope="col">Estado</th>
+                                        <th scope="col">Local Pertenece</th>
+                                        <th scope="col">Categoria</th>
+                                        <th scope="col">Proveedor</th>
+                                        <th scope="col">Tipo de Producto</th>
                                         <th scope="col" class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Otto</td>
-                                        <td>Otto</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>Activo</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editar"><i class="fa-solid fa-pen"></i></button>
-                                            <button class="btn btn-danger" onclick="apiDelete()"><i class="fa-solid fa-trash"></i></button>
-                                        </td>
-                                    </tr>
+                                <tbody id="tabla-de-datos-body">
+
                                 </tbody>
                             </table>
                         </div>
@@ -175,45 +173,58 @@
                                             <form class="row g-3">
 
                                                 <div class="col-md-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Código Producto *">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Código Producto *" id="codigoN">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre *">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre *" id="nombreN">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Descripcion *" maxlength="70">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Descripcion *" maxlength="70" id="descripcionN">
                                                 </div>
                                                 <div class="col-6">
-                                                    <select class="form-select gray inputClass">
-                                                        <option value="">Categoría *</option>
-                                                        <option value="0">Ninguna</option>
-                                                        <option value="1">Fashion Oro</option>
-                                                        <option value="2">Fashion Platinum</option>
+                                                    <label class="form-label text-muted">Categoria *</label>
+                                                    <select class="form-select gray inputClass" id="categoriaN">
+
                                                     </select>
                                                 </div>
+
                                                 <div class="col-6">
-                                                    <select class="form-select gray inputClass">
-                                                        <option value="">Local Asignado *</option>
-                                                        <option value="0">Ninguna</option>
-                                                        <option value="1">San Miguel Petapa</option>
-                                                        <option value="2">Villa Nueva</option>
+                                                    <label class="form-label text-muted">Local Asignado *</label>
+                                                    <select class="form-select gray inputClass" id="localesN">
+
                                                     </select>
                                                 </div>
-                                                <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Cantidad *" min="1">
-                                                </div>
-                                                <div class="col-12">
-                                                    <select class="form-select gray inputClass">
-                                                        <option value="">Lista de Precio *</option>
-                                                        <option value="0">Ninguna</option>
-                                                        <option value="1">San Miguel Petapa</option>
-                                                        <option value="2">Villa Nueva</option>
+
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Proveedor *</label>
+                                                    <select class="form-select gray inputClass" id="proveedorN">
+
                                                     </select>
                                                 </div>
-                                                
+
+                                                <div class="col-6">
+                                                    <label class="form-label text-muted">Tipo de Producto *</label>
+                                                    <select class="form-select gray inputClass" id="tipoProductoN">
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="Cantidad *" min="1" max="99999" id="cantidadN">
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <select class="form-select gray inputClass" id="estadoN">
+                                                        <option value="">Estado *</option>
+                                                        <option value="Excelentes Condiciones">Excelentes Condiciones</option>
+                                                        <option value="En Buen Estado">En Buen Estado</option>
+                                                        <option value="Dañado">Dañado</option>
+                                                    </select>
+                                                </div>
+
                                                 <div class="col-12 text-center mt-4">
-                                                    <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
-                                                        Datos</button>
+                                                    <a class="btn btn-success px-3 py-2" onclick="post()"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                                        Datos</a>
                                                 </div>
                                             </form>
 
@@ -241,21 +252,44 @@
 
 
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre de Categoría *">
-                                                </div>
-
-                                                <div class="col-12">
-                                                    <select class="form-select gray inputClass">
-                                                        <option value="">Lista de Descuento *</option>
-                                                        <option value="0">Ninguna</option>
-                                                        <option value="1">San Miguel Petapa</option>
-                                                        <option value="2">Villa Nueva</option>
-                                                    </select>
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre de Categoría *" id="categoriaNueva">
                                                 </div>
 
                                                 <div class="col-12 text-center mt-4">
-                                                    <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
-                                                        Datos</button>
+                                                    <a class="btn btn-success px-3 py-2" onclick="postCategories()"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                                        Datos</a>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal para crear nuevos tipo producto -->
+                        <div class="moda-new">
+
+                            <div class="modal fade" id="tipoProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header green">
+                                            <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
+                                                Agregar Tipo de Producto</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <form class="row g-3">
+
+
+                                                <div class="col-12">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre Tipo de Producto *" id="tipoProductoNuevo">
+                                                </div>
+
+                                                <div class="col-12 text-center mt-4">
+                                                    <a class="btn btn-success px-3 py-2" onclick="postProductTypes()"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                                        Datos</a>
                                                 </div>
                                             </form>
 
@@ -266,7 +300,65 @@
                         </div>
 
 
-                        <!-- Modal para editar clientes -->
+                        <!-- Modal para ver categorias registradas -->
+                        <div class="moda-new">
+
+                            <div class="modal fade" id="verCategorias" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header bg-warning">
+                                            <h1 class="modal-title fs-5 fw-bold " id="exampleModalLabel">
+                                                Categorias Registradas</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <form class="row g-3">
+
+                                                <div class="col-12" id="listar-categorias">
+
+
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- fin modal -->
+
+
+
+                        <!-- Modal para ver tipo de productos -->
+                        <div class="moda-new">
+
+                            <div class="modal fade" id="verTipoProductos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header bg-warning">
+                                            <h1 class="modal-title fs-5 fw-bold " id="exampleModalLabel">
+                                                Tipo Productos Registrados</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <form class="row g-3">
+
+                                                <div class="col-12" id="listar-tipo-productos">
+
+
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- fin modal -->
+
+                        <!-- Modal para editar productos -->
                         <div class="moda-edit">
 
                             <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -348,12 +440,11 @@
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <script src="../../logic/clients/crud.js"></script>
-
     <!-- Data Table Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../logic/products/crud.js"></script>
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
