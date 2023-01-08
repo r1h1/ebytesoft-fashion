@@ -9,8 +9,8 @@
     <meta name="keywords" content="HTML, CSS, JavaScript, PHP, MariaDB, Firebase, SQL, Bootstrap">
     <meta name="author" content="Daniel Rivas">
 
-    <!-- Bootstrap 5.2 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../../assets/css/dashboard.css">
@@ -98,9 +98,8 @@
                             <p class="mt-3"><i class="fa-solid fa-phone fs-6 me-2"></i> <span id="telefono"></span></p>
                             <p><i class="fa-solid fa-envelope fs-6 me-2"></i> <span id="email"></span></p>
                             <p><i class="fa-solid fa-cash-register fs-6 me-2"></i> <span id="caja"></span></p>
-                            <button class="btn btn-warning mt-3" data-bs-toggle="modal" data-bs-target="#editarDatosPerfil">
-                                <i class="fa-solid fa-pen me-2"></i> Editar mis
-                                Datos</button>
+                            <button class="btn btn-outline-danger mt-3" data-bs-toggle="modal" data-bs-target="#editarDatosPerfil">
+                                <i class="fa-solid fa-key me-2"></i> Restablecer Contraseña</button>
                         </div>
                     </div>
                 </div>
@@ -142,9 +141,9 @@
     </footer>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
-    <!-- Data Table Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
