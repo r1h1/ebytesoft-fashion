@@ -98,7 +98,8 @@
                             <p class="mt-3"><i class="fa-solid fa-phone fs-6 me-2"></i> <span id="telefono"></span></p>
                             <p><i class="fa-solid fa-envelope fs-6 me-2"></i> <span id="email"></span></p>
                             <p><i class="fa-solid fa-cash-register fs-6 me-2"></i> <span id="caja"></span></p>
-                            <button class="btn btn-warning mt-3" data-bs-toggle="modal" data-bs-target="#editarDatosPerfil"><i class="fa-solid fa-pen me-2"></i> Editar mis
+                            <button class="btn btn-warning mt-3" data-bs-toggle="modal" data-bs-target="#editarDatosPerfil">
+                                <i class="fa-solid fa-pen me-2"></i> Editar mis
                                 Datos</button>
                         </div>
                     </div>
@@ -109,32 +110,23 @@
             <div class="modal fade" id="editarDatosPerfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-                        <div class="modal-header blue">
-                            <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">Editar Perfil</h1>
+                        <div class="modal-header bg-warning">
+                            <h1 class="modal-title fs-5 fw-bold " id="exampleModalLabel">Cambiar Contraseña</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <form class="row g-3">
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control gray inputClass" id="inputEmail4" placeholder="Nombre *">
-                                </div>
-                                <div class="col-md-12">
-                                    <input type="number" class="form-control gray inputClass" id="inputPassword4" placeholder="Teléfono" min="1">
-                                </div>
                                 <div class="col-12">
-                                    <input type="email" class="form-control gray inputClass" placeholder="Correo Electrónico *">
-                                </div>
-                                <div class="col-12">
-                                    <input type="number" class="form-control gray inputClass" placeholder="Clave de Acceso *" min="1">
+                                    <input type="number" class="form-control gray inputClass" id="claveE" placeholder="Clave de Acceso *" min="1">
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-success px-2 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar Datos</button>
+                                    <a class="btn btn-success px-2 py-2" onclick="put()"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar Datos</a>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer gray text-center">
-                            <p class="text-muted mt-2 mb-2">Puedes modificar los datos que se mostrarán en tu perfil,
-                                tu número de teléfono o correo electrónico.
+                            <p class="text-muted mt-2 mb-2">Al cambiar la contraseña, tu sesión quedará inhabilitada 
+                                y deberás volver a ingresar, los datos no guardados podrían eliminarse y no recuperarse.
                             </p>
                         </div>
                     </div>
@@ -149,9 +141,13 @@
         </div>
     </footer>
 
-    <!-- Bootstrap Bundle with Popper -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <!-- Data Table Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script src="../../logic/profile/crud.js"></script>
 
     <script>

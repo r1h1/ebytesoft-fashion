@@ -23,9 +23,21 @@ function authDB() {
             console.log('GET OUTTA HERE, HACKER');
         }
         else {
+
+            var hoy = new Date();
+            var fecha = hoy.getFullYear();
+            var dia = hoy.getDay() + 1;
+            var hora = hoy.getHours() + '' + hoy.getMinutes() + '' + hoy.getSeconds();
+
             var texto = JSON.stringify(data);
+
             var dataEncrypt = texto.replace(/e/gi, "enter").replace(/i/gi, "imes").replace(/a/gi, "ai").replace(/o/gi, "ober").replace(/u/gi, "ufat");
+
+            var token = 'TK'+'$'+fecha+'/'+hora+'u'+Math.floor(Math.random() * 1000000000000000000)+'ñ'+hora+'#='+fecha+'!'+'LOR'+data[0].rol+'%'+dia+'====';
+
+            sessionStorage.setItem('token',token);
             localStorage.setItem('auth', dataEncrypt);
+            
             window.location.href = 'home/view/dashboard';
         }
     }
