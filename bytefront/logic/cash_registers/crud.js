@@ -13,6 +13,21 @@ function randomNumberGenerator() {
 // Función para setear el codigo generado
 function codigo() {
     document.getElementById("caja-codigo").value = 'CR' + randomNumberGenerator();
+    var locales = document.getElementById('localesN').value;
+
+    if (locales == '' || locales == 0 || locales == null) {
+        $('#nuevo').modal('toggle');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Advertencia',
+            text: 'No existe ningún local creado, por favor, cree uno o informe al administrador',
+            confirmButtonText: 'Entendido'
+        });
+        console.log('0_0');
+    }
+    else{
+        console.log('1');
+    }
 }
 
 
@@ -109,17 +124,26 @@ function getLocals() {
         .catch(error => console.log(error));
 
     const mostrarData = (data) => {
-
-        let body = '';
-
-        for (var i = 0; i < data.length; i++) {
-            var j = 0;
-            body += `<option value="${data[i].id}">${data[i].nombreLocal}</option>`
+        if (data.length == 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Advertencia',
+                text: 'No existe ningún local creado, por favor, cree uno o informe al administrador',
+                confirmButtonText: 'Entendido'
+            });
         }
+        else {
+            let body = '';
 
-        document.getElementById('localesN').innerHTML = body;
-        document.getElementById('localesE').innerHTML = body;
+            for (var i = 0; i < data.length; i++) {
+                var j = 0;
+                body += `<option value="${data[i].id}">${data[i].nombreLocal}</option>`
+            }
 
+            document.getElementById('localesN').innerHTML = body;
+            document.getElementById('localesE').innerHTML = body;
+
+        }
     }
 
 }
@@ -169,6 +193,7 @@ function post() {
             text: 'Debe llenar todos los campos que tengan un *',
             confirmButtonText: 'Entendido',
         });
+        $('#nuevo').modal('toggle');
     }
     else if (localesN != "" || nombreN != "" || codigo != "") {
 

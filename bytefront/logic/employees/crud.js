@@ -121,15 +121,25 @@ function getLocals() {
 
     const mostrarData = (data) => {
 
-        let body = '';
-
-        for (var i = 0; i < data.length; i++) {
-            var j = 0;
-            body += `<option value="${data[i].id}">${data[i].nombreLocal}</option>`
+        if (data.length == 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Advertencia',
+                text: 'No existe ningún local creado, por favor, cree uno o informe al administrador',
+                confirmButtonText: 'Entendido'
+            });
         }
+        else {
+            let body = '';
 
-        document.getElementById('localPertenece').innerHTML = body;
-        document.getElementById('locales').innerHTML = body;
+            for (var i = 0; i < data.length; i++) {
+                var j = 0;
+                body += `<option value="${data[i].id}">${data[i].nombreLocal}</option>`
+            }
+
+            document.getElementById('localPertenece').innerHTML = body;
+            document.getElementById('locales').innerHTML = body;
+        }
 
     }
 
@@ -149,20 +159,33 @@ function getCashRegisters() {
         .catch(error => console.log(error));
 
     const mostrarData = (data) => {
-        let body = '';
 
-        for (var i = 0; i < data.length; i++) {
-            var j = 0;
-            body += `<option value="${data[i].id}">${data[i].nombreCaja}</option>`;
-        }
-        if (data.length > 0) {
-            document.getElementById('cajaPertenece').disabled = false;
+        if (data.length == 0) {
+            $('#nuevo').modal('toggle');
+            Swal.fire({
+                icon: 'warning',
+                title: 'Advertencia',
+                text: 'Primero debe crear un local, y a continuación, una caja para continuar',
+                confirmButtonText: 'Entendido'
+            });
         }
         else {
-            document.getElementById('cajaPertenece').disabled = true;
+            let body = '';
+
+            for (var i = 0; i < data.length; i++) {
+                var j = 0;
+                body += `<option value="${data[i].id}">${data[i].nombreCaja}</option>`;
+            }
+            if (data.length > 0) {
+                document.getElementById('cajaPertenece').disabled = false;
+            }
+            else {
+                document.getElementById('cajaPertenece').disabled = true;
+            }
+
+            document.getElementById('cajaPertenece').innerHTML = body;
+            document.getElementById('cajas').innerHTML = body;
         }
-        document.getElementById('cajaPertenece').innerHTML = body;
-        document.getElementById('cajas').innerHTML = body;
     }
 
 }

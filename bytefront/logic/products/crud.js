@@ -100,13 +100,23 @@ function getLocals() {
         .catch(error => console.log(error));
 
     const mostrarData = (data) => {
-        let body = '';
-        for (var i = 0; i < data.length; i++) {
-            var j = 0;
-            body += `<option value="${data[i].id}">${data[i].nombreLocal}</option>`
+        if (data.length == 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Advertencia',
+                text: 'No existe ningún local creado, por favor, cree uno o informe al administrador',
+                confirmButtonText: 'Entendido'
+            });
         }
-        document.getElementById('localesN').innerHTML = body;
-        document.getElementById('localesE').innerHTML = body;
+        else {
+            let body = '';
+            for (var i = 0; i < data.length; i++) {
+                var j = 0;
+                body += `<option value="${data[i].id}">${data[i].nombreLocal}</option>`
+            }
+            document.getElementById('localesN').innerHTML = body;
+            document.getElementById('localesE').innerHTML = body;
+        }
     }
 }
 getLocals();
@@ -121,13 +131,23 @@ function getProviders() {
         .catch(error => console.log('Posible conexión con BackEnd incorrecta: ' + error))
 
     const mostrarData = (data) => {
-        let body = '';
-        for (var i = 0; i < data.length; i++) {
-            var j = 0;
-            body += `<option value="${data[i].id}">${data[i].tipoProveedor}</option>`
+        if (data.length == 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Advertencia',
+                text: 'No existe ningún proveedor creado, por favor, cree uno o informe al administrador',
+                confirmButtonText: 'Entendido'
+            });
         }
-        document.getElementById('proveedorN').innerHTML = body;
-        document.getElementById('proveedorE').innerHTML = body;
+        else {
+            let body = '';
+            for (var i = 0; i < data.length; i++) {
+                var j = 0;
+                body += `<option value="${data[i].id}">${data[i].tipoProveedor}</option>`
+            }
+            document.getElementById('proveedorN').innerHTML = body;
+            document.getElementById('proveedorE').innerHTML = body;
+        }
     }
 }
 getProviders();
@@ -142,13 +162,23 @@ function getCategories() {
         .catch(error => console.log('Posible conexión con BackEnd incorrecta: ' + error))
 
     const mostrarData = (data) => {
-        let body = '';
-        for (var i = 0; i < data.length; i++) {
-            var j = 0;
-            body += `<option value="${data[i].id}">${data[i].nombreCategoria}</option>`
+        if (data.length == 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Advertencia',
+                text: 'No existe ninguna categoría creada, por favor, cree uno o informe al administrador',
+                confirmButtonText: 'Entendido'
+            });
         }
-        document.getElementById('categoriaN').innerHTML = body;
-        document.getElementById('categoriaE').innerHTML = body;
+        else {
+            let body = '';
+            for (var i = 0; i < data.length; i++) {
+                var j = 0;
+                body += `<option value="${data[i].id}">${data[i].nombreCategoria}</option>`
+            }
+            document.getElementById('categoriaN').innerHTML = body;
+            document.getElementById('categoriaE').innerHTML = body;
+        }
     }
 }
 getCategories();
@@ -163,13 +193,23 @@ function getProductTypes() {
         .catch(error => console.log('Posible conexión con BackEnd incorrecta: ' + error))
 
     const mostrarData = (data) => {
-        let body = '';
-        for (var i = 0; i < data.length; i++) {
-            var j = 0;
-            body += `<option value="${data[i].id}">${data[i].nombreTipo}</option>`
+        if (data.length == 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Advertencia',
+                text: 'No existe ningún tipo de producto creado, por favor, cree uno o informe al administrador',
+                confirmButtonText: 'Entendido'
+            });
         }
-        document.getElementById('tipoProductoN').innerHTML = body;
-        document.getElementById('tipoProductoE').innerHTML = body;
+        else {
+            let body = '';
+            for (var i = 0; i < data.length; i++) {
+                var j = 0;
+                body += `<option value="${data[i].id}">${data[i].nombreTipo}</option>`
+            }
+            document.getElementById('tipoProductoN').innerHTML = body;
+            document.getElementById('tipoProductoE').innerHTML = body;
+        }
     }
 }
 getProductTypes();

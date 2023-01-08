@@ -18,6 +18,20 @@ function randomNumberGenerator() {
 // Función para setear el codigo generado
 function codigo() {
     document.getElementById("codigo_n").value = 'LOCAL' + randomNumberGenerator();
+
+    var empresa = document.getElementById('empresaPertenece').value;
+    if (empresa == '' || empresa == null || empresa == 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Advertencia',
+            text: 'No existen datos de la empresa, por favor, informe al administrador',
+            confirmButtonText: 'Entendido'
+        });
+        $('#nuevo').modal('toggle');
+    }
+    else {
+        console.log('1');
+    }
 }
 
 
@@ -120,17 +134,25 @@ function getEnterprices() {
         .catch(error => console.log(error));
 
     const mostrarData = (data) => {
-
-        let body = '';
-
-        for (var i = 0; i < data.length; i++) {
-            var j = 0;
-            body += `<option value="${data[i].id}">${data[i].nombreEmpresa}</option>`
+        if (data.length == 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Advertencia',
+                text: 'No existen datos de la empresa, por favor, informe al administrador',
+                confirmButtonText: 'Entendido'
+            });
+            console.log('No datos empresa, insertelo');
         }
+        else {
+            let body = '';
 
-        document.getElementById('empresaPertenece').innerHTML = body;
-        document.getElementById('empresaEdicion').innerHTML = body;
-
+            for (var i = 0; i < data.length; i++) {
+                var j = 0;
+                body += `<option value="${data[i].id}">${data[i].nombreEmpresa}</option>`
+            }
+            document.getElementById('empresaPertenece').innerHTML = body;
+            document.getElementById('empresaEdicion').innerHTML = body;
+        }
     }
 
 }

@@ -11,6 +11,9 @@ create table enterprice(
     correoElectronico varchar(150)
 );
 
+INSERT INTO `enterprice`(`codigo`, `nit`, `nombreEmpresa`, `telefono`, `direccion`, `correoElectronico`) 
+VALUES ('EMPRESA1','3456475K','Fashion GT','54567789','Guatemala','fashion@gmail.com');
+
 
 create table locals(
     id int primary key not null auto_increment,
