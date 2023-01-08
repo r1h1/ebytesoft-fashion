@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../../../assets/css/dashboard.css">
 
+    <!-- ICON -->
+    <link rel="icon" href="../../../assets/img/logo.png">
 
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/be221c52b4.js" crossorigin="anonymous"></script>
@@ -26,9 +28,6 @@
 
     <!-- SweetAlert2 Library -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- ICON -->
-    <link rel="icon" href="../../../assets/img/logo.png">
 
 </head>
 <title>POS | MiniByte</title>
@@ -121,7 +120,7 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    
+
     <script src="../../logic/dashboard/logic.js"></script>
     <script>
         // Loading spinner

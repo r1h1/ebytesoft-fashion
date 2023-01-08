@@ -223,10 +223,24 @@ function getProductTypesButton() {
         .catch(error => console.log('Error devuelto por BackEnd: ' + error))
 
     const mostrarData = (data) => {
-        let body = '';
-        for (var i = 0; i < data.length; i++) {
-            var j = 0;
+        if (data.length == 0) {
+            let body = '';
             body += `<div class="card gray mt-3">
+                        <div class="row">
+                            <div class="col me-2">
+                                <div class="card-body p-3 text-center">
+                                    <p class="card-text text-muted fw-bold h5">-- No existe información --</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+            document.getElementById('listar-tipo-productos').innerHTML = body;
+        }
+        else {
+            let body = '';
+            for (var i = 0; i < data.length; i++) {
+                var j = 0;
+                body += `<div class="card gray mt-3">
             <div class="row">
                 <div class="col me-2">
                     <div class="card-body p-3">
@@ -239,8 +253,9 @@ function getProductTypesButton() {
                 </div>
             </div>
         </div>`
+            }
+            document.getElementById('listar-tipo-productos').innerHTML = body;
         }
-        document.getElementById('listar-tipo-productos').innerHTML = body;
     }
 }
 
@@ -253,10 +268,24 @@ function getCategoriesButton() {
         .catch(error => console.log('Error devuelto por BackEnd: ' + error))
 
     const mostrarData = (data) => {
-        let body = '';
-        for (var i = 0; i < data.length; i++) {
-            var j = 0;
+        if (data.length == 0) {
+            let body = '';
             body += `<div class="card gray mt-3">
+                        <div class="row">
+                            <div class="col me-2">
+                                <div class="card-body p-3 text-center">
+                                    <p class="card-text text-muted fw-bold h5">-- No existe información --</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+            document.getElementById('listar-categorias').innerHTML = body;
+        }
+        else {
+            let body = '';
+            for (var i = 0; i < data.length; i++) {
+                var j = 0;
+                body += `<div class="card gray mt-3">
             <div class="row">
                 <div class="col me-2">
                     <div class="card-body p-3">
@@ -269,8 +298,9 @@ function getCategoriesButton() {
                 </div>
             </div>
         </div>`
+            }
+            document.getElementById('listar-categorias').innerHTML = body;
         }
-        document.getElementById('listar-categorias').innerHTML = body;
     }
 }
 

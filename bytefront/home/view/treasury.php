@@ -106,7 +106,7 @@
                                         <div class="card-body p-3">
                                             <p class="card-text text-muted">Total Depositado</p>
                                             <div class="icon p-1 text-center">
-                                                <p class="fw-bold h2">Q <span>100.00</span></p>
+                                                <p class="fw-bold h2">Q <span id="totalDepositado"></span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -114,9 +114,9 @@
                                 <div class="col">
                                     <div class="card">
                                         <div class="card-body p-3">
-                                            <p class="card-text text-muted">Dinero en Caja</p>
+                                            <p class="card-text text-muted">Dinero Inicia Caja</p>
                                             <div class="icon p-1 text-center">
-                                                <p class="fw-bold h2">Q <span>100.00</span></p>
+                                                <p class="fw-bold h2">Q <span id="dineroIniciaCaja"></span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -124,9 +124,9 @@
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body p-3">
-                                            <p class="card-text text-muted">Usuario que Inicia</p>
+                                            <p class="card-text text-muted">Usuario Logueado</p>
                                             <div class="icon p-1 text-center">
-                                                <p class="fw-bold h2">Daniel Rivas</p>
+                                                <p class="fw-bold h2" id="usuarioLogueadoCaja"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -155,23 +155,18 @@
                                     <table id="example" class="table table-striped">
                                         <thead class=" blue text-white">
                                             <tr>
-                                                <th scope="col">Fecha Depósito</th>
-                                                <th scope="col">No. Boleta-Depósito</th>
-                                                <th scope="col">Entidad-Banco</th>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Fecha</th>
+                                                <th scope="col">No. Depósito</th>
+                                                <th scope="col">Entidad</th>
                                                 <th scope="col">Monto</th>
                                                 <th scope="col">Motivo</th>
                                                 <th scope="col">Usuario</th>
+                                                <th scope="col" class="text-center">Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>PROV000001</td>
-                                                <td>Limpieza</td>
-                                                <td>Crédito</td>
-                                                <td>45024363</td>
-                                                <td>45024363</td>
-                                                <td>Ciudad de Guatemala, Guatemala</td>
-                                            </tr>
+                                        <tbody id="tabla-de-datos-depositos">
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -182,33 +177,18 @@
                                     <table id="example2" class="table table-striped">
                                         <thead class=" blue text-white">
                                             <tr>
+                                                <th scope="col">#</th>
                                                 <th scope="col">Fecha Apertura</th>
                                                 <th scope="col">Fecha Cierre</th>
                                                 <th scope="col">Usuario</th>
                                                 <th scope="col">Inicia</th>
                                                 <th scope="col">Entrega</th>
                                                 <th scope="col">Turno</th>
-                                                <th scope="col">Ventas Totales</th>
-                                                <th scope="col">Ventas Efectivo</th>
-                                                <th scope="col">Ventas Tarjeta</th>
                                                 <th scope="col" class="text-center">Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>PROV000001</td>
-                                                <td>PROV000001</td>
-                                                <td>Limpieza</td>
-                                                <td>Crédito</td>
-                                                <td>45024363</td>
-                                                <td>Ciudad de Guatemala, Guatemala</td>
-                                                <td>de.rivasherrera@gmail.com</td>
-                                                <td>PROV000001</td>
-                                                <td>Limpieza</td>
-                                                <td class="text-center">
-                                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cerrarcaja"><i class="fa-solid fa-lock"></i></button>
-                                                </td>
-                                            </tr>
+                                        <tbody id="tabla-de-datos-caja">
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -231,7 +211,10 @@
                                             <form class="row g-3">
 
                                                 <div class="col-12">
-                                                    <label class="form-label">Fecha y hora de Depósito *</label>
+                                                    <input type="text" class="form-control gray inputClass" id="tipoOperacionN" value="Depósito" hidden>
+                                                </div>
+                                                <div class="col-12">
+                                                    <label class="form-label">Fecha y hora Depósito (Formato 24h) *</label>
                                                     <input type="datetime-local" class="form-control gray inputClass" placeholder="Fecha y Hora *">
                                                 </div>
                                                 <div class="col-12">
@@ -239,10 +222,8 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <label class="form-label">Entidad / Banco *</label>
-                                                    <select class="form-select gray inputClass" aria-label="Default select example">
-                                                        <option value="">Seleccione...</option>
-                                                        <option value="1">Banco Industrial</option>
-                                                        <option value="2">Banco G&T Continental</option>
+                                                    <select class="form-select gray inputClass" id="bancosSelect">
+
                                                     </select>
                                                 </div>
                                                 <div class="col-12">
@@ -252,12 +233,8 @@
                                                     <textarea cols="30" rows="5" class="form-control gray inputClass" placeholder="Motivo *" maxlength="150"></textarea>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <label class="form-label">Usuario *</label>
-                                                    <select class="form-select gray inputClass" aria-label="Default select example">
-                                                        <option value="">Seleccione...</option>
-                                                        <option value="1">x</option>
-                                                        <option value="2">xx</option>
-                                                    </select>
+                                                    <label class="form-label">Usuario Registra Depósito *</label>
+                                                    <input type="text" class="form-control gray inputClass" id="usuarioLogueado" disabled>
                                                 </div>
 
                                                 <div class="col-12 text-center">
@@ -296,22 +273,22 @@
                                             <form class="row g-3">
 
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre del Banco / Entidad *" maxlength="50">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre del Banco / Entidad *" maxlength="50" id="nombre">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass text-uppercase" placeholder="Tipo de Cuenta *">
+                                                    <input type="text" class="form-control gray inputClass text-uppercase" placeholder="Tipo de Cuenta *" id="tipoCuenta">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Número de Cuenta *" min="1">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="Número de Cuenta *" min="1" id="numeroCuenta">
                                                 </div>
 
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Alias / Nombre de la Cuenta *" maxlength="50">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Alias / Nombre de la Cuenta *" maxlength="50" id="aliasCuenta">
                                                 </div>
 
                                                 <div class="col-12 text-center">
-                                                    <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
-                                                        Datos</button>
+                                                    <a class="btn btn-success px-3 py-2" onclick="postBanks()"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                                        Datos</a>
                                                 </div>
                                             </form>
 
@@ -327,6 +304,7 @@
                             </div>
                         </div>
                         <!-- fin modal nuevo banco -->
+
 
                         <!-- Modal para ver bancos registrados -->
                         <div class="moda-new">
@@ -356,6 +334,7 @@
                         </div>
                         <!-- fin modal ver bancos registrados -->
 
+
                         <!-- Modal para iniciar caja -->
                         <div class="moda-new">
 
@@ -372,11 +351,15 @@
                                             <form class="row g-3">
 
                                                 <div class="col-12">
-                                                    <label class="form-label">Fecha y hora de apertura *</label>
+                                                    <input type="text" class="form-control gray inputClass" id="tipoOperacionN" value="AperturaCaja" hidden>
+                                                </div>
+                                                <div class="col-12">
+                                                    <label class="form-label">Fecha y hora de apertura (Formato 24h) *</label>
                                                     <input type="datetime-local" class="form-control gray inputClass" placeholder="Fecha y Hora Apertura *">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario" disabled>
+                                                    <label class="form-label">Usuario Apertura *</label>
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario" id="usuarioAperturaCaja" disabled>
                                                 </div>
                                                 <div class="col-12">
                                                     <input type="number" class="form-control gray inputClass" placeholder="Dinero con el que inicia *" min="1">
@@ -408,7 +391,7 @@
                         <!-- Modal para cerrar caja -->
                         <div class="moda-new">
 
-                            <div class="modal fade" id="cerrarcaja" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="cerrarCaja" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header bg-danger">
@@ -424,22 +407,13 @@
                                                     <label class="form-label">Fecha y hora de cierre *</label>
                                                     <input type="datetime-local" class="form-control gray inputClass" placeholder="Fecha y Hora *">
                                                 </div>
+
                                                 <div class="col-12">
                                                     <input type="number" class="form-control gray inputClass" placeholder="Dinero que entrega *" min="1">
                                                 </div>
-                                                <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Venta Efectivo *" disabled>
-                                                </div>
-                                                <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Venta Tarjeta *" disabled>
-                                                </div>
-                                                <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Ventas Totales *" disabled>
-                                                </div>
 
                                                 <div class="col-12 text-center">
-                                                    <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
-                                                        Datos</button>
+                                                    <button type="submit" class="btn btn-danger px-3 py-2"><i class="fa-solid fa-lock me-2"></i> Finalizar Cierre</button>
                                                 </div>
                                             </form>
 

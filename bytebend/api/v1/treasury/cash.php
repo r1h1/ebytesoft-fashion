@@ -23,7 +23,16 @@
 	//Listar registros y consultar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		if (isset($_GET['id'])) {
-			$sql = $pdo->prepare("SELECT * FROM banks WHERE id=:id ORDER BY nombreBancoEntidad ASC");
+			$sql = $pdo->prepare("SELECT t.id, t.tipoOperacion, t.fechaYHoraInicio, t.fechaYHoraFin, t.noBoletaDeposito, 
+            t.turno, t.monto, t.montoFinal, t.motivo, t.estado, t.banco, t.usuario, b.nombreBancoEntidad, e.nombreCompleto 
+            FROM treasury t 
+            INNER JOIN banks b ON t.banco = b.id 
+            INNER JOIN employees e ON t.usuario = e.id
+            WHERE 
+			t.id = :id
+			AND
+			t.tipoOperacion = 'AperturaCaja'
+            ORDER BY t.fechaYHoraInicio ASC");
 			$sql->bindValue(':id', $_GET['id']);
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
@@ -33,7 +42,13 @@
 			exit;
 		}
 		else {
-			$sql = $pdo->prepare("SELECT * FROM banks ORDER BY nombreBancoEntidad ASC");
+			$sql = $pdo->prepare("SELECT t.id, t.tipoOperacion, t.fechaYHoraInicio, t.fechaYHoraFin, t.noBoletaDeposito, 
+            t.turno, t.monto, t.montoFinal, t.motivo, t.estado, t.banco, t.usuario, b.nombreBancoEntidad, e.nombreCompleto 
+            FROM treasury t 
+            INNER JOIN banks b ON t.banco = b.id 
+            INNER JOIN employees e ON t.usuario = e.id
+            WHERE t.tipoOperacion = 'AperturaCaja'
+            ORDER BY t.fechaYHoraInicio ASC");
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			header('HTTP/1.1 200');

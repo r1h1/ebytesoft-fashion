@@ -174,13 +174,15 @@ create table banks(
 
 create table treasury(
     id int primary key not null auto_increment,
-    tipoOperacion varchar(10),
+    tipoOperacion varchar(50),
     fechaYHoraInicio varchar(50),
     fechaYHoraFin varchar(50),
     noBoletaDeposito varchar(150),
     turno varchar(50),
     monto varchar(50),
+    montoFinal varchar(50),
     motivo varchar(250),
+    estado int,
     banco int,
     usuario int,
     FOREIGN KEY (banco) REFERENCES banks(id),
