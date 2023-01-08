@@ -241,9 +241,7 @@ create table price_list(
     id int primary key not null auto_increment,
     nombreListaPrecio varchar(150),
     precio numeric(10,2),
-    descuentoPertenece int,
     productoPertenece int,
-    FOREIGN KEY (descuentoPertenece) REFERENCES discount_list(id),
     FOREIGN KEY (productoPertenece) REFERENCES products(id)
 );
 

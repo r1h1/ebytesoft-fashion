@@ -95,7 +95,7 @@
                         <div class="col-lg-6 mt-3 mb-5">
 
                             <div class="busquedas input-group">
-                                <input type="number" placeholder="Busca el cliente aquí" class="form-control gray inputClass">
+                                <input type="text" placeholder="Busca el cliente aquí" class="form-control gray inputClass">
                                 <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
                             </div>
 
@@ -137,7 +137,7 @@
                                         <p class="fw-bold h1 text-center">14</p>
                                     </div>
                                     <div class="boton-gitftcard text-center">
-                                        <a class="btn btn-warning text-black px-4 py-2 fw-bold" data-bs-toggle="modal" data-bs-target="#pago-efectivo">
+                                        <a class="btn btn-warning text-black px-4 py-2 fw-bold" data-bs-toggle="modal" data-bs-target="#aplicarPuntos">
                                             <i class="fa-solid fa-gift me-2"></i>Aplicar Puntos</a>
                                     </div>
                                 </div>
@@ -197,7 +197,8 @@
                                 </div>
                             </div>
                             <div class="col-lg-5">
-                                <a class="btn btn-success py-2" data-bs-toggle="modal" data-bs-target="#nuevo"><i class="fa-solid fa-hand me-2"></i> Ingreso Manual</a>
+                                <a class="btn btn-success py-2" data-bs-toggle="modal" data-bs-target="#busquedaProductosManual">
+                                    <i class="fa-solid fa-hand me-2"></i> Ingreso Manual</a>
                             </div>
                         </div>
 
@@ -241,6 +242,7 @@
                                 <div class="col-lg-12 text-end mt-4 mb-4">
                                     <button class="btn btn-success px-5 py-3 fw-bold" data-bs-toggle="modal" data-bs-target="#pago-efectivo">Pago Efectivo</button>
                                     <button class="btn btn-warning px-5 py-3 fw-bold" data-bs-toggle="modal" data-bs-target="#pago-tarjeta">Pago Tarjeta</button>
+                                    <button class="btn btn-secondary px-5 py-3 fw-bold" data-bs-toggle="modal" data-bs-target="#pago-tarjeta">Pago Mixto</button>
                                     <a href="dashboard" class="btn btn-danger px-5 py-3 fw-bold">Cancelar</a>
                                 </div>
                             </div>
@@ -333,21 +335,13 @@
 
                                     <div class="col-12">
                                         <!-- metodo de pago = 2 = tarjeta -->
-                                        <input type="text" value="2" id="metodo-pago-tarjeta" hidden>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label class="form-label">Tipo de Tarjeta *</label>
-                                        <select class="form-select gray inputClass" aria-label="Default select example">
-                                            <option value="">Seleccione...</option>
-                                            <option value="1">Crédito</option>
-                                            <option value="2">Débito</option>
-                                        </select>
+                                        <input type="text" value="2" id="metodoPagoTarjeta" hidden>
                                     </div>
 
                                     <div class="col-12 text-center mt-4">
                                         <button type="submit" class="btn btn-primary px-3 py-2"><i class="fa-regular fa-credit-card me-2"></i></i> Software
                                             POS</button>
+                                        <input type="text" id="presionoSoftwarePOS" hidden>
                                         <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-print me-2"></i> Facturar</button>
                                     </div>
                                 </form>
@@ -459,6 +453,73 @@
                 </div>
             </div>
             <!-- Fin modal descuento adicional -->
+
+
+            <!-- Modal aplicar puntos -->
+            <div class="moda-new">
+                <div class="modal fade" id="aplicarPuntos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header gray-card">
+                                <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
+                                    Canje de Puntos</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="row g-3">
+                                    <div class="col-12">
+                                        <div class="card gray">
+                                            <div class="card-body p-3">
+                                                <p class="card-text text-muted fw-bold">Puntos Actuales</p>
+                                                <div class="icon p-1 text-center">
+                                                    <p class="fw-bold h1"><span id="total-a-pagar">14</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Equivale en Efectivo *</label>
+                                        <input type="text" class="form-control gray inputClass" placeholder="1.4" disabled>
+                                    </div>
+                                    <div class="col-12 text-center mt-4">
+                                        <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-gift me-2"></i> Canjear</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin modal -->
+
+            <!-- Modal productos manual busqueda -->
+            <div class="moda-new">
+                <div class="modal fade" id="busquedaProductosManual" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header green">
+                                <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
+                                    Búsqueda de Productos</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="row g-3">
+
+                                    <div class="col-12">
+                                        <input type="text" class="form-control gray inputClass" placeholder="Código de Producto *" maxlength="50">
+                                    </div>
+
+                                    <div class="col-12 text-center mt-4">
+                                        <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-search me-2"></i> Buscar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin modal -->
 
         </div>
         </div>

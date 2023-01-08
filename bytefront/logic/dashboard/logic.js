@@ -32,9 +32,20 @@ function authToken() {
         window.location.href = '../../start';
     }
     else {
-        var log = JSON.parse(auth);
 
-        document.getElementById('nombre').innerHTML = log[0].nombreCompleto;
+        var texto = localStorage.getItem('auth');
+        var txtEnc = texto.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u");
+
+        var log = JSON.parse(txtEnc);
+
+        const nombreCompleto = log[0].nombreCompleto;
+        const separador = nombreCompleto.split(' ');
+        const primeraLetraNombre = separador[0].charAt(0).toUpperCase();
+        const primeraLetraApellido = separador[1].charAt(0).toUpperCase();
+        const nombre = separador[0].slice(1);
+        const apellido = separador[1].slice(1);
+
+        document.getElementById('nombre').innerHTML = primeraLetraNombre + nombre + ' ' + primeraLetraApellido + apellido;
         document.getElementById('numeroTelefono').innerHTML = log[0].telefono;
         document.getElementById('caja').innerHTML = log[0].nombreCaja;
 
@@ -54,22 +65,23 @@ function alertSessionExpired() {
     Swal.fire({
         icon: 'warning',
         title: 'Advertencia',
-        text: 'Su sesión expirará por seguridad en 10 minutos',
+        text: 'Su sesión expirará por seguridad en 5 minutos',
         confirmButtonText: 'Entendido'
     });
 }
 
 //Ejecuta la función closeSession cada 1 hora
-setInterval(alertSessionExpired, 1764000);
+setInterval(alertSessionExpired, 1944000);
 setInterval(closeSession, 3600000);
 
 
 
 function getMenu() {
 
-    var auth2 = localStorage.getItem('auth');
-    var log2 = JSON.parse(auth2);
-    var rol = log2[0].rol;
+    var texto = localStorage.getItem('auth');
+    var txtEnc = texto.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u");
+    var log = JSON.parse(txtEnc);
+    var rol = log[0].rol;
 
     var url = 'http://localhost/mbyte/bytebend/api/v1/dashboard/options?rol=' + rol;
 

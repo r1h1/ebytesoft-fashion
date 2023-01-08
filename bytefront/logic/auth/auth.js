@@ -19,12 +19,19 @@ function authDB() {
                 text: 'Usuario y/o Contraseña Incorrecto',
                 confirmButtonText: 'Entendido',
             });
-            console.log(data.length);
+            localStorage.removeItem('auth');
+            console.log('GET OUTTA HERE, HACKER');
         }
         else {
-            localStorage.setItem('auth',JSON.stringify(data));
-            window.location.href = 'home/view/dashboard'
+            var texto = JSON.stringify(data);
+            var dataEncrypt = texto.replace(/e/gi, "enter").replace(/i/gi, "imes").replace(/a/gi, "ai").replace(/o/gi, "ober").replace(/u/gi, "ufat");
+            localStorage.setItem('auth', dataEncrypt);
+            window.location.href = 'home/view/dashboard';
         }
-
     }
 }
+
+
+
+
+
