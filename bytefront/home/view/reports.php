@@ -59,18 +59,15 @@
 
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle ms-2 text-muted" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i>
+                        <a class="nav-link dropdown-toggle ms-2 text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="profile"><i
-                                        class="fa-solid fa-user green-text me-2"></i>
+                                <a class="dropdown-item" href="profile"><i class="fa-solid fa-user green-text me-2"></i>
                                     Editar Perfil</a>
                             </li>
                             <li>
-                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white"
-                                    href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white" onclick="closeSession()"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -85,8 +82,7 @@
     <main>
 
         <div class="col text-start mb-2 contenedor-96 px-5">
-            <a href="dashboard" class="boton oranje text-white mb-5"><i
-                    class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
+            <a href="dashboard" class="boton oranje text-white mb-5"><i class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
         </div>
 
         <div class="row contenedor-96 mx-auto px-3">
@@ -98,8 +94,7 @@
                     <div class="row mt-5 mb-5 px-3">
 
                         <div class="col-lg-12 mt-5 text-center">
-                            <p class="h3"><i class="fa-solid fa-chart-pie h1 me-2"></i> <span
-                                    class="fw-bold h2">Reportes</span></p>
+                            <p class="h3"><i class="fa-solid fa-chart-pie h1 me-2"></i> <span class="fw-bold h2">Reportes</span></p>
                         </div>
                     </div>
 
@@ -148,8 +143,7 @@
         <!-- Modal pago efectivo -->
         <div class="moda-new">
 
-            <div class="modal fade" id="pago-efectivo" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="pago-efectivo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header green">
@@ -179,19 +173,16 @@
 
                                 <div class="col-12">
                                     <label class="form-label">Efectivo Recibido *</label>
-                                    <input type="number" id="efectivo-recibido" class="form-control gray inputClass"
-                                        step="any" placeholder="0.00" min="1" onchange="calcularCambioEfectivo()">
+                                    <input type="number" id="efectivo-recibido" class="form-control gray inputClass" step="any" placeholder="0.00" min="1" onchange="calcularCambioEfectivo()">
                                 </div>
 
                                 <div class="col-12">
                                     <label class="form-label">Cambio</label>
-                                    <input type="number" id="cambio" class="form-control gray inputClass" step="any"
-                                        placeholder="0.00" disabled>
+                                    <input type="number" id="cambio" class="form-control gray inputClass" step="any" placeholder="0.00" disabled>
                                 </div>
 
                                 <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-success px-3 py-2"><i
-                                            class="fa-solid fa-print me-2"></i> Facturar</button>
+                                    <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-print me-2"></i> Facturar</button>
                                 </div>
                             </form>
                         </div>
@@ -206,8 +197,7 @@
         <!-- Modal pago tarjeta -->
         <div class="moda-new">
 
-            <div class="modal fade" id="pago-tarjeta" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="pago-tarjeta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header oranje">
@@ -246,11 +236,9 @@
                                 </div>
 
                                 <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-primary px-3 py-2"><i
-                                            class="fa-regular fa-credit-card me-2"></i></i> Software
+                                    <button type="submit" class="btn btn-primary px-3 py-2"><i class="fa-regular fa-credit-card me-2"></i></i> Software
                                         POS</button>
-                                    <button type="submit" class="btn btn-success px-3 py-2"><i
-                                            class="fa-solid fa-print me-2"></i> Facturar</button>
+                                    <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-print me-2"></i> Facturar</button>
                                 </div>
                             </form>
                         </div>
@@ -276,16 +264,13 @@
                             <form class="row g-3">
 
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control gray inputClass" placeholder="Código"
-                                        id="empleado-codigo" hidden>
+                                    <input type="text" class="form-control gray inputClass" placeholder="Código" id="empleado-codigo" hidden>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="number" class="form-control gray inputClass" id="inputPassword4"
-                                        placeholder="NIT *" min="1">
+                                    <input type="number" class="form-control gray inputClass" id="inputPassword4" placeholder="NIT *" min="1">
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" class="form-control gray inputClass"
-                                        placeholder="Nombre Completo *">
+                                    <input type="text" class="form-control gray inputClass" placeholder="Nombre Completo *">
                                 </div>
                                 <div class="col-12">
                                     <input type="text" class="form-control gray inputClass" placeholder="Dirección *">
@@ -294,12 +279,10 @@
                                     <input type="number" class="form-control gray inputClass" placeholder="Teléfono *">
                                 </div>
                                 <div class="col-6">
-                                    <input type="email" class="form-control gray inputClass"
-                                        placeholder="Correo Electrónico *">
+                                    <input type="email" class="form-control gray inputClass" placeholder="Correo Electrónico *">
                                 </div>
                                 <div class="col-12">
-                                    <select class="form-select gray inputClass" id="tipo-membresia"
-                                        onchange="membresiaCliente()">
+                                    <select class="form-select gray inputClass" id="tipo-membresia" onchange="membresiaCliente()">
                                         <option value="0">Tipo de Membresía</option>
                                         <option value="0">Ninguna</option>
                                         <option value="1">Fashion Oro</option>
@@ -307,14 +290,12 @@
                                     </select>
                                 </div>
                                 <div class="col-12" id="div-membresia">
-                                    <input type="email" class="form-control gray inputClass" placeholder=""
-                                        id="membresia-codigo" readonly>
+                                    <input type="email" class="form-control gray inputClass" placeholder="" id="membresia-codigo" readonly>
                                     <p class="text-muted text-center">Este es el código de su
                                         membresía, guárdelo.</p>
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-success px-3 py-2"><i
-                                            class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                    <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
                                         Datos</button>
                                 </div>
                             </form>
@@ -355,7 +336,7 @@
 
     <script>
         // Documento de traducción para plugin DataTable
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#example").DataTable({
                 bFilter: false,
                 language: {
@@ -384,7 +365,7 @@
         // Loading spinner
         const preloaderWrapper = document.querySelector('.preloader-wrapper');
 
-        window.addEventListener('load', function () {
+        window.addEventListener('load', function() {
             preloaderWrapper.classList.add('fade-out-animation');
         });
     </script>

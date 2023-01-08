@@ -59,18 +59,15 @@
 
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle ms-2 text-muted" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i>
+                        <a class="nav-link dropdown-toggle ms-2 text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="profile"><i
-                                        class="fa-solid fa-user green-text me-2"></i>
+                                <a class="dropdown-item" href="profile"><i class="fa-solid fa-user green-text me-2"></i>
                                     Editar Perfil</a>
                             </li>
                             <li>
-                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white"
-                                    href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white" onclick="closeSession()"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -86,8 +83,7 @@
         <div class="row">
 
             <div class="col text-start mb-4">
-                <a href="dashboard" class="boton oranje text-white mb-5"><i
-                        class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
+                <a href="dashboard" class="boton oranje text-white mb-5"><i class="fa-solid fa-arrow-left fs-6 me-2"></i> Volver al menú</a>
             </div>
 
         </div>
@@ -121,8 +117,7 @@
                     <div class="col px-3 mt-5">
 
                         <div class="header text-end mb-3">
-                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo"><i
-                                    class="fa-solid fa-plus me-2 py-2"></i> Nueva Devolución</button>
+                            <button class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo"><i class="fa-solid fa-plus me-2 py-2"></i> Nueva Devolución</button>
                         </div>
 
                         <div class="table-responsive mt-5 mb-5">
@@ -167,50 +162,39 @@
                         <!-- Modal para crear nuevos clientes -->
                         <div class="moda-new">
 
-                            <div class="modal fade" id="nuevo" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
+                            <div class="modal fade" id="nuevo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header green">
                                             <h1 class="modal-title fs-5 text-white fw-bold " id="exampleModalLabel">
                                                 Agregar</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
 
                                             <form class="row g-3">
 
                                                 <div class="col-md-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Código *">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Código *">
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <textarea cols="30" rows="5" class="form-control gray inputClass"
-                                                        placeholder="Motivo de Cambio *" maxlength="150"></textarea>
+                                                    <textarea cols="30" rows="5" class="form-control gray inputClass" placeholder="Motivo de Cambio *" maxlength="150"></textarea>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Usuario que Recibe *" disabled>
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario que Recibe *" disabled>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass"
-                                                        placeholder="Usuario (Autoriza) *" min="1">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario (Autoriza) *" min="1">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="number" pattern="[0-9]*" inputmode="numeric" min="1111"
-                                                        max="9999" style="-webkit-text-security: disc;"
-                                                        class="form-control gray inputClass"
-                                                        placeholder="Clave de Acceso (Autoriza) *" min="1">
+                                                    <input type="number" pattern="[0-9]*" inputmode="numeric" min="1111" max="9999" style="-webkit-text-security: disc;" class="form-control gray inputClass" placeholder="Clave de Acceso (Autoriza) *" min="1">
                                                 </div>
                                                 <div class="col-12">
                                                     <label class="form-label">Fotografía *</label>
-                                                    <input type="file" accept="image/*"
-                                                        class="form-control gray inputClass" />
+                                                    <input type="file" accept="image/*" class="form-control gray inputClass" />
                                                 </div>
                                                 <div class="col-12 text-center mt-4">
-                                                    <button type="submit" class="btn btn-success px-3 py-2"><i
-                                                            class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                                    <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
                                                         Datos</button>
                                                 </div>
                                             </form>
@@ -249,7 +233,7 @@
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#example').DataTable({
                 "language": {
                     "decimal": "",
@@ -277,7 +261,7 @@
         // Loading spinner
         const preloaderWrapper = document.querySelector('.preloader-wrapper');
 
-        window.addEventListener('load', function () {
+        window.addEventListener('load', function() {
             preloaderWrapper.classList.add('fade-out-animation');
         });
     </script>

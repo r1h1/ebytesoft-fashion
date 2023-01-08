@@ -64,7 +64,7 @@
                                     Editar Perfil</a>
                             </li>
                             <li>
-                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white" href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white" onclick="closeSession()"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -124,7 +124,7 @@
                             </form>
                         </div>
                         <div class="modal-footer gray text-center">
-                            <p class="text-muted mt-2 mb-2">Al cambiar la contraseña, tu sesión quedará inhabilitada 
+                            <p class="text-muted mt-2 mb-2">Al cambiar la contraseña, tu sesión quedará inhabilitada
                                 y deberás volver a ingresar, los datos no guardados podrían eliminarse y no recuperarse.
                             </p>
                         </div>

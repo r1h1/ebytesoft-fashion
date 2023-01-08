@@ -66,7 +66,7 @@
                                     Editar Perfil</a>
                             </li>
                             <li>
-                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white" href="../../start"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
+                                <a class="dropdown-item dropdown-item bg-danger mt-2 text-white" onclick="closeSession()"><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar
                                     Sesión</a>
                             </li>
                         </ul>
@@ -116,7 +116,7 @@
 
                         <div class="header text-end mb-3">
                             <a class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#nuevo" onclick="codigo()">
-                            <i class="fa-solid fa-plus me-2 py-2"></i> Nuevo Proveedor</a>
+                                <i class="fa-solid fa-plus me-2 py-2"></i> Nuevo Proveedor</a>
                         </div>
 
                         <div class="table-responsive mt-5 mb-5">
