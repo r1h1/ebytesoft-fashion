@@ -106,7 +106,7 @@
                                         <div class="card-body p-3">
                                             <p class="card-text text-muted">Total Depositado</p>
                                             <div class="icon p-1 text-center">
-                                                <p class="fw-bold h2">Q <span id="totalDepositado"></span></p>
+                                                <p class="fw-bold h3">Q<span id="totalDepositado"></span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@
                                         <div class="card-body p-3">
                                             <p class="card-text text-muted">Dinero Inicia Caja</p>
                                             <div class="icon p-1 text-center">
-                                                <p class="fw-bold h2">Q <span id="dineroIniciaCaja"></span></p>
+                                                <p class="fw-bold h3">Q<span id="dineroIniciaCaja"></span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -126,7 +126,7 @@
                                         <div class="card-body p-3">
                                             <p class="card-text text-muted">Usuario Logueado</p>
                                             <div class="icon p-1 text-center">
-                                                <p class="fw-bold h2" id="usuarioLogueadoCaja"></p>
+                                                <p class="fw-bold h3" id="usuarioLogueadoCaja"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -215,10 +215,10 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <label class="form-label">Fecha y hora Depósito (Formato 24h) *</label>
-                                                    <input type="datetime-local" class="form-control gray inputClass" placeholder="Fecha y Hora *">
+                                                    <input type="datetime-local" class="form-control gray inputClass" placeholder="Fecha y Hora *" id="fechaHoraDeposito">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="No. Botela / Depósito *">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="No. Botela / Depósito *" id="noDeposito">
                                                 </div>
                                                 <div class="col-12">
                                                     <label class="form-label">Entidad / Banco *</label>
@@ -227,19 +227,19 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Monto *" min="1">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="Monto *" min="1" id="montoDeposito">
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <textarea cols="30" rows="5" class="form-control gray inputClass" placeholder="Motivo *" maxlength="150"></textarea>
+                                                    <textarea cols="30" rows="5" class="form-control gray inputClass" 
+                                                    placeholder="Motivo *" maxlength="150" id="motivoDeposito"></textarea>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <label class="form-label">Usuario Registra Depósito *</label>
-                                                    <input type="text" class="form-control gray inputClass" id="usuarioLogueado" disabled>
+                                                    <input type="text" class="form-control gray inputClass" id="usuarioLogueado" hidden>
                                                 </div>
 
                                                 <div class="col-12 text-center">
-                                                    <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
-                                                        Datos</button>
+                                                    <a class="btn btn-success px-3 py-2" onclick="postDeposit()"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                                        Datos</a>
                                                 </div>
                                             </form>
 
@@ -351,26 +351,25 @@
                                             <form class="row g-3">
 
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" id="tipoOperacionN" value="AperturaCaja" hidden>
+                                                    <input type="text" class="form-control gray inputClass" id="tipoOperacionC" value="AperturaCaja" hidden>
                                                 </div>
                                                 <div class="col-12">
                                                     <label class="form-label">Fecha y hora de apertura (Formato 24h) *</label>
-                                                    <input type="datetime-local" class="form-control gray inputClass" placeholder="Fecha y Hora Apertura *">
+                                                    <input type="datetime-local" class="form-control gray inputClass" placeholder="Fecha y Hora Apertura *" id="fechaHoraInicioC">
                                                 </div>
                                                 <div class="col-12">
-                                                    <label class="form-label">Usuario Apertura *</label>
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario" id="usuarioAperturaCaja" disabled>
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario" id="usuarioAperturaCaja" hidden>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Dinero con el que inicia *" min="1">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="Dinero con el que inicia *" min="1" id="montoInicia">
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Turno *">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Turno *" id="turno">
                                                 </div>
 
                                                 <div class="col-12 text-center">
-                                                    <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
-                                                        Datos</button>
+                                                    <a class="btn btn-success px-3 py-2" onclick="postOpenCash()"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
+                                                        Datos</a>
                                                 </div>
                                             </form>
 

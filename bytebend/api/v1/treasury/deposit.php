@@ -60,8 +60,8 @@
 
 	//Insertar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-		$sql = "INSERT INTO treasury(tipoOperacion, fechaYHoraInicio, fechaYHoraFin, noBoletaDeposito, turno, monto, montoFinal, motivo, estado, banco, usuario) 
-        VALUES (:tipoOperacion, :fechaYHoraInicio, :fechaYHoraFin, :noBoletaDeposito, :turno, :monto, :montoFinal, :motivo, :estado, :banco, :usuario)";
+		$sql = "INSERT INTO treasury(tipoOperacion, fechaYHoraInicio, fechaYHoraFin, noBoletaDeposito, turno, monto, montoFinal, estado, motivo, banco, usuario) 
+		VALUES (:tipoOperacion, :fechaYHoraInicio, :fechaYHoraFin, :noBoletaDeposito, :turno, :monto, :montoFinal, :estado, :motivo, :banco, :usuario)";
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(':tipoOperacion', $_POST['tipoOperacion']);
 		$stmt->bindValue(':fechaYHoraInicio', $_POST['fechaYHoraInicio']);
@@ -87,7 +87,7 @@
 
 	//Eliminar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
-		$sql = "DELETE FROM banks WHERE id=:id";
+		$sql = "DELETE FROM treasury WHERE id=:id";
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(':id', $_GET['id']);
 		$stmt->execute();

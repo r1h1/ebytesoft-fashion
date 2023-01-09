@@ -39,8 +39,8 @@ function getUserLog() {
 
     var log = JSON.parse(txtEnc);
 
-    document.getElementById('usuarioLogueado').value = log[0].usuario;
-    document.getElementById('usuarioAperturaCaja').value = log[0].usuario;
+    document.getElementById('usuarioLogueado').value = log[0].id;
+    document.getElementById('usuarioAperturaCaja').value = log[0].id;
     document.getElementById('usuarioLogueadoCaja').innerHTML = log[0].nombreCompleto;
 }
 getUserLog();
@@ -172,7 +172,6 @@ function getDeposits() {
             document.getElementById('totalDepositado').innerHTML = data[0].monto;
         }
         else {
-
             var acumulador = 0;
             for (i = 0; i < data.length; i++) {
                 acumulador = acumulador + parseInt(data[i].monto);
@@ -230,7 +229,16 @@ function getCashOpen() {
             }
         }
 
-        document.getElementById('dineroIniciaCaja').innerHTML = data[0].monto;
+        if (data.length <= 1) {
+            document.getElementById('dineroIniciaCaja').innerHTML = data[0].monto;
+        }
+        else {
+            var acumulador = 0;
+            for (i = 0; i < data.length; i++) {
+                acumulador = data[0].monto;
+            }
+            document.getElementById('dineroIniciaCaja').innerHTML = acumulador;
+        }
         document.getElementById('tabla-de-datos-caja').innerHTML = body;
     }
 }
@@ -290,6 +298,8 @@ function postBanks() {
                     getBanks();
                     getUserLog();
                     getBanksSelect();
+                    getCashOpen();
+                    getDeposits();
                     document.getElementById("nombre").value = '';
                     document.getElementById("tipoCuenta").value = '';
                     document.getElementById("numeroCuenta").value = '';
@@ -299,10 +309,184 @@ function postBanks() {
                     getBanks();
                     getUserLog();
                     getBanksSelect();
+                    getCashOpen();
+                    getDeposits();
                     document.getElementById("nombre").value = '';
                     document.getElementById("tipoCuenta").value = '';
                     document.getElementById("numeroCuenta").value = '';
                     document.getElementById("aliasCuenta").value = '';
+                }
+            });
+        }
+    }
+}
+
+
+
+function postDeposit() {
+
+    var tipoOperacion = document.getElementById("tipoOperacionN").value;
+    var fechaYHoraInicio = document.getElementById("fechaHoraDeposito").value.toUpperCase();
+    var noBoletaDeposito = document.getElementById("noDeposito").value;
+    var banco = document.getElementById("bancosSelect").value;
+    var monto = document.getElementById("montoDeposito").value;
+    var motivo = document.getElementById("motivoDeposito").value;
+    var usuario = document.getElementById("usuarioLogueado").value;
+
+    var url = "http://localhost/mbyte/bytebend/api/v1/treasury/deposit";
+
+    if (tipoOperacion == "" || fechaYHoraInicio == '' || noBoletaDeposito == '' || banco == '' || monto == '' || motivo == '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error en la Operación',
+            text: 'Debe llenar todos los campos que tengan un *',
+            confirmButtonText: 'Entendido',
+        });
+    }
+    else {
+
+        var formdata = new FormData();
+        formdata.append("tipoOperacion", tipoOperacion);
+        formdata.append("fechaYHoraInicio", fechaYHoraInicio);
+        formdata.append("fechaYHoraFin", 'N/A');
+        formdata.append("noBoletaDeposito", noBoletaDeposito);
+        formdata.append("turno", 'N/A');
+        formdata.append("monto", monto);
+        formdata.append("montoFinal", monto);
+        formdata.append("estado", 1);
+        formdata.append("motivo", motivo);
+        formdata.append("banco", banco);
+        formdata.append("usuario", usuario);
+
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+
+        fetch(url, requestOptions)
+            .then(response => response.json())
+            .then(data => mostrarData(data))
+            .catch(error => Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Error en la operación, reporte al administrador del sistema',
+                confirmButtonText: 'Entendido',
+            }, console.log('Posible conexión con BackEnd incorrecta: ' + error)));
+
+        const mostrarData = (data) => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Correcto',
+                text: 'La operación se completó.',
+                confirmButtonText: 'Entendido',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#nuevodeposito').modal('toggle');
+                    getBanks();
+                    getUserLog();
+                    getBanksSelect();
+                    getCashOpen();
+                    getDeposits();
+                    document.getElementById("fechaHoraDeposito").value = '';
+                    document.getElementById("noDeposito").value = '';
+                    document.getElementById("montoDeposito").value = '';
+                    document.getElementById("motivoDeposito").value = '';
+                } else if (result.isDenied) {
+                    $('#nuevodeposito').modal('toggle');
+                    getBanks();
+                    getUserLog();
+                    getBanksSelect();
+                    getCashOpen();
+                    getDeposits();
+                    document.getElementById("fechaHoraDeposito").value = '';
+                    document.getElementById("noDeposito").value = '';
+                    document.getElementById("montoDeposito").value = '';
+                    document.getElementById("motivoDeposito").value = '';
+                }
+            });
+        }
+    }
+}
+
+
+
+function postOpenCash() {
+
+    var tipoOperacionC = document.getElementById("tipoOperacionC").value;
+    var fechaYHoraInicioC = document.getElementById("fechaHoraInicioC").value;
+    var montoC = document.getElementById("montoInicia").value;
+    var usuarioC = document.getElementById("usuarioAperturaCaja").value;
+    var turnoC = document.getElementById("turno").value;
+
+    var url = "http://localhost/mbyte/bytebend/api/v1/treasury/cash";
+
+    if (tipoOperacionC == "" || fechaYHoraInicioC == '' || turnoC == '' || montoC == '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error en la Operación',
+            text: 'Debe llenar todos los campos que tengan un *',
+            confirmButtonText: 'Entendido',
+        });
+    }
+    else {
+
+        var formdata = new FormData();
+        formdata.append("tipoOperacion", tipoOperacionC);
+        formdata.append("fechaYHoraInicio", fechaYHoraInicioC);
+        formdata.append("fechaYHoraFin", 'PENDIENTE');
+        formdata.append("noBoletaDeposito", 'N/A');
+        formdata.append("turno", turnoC);
+        formdata.append("monto", montoC);
+        formdata.append("montoFinal", 'PENDIENTE');
+        formdata.append("estado", 1);
+        formdata.append("motivo", 'N/A');
+        formdata.append("banco", 1);
+        formdata.append("usuario", usuarioC);
+
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+
+        fetch(url, requestOptions)
+            .then(response => response.json())
+            .then(data => mostrarData(data))
+            .catch(error => Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Error en la operación, reporte al administrador del sistema',
+                confirmButtonText: 'Entendido',
+            }, console.log('Posible conexión con BackEnd incorrecta: ' + error)));
+
+        const mostrarData = (data) => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Correcto',
+                text: 'La operación se completó.',
+                confirmButtonText: 'Entendido',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#abrircaja').modal('toggle');
+                    getBanks();
+                    getUserLog();
+                    getBanksSelect();
+                    getCashOpen();
+                    getDeposits();
+                    document.getElementById("fechaHoraInicioC").value = '';
+                    document.getElementById("montoInicia").value = '';
+                    document.getElementById("turno").value = '';
+                } else if (result.isDenied) {
+                    $('#abrircaja').modal('toggle');
+                    getBanks();
+                    getUserLog();
+                    getBanksSelect();
+                    getCashOpen();
+                    getDeposits();
+                    document.getElementById("fechaHoraInicioC").value = '';
+                    document.getElementById("montoInicia").value = '';
+                    document.getElementById("turno").value = '';
                 }
             });
         }
@@ -355,11 +539,15 @@ function delete_methodBanks(id) {
                         getBanks();
                         getUserLog();
                         getBanksSelect();
+                        getCashOpen();
+                        getDeposits();
                     } else if (result.isDenied) {
                         $('#verbancos').modal('toggle');
                         getBanks();
                         getUserLog();
                         getBanksSelect();
+                        getCashOpen();
+                        getDeposits();
                     }
                 });
             }
@@ -368,6 +556,8 @@ function delete_methodBanks(id) {
             getBanks();
             getUserLog();
             getBanksSelect();
+            getCashOpen();
+            getDeposits();
         }
     });
 

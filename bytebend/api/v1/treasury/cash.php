@@ -32,7 +32,7 @@
 			t.id = :id
 			AND
 			t.tipoOperacion = 'AperturaCaja'
-            ORDER BY t.fechaYHoraInicio ASC");
+            ORDER BY t.fechaYHoraInicio DESC");
 			$sql->bindValue(':id', $_GET['id']);
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
@@ -48,7 +48,7 @@
             INNER JOIN banks b ON t.banco = b.id 
             INNER JOIN employees e ON t.usuario = e.id
             WHERE t.tipoOperacion = 'AperturaCaja'
-            ORDER BY t.fechaYHoraInicio ASC");
+            ORDER BY t.fechaYHoraInicio DESC");
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			header('HTTP/1.1 200');
@@ -61,13 +61,20 @@
 
 	//Insertar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-		$sql = "INSERT INTO banks(nombreBancoEntidad, tipoCuenta, numeroCuenta, aliasNombreCuenta) 
-		VALUES (:nombreBancoEntidad, :tipoCuenta, :numeroCuenta, :aliasNombreCuenta);";
+		$sql = "INSERT INTO treasury(tipoOperacion, fechaYHoraInicio, fechaYHoraFin, noBoletaDeposito, turno, monto, montoFinal, estado, motivo, banco, usuario) 
+		VALUES (:tipoOperacion, :fechaYHoraInicio, :fechaYHoraFin, :noBoletaDeposito, :turno, :monto, :montoFinal, :estado, :motivo, :banco, :usuario)";
 		$stmt = $pdo->prepare($sql);
-		$stmt->bindValue(':nombreBancoEntidad', $_POST['nombreBancoEntidad']);
-		$stmt->bindValue(':tipoCuenta', $_POST['tipoCuenta']);
-		$stmt->bindValue(':numeroCuenta', $_POST['numeroCuenta']);
-		$stmt->bindValue(':aliasNombreCuenta', $_POST['aliasNombreCuenta']);
+		$stmt->bindValue(':tipoOperacion', $_POST['tipoOperacion']);
+		$stmt->bindValue(':fechaYHoraInicio', $_POST['fechaYHoraInicio']);
+		$stmt->bindValue(':fechaYHoraFin', $_POST['fechaYHoraFin']);
+		$stmt->bindValue(':noBoletaDeposito', $_POST['noBoletaDeposito']);
+        $stmt->bindValue(':turno', $_POST['turno']);
+		$stmt->bindValue(':monto', $_POST['monto']);
+		$stmt->bindValue(':montoFinal', $_POST['montoFinal']);
+		$stmt->bindValue(':motivo', $_POST['motivo']);
+        $stmt->bindValue(':estado', $_POST['estado']);
+		$stmt->bindValue(':banco', $_POST['banco']);
+        $stmt->bindValue(':usuario', $_POST['usuario']);
 		$stmt->execute();
 		$idPost = $pdo->lastInsertId();
 		if ($idPost) {
@@ -81,7 +88,7 @@
 
 	//Eliminar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
-		$sql = "DELETE FROM banks WHERE id=:id";
+		$sql = "DELETE FROM treasury WHERE id=:id";
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(':id', $_GET['id']);
 		$stmt->execute();
