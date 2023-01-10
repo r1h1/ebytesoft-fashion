@@ -43,7 +43,7 @@
 		}
 		else {
 			$sql = $pdo->prepare("SELECT t.id, t.tipoOperacion, t.fechaYHoraInicio, t.fechaYHoraFin, t.noBoletaDeposito, 
-            t.turno, t.monto, t.montoFinal, t.motivo, t.estado, t.banco, t.usuario, b.nombreBancoEntidad, e.nombreCompleto 
+            t.turno, t.monto, t.montoFinal, t.motivo, t.estado, t.banco, t.usuario, b.nombreBancoEntidad, e.nombreCompleto, e.cajaPertenece
             FROM treasury t 
             INNER JOIN banks b ON t.banco = b.id 
             INNER JOIN employees e ON t.usuario = e.id
@@ -79,3 +79,5 @@
 	//Si no corresponde a ninguna opción anterior
 	header("HTTP/1.1 400 Bad Request");
 	header("Content-Type: application/json");
+
+?>

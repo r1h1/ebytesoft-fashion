@@ -39,9 +39,18 @@ function getUserLog() {
 
     var log = JSON.parse(txtEnc);
 
+    const nombreCompleto = log[0].nombreCompleto;
+    const separador = nombreCompleto.split(' ');
+    const primeraLetraNombre = separador[0].charAt(0).toUpperCase();
+    const primeraLetraApellido = separador[1].charAt(0).toUpperCase();
+    const nombre = separador[0].slice(1);
+    const apellido = separador[1].slice(1);
+
     document.getElementById('usuarioLogueado').value = log[0].id;
     document.getElementById('usuarioAperturaCaja').value = log[0].id;
-    document.getElementById('usuarioLogueadoCaja').innerHTML = log[0].nombreCompleto;
+    document.getElementById('usuarioLogueadoCajaR').innerHTML = primeraLetraNombre + nombre + ' ' + primeraLetraApellido + apellido;
+    document.getElementById('cajaNumero').innerHTML = log[0].nombreCaja;
+
 }
 getUserLog();
 
@@ -161,14 +170,17 @@ function getDeposits() {
             <td>${data[i].motivo}</td>
             <td>${data[i].nombreCompleto}</td>
             <td class="text-center">
-                <a class="btn btn-danger text-white fw-bold" onclick="delete_method(${data[i].id})"><i class="fa-solid fa-trash"></i></a>
+                <a class="btn btn-danger text-white fw-bold" onclick="deleteDeposits(${data[i].id})"><i class="fa-solid fa-trash"></i></a>
             </td>
             </tr>`
         }
 
         document.getElementById('tabla-de-datos-depositos').innerHTML = body;
 
-        if (data.length <= 1) {
+        if (data.length == 0) {
+            document.getElementById('totalDepositado').innerHTML = '0';
+        }
+        else if (data.length <= 1) {
             document.getElementById('totalDepositado').innerHTML = data[0].monto;
         }
         else {
@@ -229,16 +241,6 @@ function getCashOpen() {
             }
         }
 
-        if (data.length <= 1) {
-            document.getElementById('dineroIniciaCaja').innerHTML = data[0].monto;
-        }
-        else {
-            var acumulador = 0;
-            for (i = 0; i < data.length; i++) {
-                acumulador = data[0].monto;
-            }
-            document.getElementById('dineroIniciaCaja').innerHTML = acumulador;
-        }
         document.getElementById('tabla-de-datos-caja').innerHTML = body;
     }
 }
@@ -434,15 +436,21 @@ function postDeposit() {
 
 function postOpenCash() {
 
+    var texto = localStorage.getItem('auth');
+    var txtEnc = texto.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u");
+
+    var log = JSON.parse(txtEnc);
+
     var tipoOperacionC = document.getElementById("tipoOperacionC").value;
     var fechaYHoraInicioC = document.getElementById("fechaHoraInicioC").value;
     var montoC = document.getElementById("montoInicia").value;
     var usuarioC = document.getElementById("usuarioAperturaCaja").value;
     var turnoC = document.getElementById("turno").value;
+    var cajaNumero = log[0].cajaPertenece;
 
     var url = "http://localhost/mbyte/bytebend/api/v1/treasury/cash";
 
-    if (tipoOperacionC == "" || fechaYHoraInicioC == '' || turnoC == '' || montoC == '') {
+    if (tipoOperacionC == "" || fechaYHoraInicioC == '' || turnoC == '' || montoC == '' || cajaNumero == '') {
         Swal.fire({
             icon: 'error',
             title: 'Error en la Operación',
@@ -464,6 +472,7 @@ function postOpenCash() {
         formdata.append("motivo", 'N/A');
         formdata.append("banco", 1);
         formdata.append("usuario", usuarioC);
+        formdata.append("cajaPertenece", cajaNumero)
 
         var requestOptions = {
             method: 'POST',
@@ -671,4 +680,69 @@ function delete_methodBanks(id) {
         }
     });
 
+}
+
+
+function deleteDeposits(id) {
+    Swal.fire({
+        icon: 'warning',
+        title: '¿Está seguro?',
+        text: 'Los datos no se podrán recuperar',
+        showDenyButton: true,
+        confirmButtonText: 'Eliminar',
+        denyButtonText: `Cancelar`,
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+
+            var requestOptions = {
+                method: 'DELETE',
+                redirect: 'follow'
+            };
+
+
+            var url = 'http://localhost/mbyte/bytebend/api/v1/treasury/deposit?id=' + id;
+
+            fetch(url, requestOptions)
+                .then(response => response.text())
+                .then(result => exitoso(result))
+                .catch(error => Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error en la operación, reporte al administrador del sistema',
+                    confirmButtonText: 'Entendido',
+                }, console.log('Error devuelto por BackEnd: ' + error)));
+
+            const exitoso = (result) => {
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Correcto',
+                    text: 'La operación se completó.',
+                    confirmButtonText: 'Entendido',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        getBanks();
+                        getUserLog();
+                        getBanksSelect();
+                        getCashOpen();
+                        getDeposits();
+                    } else if (result.isDenied) {
+                        getBanks();
+                        getUserLog();
+                        getBanksSelect();
+                        getCashOpen();
+                        getDeposits();
+                    }
+                });
+            }
+
+        } else if (result.isDenied) {
+            getBanks();
+            getUserLog();
+            getBanksSelect();
+            getCashOpen();
+            getDeposits();
+        }
+    });
 }

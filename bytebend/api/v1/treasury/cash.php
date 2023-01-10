@@ -24,7 +24,7 @@
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		if (isset($_GET['id'])) {
 			$sql = $pdo->prepare("SELECT t.id, t.tipoOperacion, t.fechaYHoraInicio, t.fechaYHoraFin, t.noBoletaDeposito, 
-            t.turno, t.monto, t.montoFinal, t.motivo, t.estado, t.banco, t.usuario, b.nombreBancoEntidad, e.nombreCompleto 
+            t.turno, t.monto, t.montoFinal, t.motivo, t.estado, t.banco, t.usuario, b.nombreBancoEntidad, e.nombreCompleto, e.cajaPertenece 
             FROM treasury t 
             INNER JOIN banks b ON t.banco = b.id 
             INNER JOIN employees e ON t.usuario = e.id
@@ -43,7 +43,7 @@
 		}
 		else {
 			$sql = $pdo->prepare("SELECT t.id, t.tipoOperacion, t.fechaYHoraInicio, t.fechaYHoraFin, t.noBoletaDeposito, 
-            t.turno, t.monto, t.montoFinal, t.motivo, t.estado, t.banco, t.usuario, b.nombreBancoEntidad, e.nombreCompleto 
+            t.turno, t.monto, t.montoFinal, t.motivo, t.estado, t.banco, t.usuario, b.nombreBancoEntidad, e.nombreCompleto, e.cajaPertenece 
             FROM treasury t 
             INNER JOIN banks b ON t.banco = b.id 
             INNER JOIN employees e ON t.usuario = e.id
@@ -61,8 +61,8 @@
 
 	//Insertar registro
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-		$sql = "INSERT INTO treasury(tipoOperacion, fechaYHoraInicio, fechaYHoraFin, noBoletaDeposito, turno, monto, montoFinal, estado, motivo, banco, usuario) 
-		VALUES (:tipoOperacion, :fechaYHoraInicio, :fechaYHoraFin, :noBoletaDeposito, :turno, :monto, :montoFinal, :estado, :motivo, :banco, :usuario)";
+		$sql = "INSERT INTO treasury(tipoOperacion, fechaYHoraInicio, fechaYHoraFin, noBoletaDeposito, turno, monto, montoFinal, estado, motivo, banco, usuario, cajaPertenece) 
+		VALUES (:tipoOperacion, :fechaYHoraInicio, :fechaYHoraFin, :noBoletaDeposito, :turno, :monto, :montoFinal, :estado, :motivo, :banco, :usuario, :cajaPertenece)";
 		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(':tipoOperacion', $_POST['tipoOperacion']);
 		$stmt->bindValue(':fechaYHoraInicio', $_POST['fechaYHoraInicio']);
@@ -75,6 +75,7 @@
         $stmt->bindValue(':estado', $_POST['estado']);
 		$stmt->bindValue(':banco', $_POST['banco']);
         $stmt->bindValue(':usuario', $_POST['usuario']);
+		$stmt->bindValue(':cajaPertenece', $_POST['cajaPertenece']);
 		$stmt->execute();
 		$idPost = $pdo->lastInsertId();
 		if ($idPost) {

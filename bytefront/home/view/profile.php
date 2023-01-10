@@ -94,7 +94,7 @@
                     <div class="row">
                         <div class="col text-muted text-center">
                             <img src="../../../assets/img/logo.png" alt="logo" width="90">
-                            <h3 class="fw-bold mt-3" id="nombre">Daniel Rivas</h3>
+                            <h3 class="fw-bold mt-3" id="nombre"></h3>
                             <p class="mt-3"><i class="fa-solid fa-phone fs-6 me-2"></i> <span id="telefono"></span></p>
                             <p><i class="fa-solid fa-envelope fs-6 me-2"></i> <span id="email"></span></p>
                             <p><i class="fa-solid fa-cash-register fs-6 me-2"></i> <span id="caja"></span></p>

@@ -27,7 +27,7 @@
 			$sql = $pdo->prepare("SELECT e.id,e.codigo,e.departamento,
 			e.nombreCompleto,e.dpiNit,e.telefono,e.direccion,e.correoElectronico,
 			e.fechaNacimiento, e.puesto,e.salario,e.usuario,rl.descripcion,
-			l.nombreLocal,cr.nombreCaja,e.rol 
+			l.nombreLocal,cr.nombreCaja,e.cajaPertenece,e.rol 
 			FROM employees e 
 			INNER JOIN locals l ON e.localPertenece = l.id 
 			INNER JOIN cash_registers cr ON e.cajaPertenece = cr.id 

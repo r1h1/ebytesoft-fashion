@@ -114,9 +114,9 @@
                                 <div class="col">
                                     <div class="card">
                                         <div class="card-body p-3">
-                                            <p class="card-text text-muted">Dinero Inicia Caja</p>
+                                            <p class="card-text text-muted">Caja</p>
                                             <div class="icon p-1 text-center">
-                                                <p class="fw-bold h3">Q<span id="dineroIniciaCaja"></span></p>
+                                                <p class="fw-bold h3" id="cajaNumero"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -126,7 +126,7 @@
                                         <div class="card-body p-3">
                                             <p class="card-text text-muted">Usuario Logueado</p>
                                             <div class="icon p-1 text-center">
-                                                <p class="fw-bold h3" id="usuarioLogueadoCaja"></p>
+                                                <p class="fw-bold h3" id="usuarioLogueadoCajaR"></p>
                                             </div>
                                         </div>
                                     </div>
