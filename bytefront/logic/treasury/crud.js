@@ -209,7 +209,7 @@ function getCashOpen() {
                             <td class="text-center">
                                 <a class="btn btn-secondary text-white fw-bold" onclick="javascript:void(0);"><i class="fa-solid fa-lock"></i></a>
                             </td>
-                        </tr>`
+                        </tr>`;
             }
             else {
                 var j = 0;
@@ -223,9 +223,9 @@ function getCashOpen() {
                             <td>${data[i].montoFinal}</td>
                             <td>${data[i].turno}</td>
                             <td class="text-center">
-                                <a class="btn btn-danger text-white fw-bold" data-bs-toggle="modal" data-bs-target="#cerrarCaja"><i class="fa-solid fa-lock"></i></a>
+                                <a class="btn btn-danger text-white fw-bold" onclick="getIdCloseForm(${data[i].id})" data-bs-toggle="modal" data-bs-target="#cerrarCaja"><i class="fa-solid fa-lock"></i></a>
                             </td>
-                        </tr>`
+                        </tr>`;
             }
         }
 
@@ -243,6 +243,27 @@ function getCashOpen() {
     }
 }
 getCashOpen();
+
+
+function getIdCloseForm(id) {
+
+    var url = 'http://localhost/mbyte/bytebend/api/v1/treasury/closeCash?id=' + id;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Error en la operación, reporte al administrador del sistema',
+            confirmButtonText: 'Entendido',
+        }, console.log(error)));
+
+    const mostrarData = (data) => {
+        document.getElementById("idcc").value = data[0].id;
+    }
+
+}
 
 
 function postBanks() {
@@ -491,6 +512,95 @@ function postOpenCash() {
             });
         }
     }
+}
+
+
+
+function putCloseCash() {
+
+    Swal.fire({
+        icon: 'warning',
+        title: '¿Está seguro?',
+        text: 'El cierre de esta caja es definitivo y no podrá revertirse',
+        showDenyButton: true,
+        confirmButtonText: 'Continuar',
+        denyButtonText: `Cancelar`,
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+            var idcc = document.getElementById("idcc").value;
+            var fechaYHoraFinal = document.getElementById("fechaYHoraFinal").value;
+            var montoFinalC = document.getElementById("montoFinalC").value;
+            var estado = 0;
+
+            var url = "http://localhost/mbyte/bytebend/api/v1/treasury/closeCash?fechaYHoraFin=" + fechaYHoraFinal + "&montoFinal=" + montoFinalC + "&estado=" + estado + "&id=" + idcc;
+
+
+            if (fechaYHoraFinal == "" || montoFinalC == '' || idcc == '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error en la Operación',
+                    text: 'Debe llenar todos los campos que tengan un *',
+                    confirmButtonText: 'Entendido',
+                });
+            }
+            else {
+
+                var requestOptions = {
+                    method: 'PUT',
+                    redirect: 'follow'
+                };
+
+                fetch(url, requestOptions)
+                    .then(response => response.json())
+                    .then(data => mostrarData(data))
+                    .catch(error => Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Error en la operación, reporte al administrador',
+                        confirmButtonText: 'Entendido',
+                    }, console.log('Posible conexión con BackEnd incorrecta: ' + error)));
+
+                const mostrarData = (data) => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Correcto',
+                        text: 'La operación se completó.',
+                        confirmButtonText: 'Entendido',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $('#cerrarCaja').modal('toggle');
+                            getBanks();
+                            getUserLog();
+                            getBanksSelect();
+                            getCashOpen();
+                            getDeposits();
+                            document.getElementById("fechaYHoraFinal").value = '';
+                            document.getElementById("montoFinalC").value = '';
+                        } else if (result.isDenied) {
+                            $('#cerrarCaja').modal('toggle');
+                            getBanks();
+                            getUserLog();
+                            getBanksSelect();
+                            getCashOpen();
+                            getDeposits();
+                            document.getElementById("fechaYHoraFinal").value = '';
+                            document.getElementById("montoFinalC").value = '';
+                        }
+                    });
+                }
+            }
+        } else if (result.isDenied) {
+            $('#cerrarCaja').modal('toggle');
+            getBanks();
+            getUserLog();
+            getBanksSelect();
+            getCashOpen();
+            getDeposits();
+            document.getElementById("fechaYHoraFinal").value = '';
+            document.getElementById("montoFinalC").value = '';
+        }
+    });
 }
 
 

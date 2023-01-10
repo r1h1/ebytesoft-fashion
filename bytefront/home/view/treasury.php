@@ -230,8 +230,7 @@
                                                     <input type="number" class="form-control gray inputClass" placeholder="Monto *" min="1" id="montoDeposito">
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <textarea cols="30" rows="5" class="form-control gray inputClass" 
-                                                    placeholder="Motivo *" maxlength="150" id="motivoDeposito"></textarea>
+                                                    <textarea cols="30" rows="5" class="form-control gray inputClass" placeholder="Motivo *" maxlength="150" id="motivoDeposito"></textarea>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <input type="text" class="form-control gray inputClass" id="usuarioLogueado" hidden>
@@ -403,16 +402,19 @@
                                             <form class="row g-3">
 
                                                 <div class="col-12">
+                                                    <input type="text" class="form-control gray inputClass" id="idcc" hidden>
+                                                </div>
+                                                <div class="col-12">
                                                     <label class="form-label">Fecha y hora de cierre *</label>
-                                                    <input type="datetime-local" class="form-control gray inputClass" placeholder="Fecha y Hora *">
+                                                    <input type="datetime-local" class="form-control gray inputClass" placeholder="Fecha y Hora *" id="fechaYHoraFinal">
                                                 </div>
 
                                                 <div class="col-12">
-                                                    <input type="number" class="form-control gray inputClass" placeholder="Dinero que entrega *" min="1">
+                                                    <input type="number" class="form-control gray inputClass" placeholder="Dinero que entrega *" min="1" id="montoFinalC">
                                                 </div>
 
                                                 <div class="col-12 text-center">
-                                                    <button type="submit" class="btn btn-danger px-3 py-2"><i class="fa-solid fa-lock me-2"></i> Finalizar Cierre</button>
+                                                    <a class="btn btn-danger px-3 py-2" onclick="putCloseCash()"><i class="fa-solid fa-lock me-2"></i> Finalizar Cierre</a>
                                                 </div>
                                             </form>
 

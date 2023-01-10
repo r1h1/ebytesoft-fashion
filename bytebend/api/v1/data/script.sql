@@ -185,8 +185,10 @@ create table treasury(
     estado int,
     banco int,
     usuario int,
+    cajaPertenece int,
     FOREIGN KEY (banco) REFERENCES banks(id),
-    FOREIGN KEY (usuario) REFERENCES employees(id)
+    FOREIGN KEY (usuario) REFERENCES employees(id),
+    FOREIGN KEY (cajaPertenece) REFERENCES cash_registers(id)
 );
 
 
