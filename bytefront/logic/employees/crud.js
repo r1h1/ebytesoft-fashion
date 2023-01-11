@@ -90,22 +90,15 @@ function get() {
 
         document.getElementById('tabla-de-datos-body').innerHTML = body;
         document.getElementById('cajaPertenece').disabled = true;
+        getTotals(data);
     }
 }
 get();
 
 
 
-function getTotals() {
-    var url = 'http://localhost/mbyte/bytebend/api/v1/employees/crud';
-    fetch(url)
-        .then(response => response.json())
-        .then(data => mostrarData(data))
-        .catch(error => document.getElementById('total-empleados').innerHTML = '0');
-
-    const mostrarData = (data) => {
-        document.getElementById('total-empleados').innerHTML = data.length;
-    }
+function getTotals(data) {
+    document.getElementById('total-empleados').innerHTML = data.length;
 }
 getTotals();
 

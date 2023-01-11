@@ -106,7 +106,7 @@
                                 <div class="card-body p-3">
                                     <p class="card-text text-muted fw-bold">Prendas Devueltas</p>
                                     <div class="icon p-1 text-center">
-                                        <p class="fw-bold h1">2</p>
+                                        <p class="fw-bold h1" id="totalPrendasDevueltas"></p>
                                     </div>
                                 </div>
                             </div>
@@ -134,27 +134,8 @@
                                         <th scope="col">Status</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>128181829128</td>
-                                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                                        <td><img src="../../../assets/img/logo.png" alt="foto" width="80"></td>
-                                        <td>Cristiano Ronaldo</td>
-                                        <td>Berner Fashion</td>
-                                        <td>14-12-2022 11:45</td>
-                                        <td>En Inventario</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>128181829129</td>
-                                        <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</td>
-                                        <td><img src="../../../assets/img/logo.png" alt="foto" width="80"></td>
-                                        <td>Byron Catalan</td>
-                                        <td>Berner Fashion</td>
-                                        <td>15-12-2022 11:45</td>
-                                        <td>En Inventario</td>
-                                    </tr>
+                                <tbody id="tabla-de-datos-body">
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -190,8 +171,8 @@
                                                     <input type="number" pattern="[0-9]*" inputmode="numeric" min="1111" max="9999" style="-webkit-text-security: disc;" class="form-control gray inputClass" placeholder="Clave de Acceso (Autoriza) *" min="1">
                                                 </div>
                                                 <div class="col-12">
-                                                    <label class="form-label">Fotografía *</label>
-                                                    <input type="file" accept="image/*" class="form-control gray inputClass" />
+                                                    <label class="form-label">Fotografía (Máximo 100 KB) *</label>
+                                                    <input type="file" accept="image/*" class="form-control gray inputClass" id="imagenProductoRetorno" />
                                                 </div>
                                                 <div class="col-12 text-center mt-4">
                                                     <button type="submit" class="btn btn-success px-3 py-2"><i class="fa-solid fa-floppy-disk me-2"></i> Guardar
@@ -232,6 +213,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../logic/return_clothes/crud.js"></script>
     <script>
         $(document).ready(function() {
             $('#example').DataTable({

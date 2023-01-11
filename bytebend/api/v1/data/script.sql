@@ -256,7 +256,7 @@ create table price_list(
 create table return_clothes(
     id int primary key not null auto_increment,
     motivoCambio varchar(250),
-    fotografia varchar(250),
+    fotografia varchar(1000000),
     fechaYHora varchar(100),
     estado int,
     producto int,
