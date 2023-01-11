@@ -52,6 +52,7 @@ setInterval(closeSession, 3600000);
 
 
 function get() {
+
     var url = 'http://localhost/mbyte/bytebend/api/v1/employees/crud';
     fetch(url)
         .then(response => response.json())
@@ -98,7 +99,9 @@ get();
 
 
 function getTotals(data) {
-    document.getElementById('total-empleados').innerHTML = data.length;
+    if (data) {
+        document.getElementById('total-empleados').innerHTML = data.length;
+    }
 }
 getTotals();
 

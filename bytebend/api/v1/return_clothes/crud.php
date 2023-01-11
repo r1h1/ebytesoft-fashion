@@ -93,18 +93,7 @@
 		header("Content-Type: application/json");
 		exit;
 	}
-
-	//Eliminar registro
-	if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
-		$sql = "DELETE FROM providers WHERE id=:id";
-		$stmt = $pdo->prepare($sql);
-		$stmt->bindValue(':id', $_GET['id']);
-		$stmt->execute();
-		echo json_encode(1);
-		header('HTTP/1.1 200');
-		header("Content-Type: application/json");
-		exit;
-	}
+	
 
 	//Si no corresponde a ninguna opción anterior
 	header("HTTP/1.1 400 Bad Request");

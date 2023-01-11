@@ -76,7 +76,9 @@ get();
 
 
 function getTotals(data) {
-    document.getElementById('total-products').innerHTML = data.length;
+    if (data) {
+        document.getElementById('total-products').innerHTML = data.length;
+    }
 }
 getTotals();
 

@@ -90,7 +90,9 @@ get();
 
 
 function getTotals(data) {
-    document.getElementById('total-providers').innerHTML = data.length;
+    if (data) {
+        document.getElementById('total-providers').innerHTML = data.length;
+    }
 }
 getTotals();
 

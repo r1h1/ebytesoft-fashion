@@ -110,7 +110,9 @@ get();
 
 
 function getTotals(data) {
-    document.getElementById('total-locals').innerHTML = data.length;
+    if (data) {
+        document.getElementById('total-locals').innerHTML = data.length;
+    }
 }
 getTotals();
 

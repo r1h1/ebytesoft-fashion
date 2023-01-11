@@ -133,7 +133,9 @@ get();
 
 
 function getTotals(data) {
-    document.getElementById('total-clients').innerHTML = data.length;
+    if (data) {
+        document.getElementById('total-clients').innerHTML = data.length;
+    }
 }
 getTotals();
 
@@ -274,7 +276,7 @@ function put() {
 
 
     var url = "http://localhost/mbyte/bytebend/api/v1/clients/crud?membresia=" + tipoMembresiac + "&codigoMembresia=" + codigoMembresiaE + "&nit=" + nitc +
-    "&nombreCompleto=" + nombrec + "&direccion=" + direccionc + "&telefono=" + telefonoc + "&correoElectronico=" + correoc + "&id=" + idc;
+        "&nombreCompleto=" + nombrec + "&direccion=" + direccionc + "&telefono=" + telefonoc + "&correoElectronico=" + correoc + "&id=" + idc;
 
     var requestOptions = {
         method: 'PUT',

@@ -66,11 +66,27 @@ convertImgToBase64();
 
 function get() {
 
+    var texto = localStorage.getItem('auth');
+    var txtEnc = texto.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u");
+
+    var log = JSON.parse(txtEnc);
+
+    const nombreCompleto = log[0].nombreCompleto;
+    const separador = nombreCompleto.split(' ');
+    const primeraLetraNombre = separador[0].charAt(0).toUpperCase();
+    const primeraLetraApellido = separador[1].charAt(0).toUpperCase();
+    const nombre = separador[0].slice(1);
+    const apellido = separador[1].slice(1);
+
+    document.getElementById('idUsuarioRecibeN').value = log[0].id;
+    document.getElementById('usuarioRecibeN').value = primeraLetraNombre + nombre + ' ' + primeraLetraApellido + apellido;
+
+
     var url = 'http://localhost/mbyte/bytebend/api/v1/return_clothes/crud';
     fetch(url)
         .then(response => response.json())
         .then(data => mostrarData(data))
-        .catch(error => console.log('Posible conexión con BackEnd incorrecta'))
+        .catch(error => console.log('Posible conexión con BackEnd incorrecta: ' + error))
 
     const mostrarData = (data) => {
 
@@ -103,6 +119,44 @@ get();
 
 
 function getTotals(data) {
-    document.getElementById('totalPrendasDevueltas').innerHTML = data.length;
+    if (data) {
+        document.getElementById('totalPrendasDevueltas').innerHTML = data.length;
+    }
 }
 getTotals();
+
+
+function getUsersAdmon() {
+
+    var url = 'http://localhost/mbyte/bytebend/api/v1/employees/crud';
+    fetch(url)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => console.log(error));
+
+    const mostrarData = (data) => {
+        if (data.length == 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Advertencia',
+                text: 'No existen usuarios creados, por favor, informe al administrador',
+                confirmButtonText: 'Entendido'
+            });
+        }
+        else {
+            let body = '';
+
+            for (var i = 0; i < data.length; i++) {
+
+                if (data[i].descripcion == 'Super Administrador' || data[i].descripcion == 'Administrador') {
+                    body += `<option value="${data[i].id}">${data[i].nombreCompleto}</option>`;
+                }
+                else{
+                    body += `<option value="">-- No existen usuarios --</option>`;
+                }
+            }
+            document.getElementById('selectUsuarioAutorizaN').innerHTML = body;
+        }
+    }
+}
+getUsersAdmon();

@@ -25,7 +25,7 @@ function codigo() {
         });
         console.log('0_0');
     }
-    else{
+    else {
         console.log('1');
     }
 }
@@ -102,7 +102,9 @@ get();
 
 
 function getTotals(data) {
-    document.getElementById('total-cajas').innerHTML = data.length;
+    if (data) {
+        document.getElementById('total-cajas').innerHTML = data.length;
+    }
 }
 getTotals();
 

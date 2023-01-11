@@ -135,7 +135,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="tabla-de-datos-body">
-                                    
+
                                 </tbody>
                             </table>
                         </div>
@@ -156,22 +156,27 @@
                                             <form class="row g-3">
 
                                                 <div class="col-md-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Código *">
+                                                    <input type="text" class="form-control gray inputClass" placeholder="Código *" id="codigoN">
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <textarea cols="30" rows="5" class="form-control gray inputClass" placeholder="Motivo de Cambio *" maxlength="150"></textarea>
+                                                    <textarea cols="30" rows="5" class="form-control gray inputClass" placeholder="Motivo de Cambio *" maxlength="150" id="motivoCambioN"></textarea>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario que Recibe *" disabled>
+                                                    <label class="form-label text-muted">Usuario que Recibe *</label>
+                                                    <input type="text" class="form-control gray inputClass" id="idUsuarioRecibeN" hidden>
+                                                    <input type="text" class="form-control gray inputClass" id="usuarioRecibeN" disabled>
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control gray inputClass" placeholder="Usuario (Autoriza) *" min="1">
+                                                <label class="form-label text-muted">Usuario que Autoriza *</label>
+                                                    <select class="form-select gray inputClass" id="selectUsuarioAutorizaN">
+
+                                                    </select>
                                                 </div>
                                                 <div class="col-12">
                                                     <input type="number" pattern="[0-9]*" inputmode="numeric" min="1111" max="9999" style="-webkit-text-security: disc;" class="form-control gray inputClass" placeholder="Clave de Acceso (Autoriza) *" min="1">
                                                 </div>
                                                 <div class="col-12">
-                                                    <label class="form-label">Fotografía (Máximo 100 KB) *</label>
+                                                    <label class="form-label text-muted">Fotografía (Máximo 100 KB) *</label>
                                                     <input type="file" accept="image/*" class="form-control gray inputClass" id="imagenProductoRetorno" />
                                                 </div>
                                                 <div class="col-12 text-center mt-4">
